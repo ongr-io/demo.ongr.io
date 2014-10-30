@@ -1,0 +1,30 @@
+{% extends 'ONGRDemoBundle:Product:list.html.twig' %}
+
+{% import 'ONGRDemoBundle::macros/filters.html.twig' as filter_macros %}
+
+{% if filter_manager.filters.search is defined %}
+    {% set search = filter_manager.filters.search %}
+
+    {% block list_title %}
+        {% if search.state.value is not empty %}
+            {{ 'Results for "%term%"'|trans({ '%term%': search.state.value }) }}
+        {% endif %}
+    {% endblock %}
+
+    {% block search_value %}{{ search.state.value }}{% endblock %}
+{% endif %}
+
+{% block page_route %}ongr_search_page{% endblock %}
+
+{% block breadcrumbs_inner %}
+    <li class="active">{{ block('list_title') }}</li>
+{% endblock %}
+
+
+{% block title %}{{ block('list_title') }} | {{ parent() }}{% endblock %}
+
+{% block sidebar %}
+    {{ filter_macros.term(filters.country, block('page_route'), default_route_parameters) }}
+    {{ filter_macros.term(filters.wine_style, block('page_route'), default_route_parameters) }}
+    {{ filter_macros.term(filters.wine_color, block('page_route'), default_route_parameters) }}
+{% endblock %}

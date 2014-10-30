@@ -1,0 +1,71 @@
+{% extends 'ONGRDemoBundle::layout.html.twig' %}
+
+{% set filters = filter_manager.filters %}
+{% block page_route %}ongr_category{% endblock %}
+{% set default_route_parameters = category is defined ? {'document': category|default} : {} %}
+
+{% block sorting %}
+    {% if filters.sorting is defined %}
+        {% set filter = filters.sorting %}
+        <div class="dropdown pull-right">
+            <a data-toggle="dropdown" href="#" class="btn btn-sm btn-default">
+                {{ ('filter.' ~ filter.name)|trans }}
+                {% for choice in filter.choices %}
+                    {% if choice.active or ((not filter.state.active) and choice.default) %} {{ choice.label }}{% endif %}
+                {% endfor %}
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                {% for choice in filter.choices %}
+                    {% if not (choice.active or (choice.default and not filter.state.active)) %}
+                        <li><a href="{{ path(block('page_route'), choice.getUrlParameters()|merge(default_route_parameters)) }}">{{ choice.label }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block breadcrumbs_inner %}
+    {{ render(url('_ongr_breadcrumbs', {selectedCategory : category.id}), {strategy: 'ssi'}) }}
+    <li class="active">{{ category.title }}</li>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+
+    {{ block('sorting') }}
+    {% block list_header %}
+        <h2>{% block list_title %}{{ category.title }}{% endblock %} <span class="label label-info">{{ filter_manager.getResult.totalCount }}</span></h2>
+    {% endblock %}
+    <hr/>
+
+    {% block product_list %}
+        <div class="row">
+        {% for product in filter_manager.getResult %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="thumbnail product-thumbnail">
+                    {% set product_url = path('ongr_product', { 'document': product }) %}
+                    <div class="product-image-container">
+                        <a href="{{ product_url }}">
+                            <img src="{{ product.image }}" class="img-rounded" alt="Product image"/>
+                        </a>
+                    </div>
+                    <h5 class="product-title">
+                        <a href="{{ product_url }}">{{ product.title }}</a>
+                    </h5>
+
+                    <strong class="text-warning thumbnail-price">€ {{ product.price }}</strong>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endblock %}
+
+    {% if filters.pager is defined %}
+        <div class="pull-right">{{ paginate(filters.pager.pager, block('page_route'), filters.pager.getUrlParameters()|merge(default_route_parameters)) }}</div>
+        <div class="clearfix"></div>
+    {% endif %}
+{% endblock %}

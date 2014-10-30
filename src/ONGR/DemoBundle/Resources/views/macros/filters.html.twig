@@ -1,0 +1,29 @@
+{% macro term(filter, page_route, default_route_parameters) %}
+    {% if filter|default(false) and filter.choices|length %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ ('filter.' ~ filter.name)|trans }}
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    {% for choice in filter.choices %}
+                        {% if choice.active %}
+                            <a href="{{ path(page_route, filter.resetUrlParameters|merge(default_route_parameters)) }}"
+                               class="list-group-item active">{{ choice.label }} <span
+                                        class="badge">{{ choice.count }}</span></a>
+                        {% else %}
+                            <a href="{{ path(page_route, choice.getUrlParameters()|merge(default_route_parameters)) }}"
+                               class="list-group-item">{{ choice.label }} <span
+                                        class="badge">{{ choice.count }}</span></a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% if filter.state.active %}
+                <div class="panel-footer text-right">
+                    <a href="{{ path(page_route, filter.resetUrlParameters|merge(default_route_parameters)) }}">{{ "All"|trans }}</a>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endmacro %}

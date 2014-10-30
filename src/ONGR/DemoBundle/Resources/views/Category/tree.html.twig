@@ -1,0 +1,5 @@
+{% if from_category == null %}
+    {{ getCategoryTree(theme, max_level, selected_category) }}
+{% else %}
+    {{ getCategoryChildTree(theme, max_level, selected_category, from_category) }}
+{% endif %}

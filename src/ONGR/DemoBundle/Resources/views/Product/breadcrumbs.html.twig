@@ -1,0 +1,10 @@
+{% for category in categories %}
+    {% if category.expanded %}
+        <li>
+            <a href="{{ url('ongr_category', {'document' : category}) }}">{{ category.title }}</a>
+        </li>
+        {% if category.hasVisibleChildren and category.expanded %}
+            {{ renderCategoryTree(category.children, selected_category) }}
+        {% endif %}
+    {% endif %}
+{% endfor %}

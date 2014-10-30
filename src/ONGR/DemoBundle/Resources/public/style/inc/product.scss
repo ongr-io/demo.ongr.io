@@ -1,0 +1,90 @@
+.product-thumbnail {
+  .product-title {
+    display: block;
+    height: 2.2em;
+    overflow: hidden;
+  }
+  .product-image-container {
+    text-align: center;
+    height: 170px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+.scaled-image {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .product-thumbnail .product-image-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 1170px) {
+  .btn-block-md {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 5px 0 0;
+  }
+}
+
+.fa-star-height-fix {
+  line-height: 0
+}
+
+.dropdown-menu {
+  min-width: 0;
+}
+
+.hide-not-important
+{
+  display: none;
+}
+
+.watch-added
+{
+  color: #ffffff;
+  background-color: #798d8f !important;
+  border-color: #74898a !important;
+}
+
+.btn-default:focus
+{
+  color: #ffffff;
+  background-color: #95a5a6;
+  border-color: #95a5a6;
+}
+
+$currencies: ltl, eur, usd;
+
+@each $currency in $currencies {
+  .currency-#{$currency} .currency-#{$currency}-item {
+    display:block;
+  }
+
+  .currency-#{$currency} .currency-#{$currency}-status,
+  .currency-#{$currency} .currency-#{$currency}-info-price {
+    display:inline-block;
+  }
+}
+
+#map-canvas {
+   max-width: none;
+   height: 30em;
+   margin: 0px;
+   padding: 0px
+}
+
+.price {
+    font-size: 200%;
+}
+
+.product-description {
+    font-weight: bold;
+}

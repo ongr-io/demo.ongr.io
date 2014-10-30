@@ -1,0 +1,210 @@
+imports:
+    - { resource: project_defaults.yml }
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    esi:             ~
+    translator:      { fallback: "%locale%" }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:          { asset_reset: %asset_reset%, top_cms_links: %top_cms_links% }
+
+# SSI config
+crunch_ssi:
+    inline:     false
+    use_header: true
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
+    java: "%java_path%"
+    filters:
+        cssrewrite: ~
+        sass: ~
+        compass: ~
+        closure:
+            jar: "%kernel.root_dir%/Resources/java/compiler.jar"
+    assets:
+        demo_css:
+            inputs:
+                - "@ONGRDemoBundle/Resources/public/style/ongr.scss"
+            filters:
+                - compass
+        demo_js:
+            inputs:
+                - "@ONGRDemoBundle/Resources/public/scripts/**/*.js"
+                - "@ONGRDemoBundle/Resources/public/scripts/main.js"
+            filters:
+                - closure
+
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        # path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+ongr_content:
+    es:
+        repositories:
+            product: es.manager.default.product
+            content: es.manager.default.content
+            category: es.manager.default.category
+
+ongr_router:
+    es_manager: default
+    seo_routes:
+        product:
+            _route: ongr_product
+            _controller: ONGRDemoBundle:Product:document
+            _default_route: ongr_product
+            _id_param: document
+        category:
+            _route: ongr_category
+            _default_route: ongr_category
+            _id_param: document
+            _controller: ONGRDemoBundle:Category:document
+        content:
+            _route: ongr_content
+            _default_route: ongr_content
+            _id_param: document
+            _controller: ONGRDemoBundle:Content:document
+
+ongr_elasticsearch:
+    connections:
+        default:
+            hosts:
+                - { host: 127.0.0.1:9200 }
+            index_name: ongr
+            settings:
+                number_of_shards: 2
+                number_of_replicas: 0
+                index:
+                    refresh_interval: -1
+                analysis:
+                    tokenizer:
+                        pathTokenizer:
+                            type : path_hierarchy
+                            buffer_size: 2024
+                            skip: 0
+                            delimiter: /
+                    filter:
+                        incremental_filter:
+                            type: edge_ngram
+                            min_gram: 1
+                            max_gram: 20
+                    analyzer:
+                        indexAnalyzer:
+                            type: snowball
+                            language: German2
+                            stopwords: "der,die,das,mit,und,für"
+                        searchAnalyzer:
+                            type: snowball
+                            language: German2
+                            stopwords: "der,die,das,mit,und,für"
+                        pathAnalyzer:
+                            type: custom
+                            tokenizer: pathTokenizer
+                        urlAnalyzer:
+                            type: custom
+                            tokenizer: keyword
+                            filter: [lowercase]
+                        incrementalAnalyzer:
+                            type: custom
+                            tokenizer: standard
+                            filter:
+                                - lowercase
+                                - incremental_filter
+    managers:
+        default:
+            connection: default
+            mappings:
+                - ONGRDemoBundle
+
+ongr_filter_manager:
+    managers:
+        product_list:
+            filters:
+                - category
+                - country
+                - wine_style
+                - wine_color
+                - search
+                - pager
+                - sorting
+            repository: 'product'
+    filters:
+        choice:
+            country:
+                request_field: 'country'
+                field: origin.country
+            wine_style:
+                request_field: 'wine_style'
+                field: wine_style
+            wine_color:
+                request_field: 'wine_color'
+                field: wine_colour
+        match:
+            search:
+                request_field: 'q'
+                field: title
+        document_field:
+            category:
+                request_field: 'document'
+                field: category_id
+        pager:
+            pager:
+                request_field: 'page'
+                count_per_page: 9
+        sort:
+            sorting:
+                request_field: 'sort'
+                choices:
+                    - { label: Price ascending, field: price, default: true }
+                    - { label: Price descending, field: price, order: desc }
+                    - { label: Title ascending, field: title }
+                    - { label: Title descending, field: title, order: desc }

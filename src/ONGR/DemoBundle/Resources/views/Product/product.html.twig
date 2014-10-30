@@ -1,0 +1,54 @@
+{% extends "ONGRDemoBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ product.title }} - {{ parent() }}
+{% endblock %}
+
+{% block canonical_meta %}
+    <link rel="canonical" href="{{ path('ongr_product', { 'document' : product }) }}">
+{% endblock %}
+
+{% block breadcrumbs_inner %}
+    {{ render(url('_ongr_breadcrumbs', {selectedCategory : product.mainCategory, theme: 'product_breadcrumbs'}), {strategy: 'ssi'}) }}
+    <li class="active">{{ product.title }}</li>
+{% endblock %}
+
+{% block about %}
+    <div class="panel-heading text-center">
+        <h2>{{ product.title }}</h2>
+    </div>
+    <div class="panel-body text-center">
+        <div class="product-description">{{ product.description }}</div>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Manufacturer: </strong>{{ product.manufacturer }}</li>
+        <li class="list-group-item"><strong>Grape: </strong>{{ product.grape }}</li>
+        <li class="list-group-item"><strong>Alcohol level: </strong>{{ product.alcoholLevel|number_format(1) }}%</li>
+        <li class="list-group-item"><strong>Wine colour: </strong>{{ product.wineColour }}</li>
+        <li class="list-group-item"><strong>Wine style: </strong>{{ product.wineStyle }}</li>
+    </ul>
+    <p class="text-center">Powered by: <a href="http://www.wine-searcher.com/"><strong>http://www.wine-searcher.com/</strong></a></p>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <div class="row">
+        <div class="col-sm-5">
+            <img src="{{ product.image }}" class="img-rounded scaled-image"/>
+            <hr/>
+            <div class="well text-center">
+                <span class="price">€ {{ product.price }}</span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="panel panel-default product-panel">
+                {{ block('about') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content_wrapper %}
+    {{ block('content') }}
+{% endblock %}

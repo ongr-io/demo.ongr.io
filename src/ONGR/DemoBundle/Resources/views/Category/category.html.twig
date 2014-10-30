@@ -1,0 +1,23 @@
+{% extends 'ONGRDemoBundle:Product:list.html.twig' %}
+
+{% import 'ONGRDemoBundle::macros/filters.html.twig' as filter_macros %}
+
+{% block title %}{{ parent() }} - {{ category.title }}{% endblock %}
+
+{% block top_navigation_inner %}
+    {{ render(url('_ongr_category_tree', {theme : 'top', maxLevel: 1, selectedCategory : category.id}), {strategy: 'ssi'}) }}
+{% endblock %}
+
+{% block sidebar %}
+    <ul class="nav nav-pills nav-stacked sidebar-category">
+        {{ render(url('_ongr_category_tree', {theme: 'left', maxLevel: 5, selectedCategory : category.id}), {strategy: 'ssi'}) }}
+    </ul>
+
+    {{ filter_macros.term(filters.country, block('page_route'), default_route_parameters) }}
+    {{ filter_macros.term(filters.wine_style, block('page_route'), default_route_parameters) }}
+    {{ filter_macros.term(filters.wine_color, block('page_route'), default_route_parameters) }}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block list_title %}{{ category.title }}{% endblock %}

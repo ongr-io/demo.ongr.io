@@ -1,0 +1,39 @@
+# PhpStorm etc
+/.idea
+.DS_Store
+/cache.properties
+
+# Vagrant cache files
+/.vagrant
+
+# Composer
+/composer.phar
+/vendor/
+/bin/*
+
+# Symfony directories
+/app/bootstrap.php.cache
+/app/config/parameters.yml
+/app/cache/*
+/app/logs/*
+/app/build/*
+/app/check.php
+/web/uploads/*
+/web/bundles/
+/web/css/
+/web/js/
+/web/style/
+/web/style/css/
+/web/images/
+/web/oxid/
+/web/o
+/web/cdn/
+/web/awsdump.txt
+/web/assetic
+
+/bower_components/
+
+/node_modules
+/npm-debug.log
+/.sass-cache
+/cache.properties

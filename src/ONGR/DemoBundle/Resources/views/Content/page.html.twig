@@ -1,0 +1,30 @@
+{% extends 'ONGRDemoBundle::layout.html.twig' %}
+
+{% block content_wrapper %}
+    <div class="row">
+        <div class="col-sm-12">
+            {{ block('content') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}
+    {{ content.title }} | {{ parent() }}
+{% endblock %}
+
+{% block top_cms_links %}
+    {% for slug in top_cms_links %}
+        <li {% if app.request.get('_route') == 'ongr_content_document_page' and content.slug == slug %}class="active"{% endif %}>
+            {{ snippet(slug, 'ONGRDemoBundle:Content:link.html.twig') }}
+        </li>
+    {% endfor %}
+{% endblock %}
+
+{% block breadcrumbs_inner %}
+    <li class="active">{{ content.title }}</li>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    {{ include(template_from_string(content.content)) }}
+{% endblock %}
