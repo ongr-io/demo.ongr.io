@@ -17,7 +17,7 @@ apt::source { 'packages.dotdeb.org-php55':
     repos             => 'all',
     required_packages => 'debian-keyring debian-archive-keyring',
     key               => '89DF5277',
-    key_server        => 'keys.gnupg.net',
+    key_server        => 'hkp://keys.gnupg.net:80',
     include_src       => true
 }
 
