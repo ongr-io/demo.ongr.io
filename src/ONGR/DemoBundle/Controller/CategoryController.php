@@ -58,12 +58,10 @@ class CategoryController extends Controller
     {
         return $this->render(
             $this->getCategoryTemplate($request),
-            array_merge(
-                $this->categoryDocumentActionData($request, $document),
-                [
-                    'filter_manager' => $this->getProductsData($request)
-                ]
-            )
+            [
+                'filter_manager' => $this->getProductsData($request),
+                'category' => $document
+            ]
         );
     }
 
@@ -88,19 +86,6 @@ class CategoryController extends Controller
                 'from_category' => $partialTree == 'pt' ? null : $partialTree,
             ]
         );
-    }
-
-    /**
-     * Returns template data for categoryDocumentAction.
-     *
-     * @param Request               $request
-     * @param DocumentInterface     $document
-     *
-     * @return array
-     */
-    protected function categoryDocumentActionData(Request $request, $document)
-    {
-        return $this->get('ongr_content.category_list')->getCategoryData($request, $document);
     }
 
     /**
@@ -141,7 +126,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Returns product list
+     * Returns product list.
      *
      * @param Request $request
      *
