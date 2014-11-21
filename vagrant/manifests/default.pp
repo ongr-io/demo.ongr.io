@@ -198,3 +198,24 @@ file { '/usr/local/bin/debug':
   mode => 755,
   content => "#!/bin/sh\nenv PHP_IDE_CONFIG=\"serverName=ongr\" XDEBUG_CONFIG=\"idekey=PHPSTORM\" SYMFONY_DEBUG=\"1\" $@"
 }
+
+exec { "node_sources" :
+  command => "curl -sL https://deb.nodesource.com/setup | bash -",
+  require => Class["apt"]
+}
+
+package { 'nodejs':
+  require => Exec['node_sources'],
+  ensure => installed,
+}
+
+package { 'npm':
+  require => Exec['node_sources'],
+  ensure => installed,
+}
+
+package { 'phantomjs':
+  require => package['npm'],
+  ensure   => present,
+  provider => 'npm',
+}

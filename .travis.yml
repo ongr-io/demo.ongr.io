@@ -7,8 +7,14 @@ services:
   - elasticsearch
 install:
   - composer install --no-interaction
+  - npm install
+  - npm link
 before_script:
   - app/console es:index:create
   - app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/data.json
+  - cp src/ONGR/DemoBundle/Tests/Web/parameters.js.dist src/ONGR/DemoBundle/Tests/Web/parameters.js
+  - php -S localhost:8000 web/app_dev.php &
+  - sleep 3
 script:
   - bin/phpunit --coverage-text
+  - casperjs test src/ONGR/DemoBundle/Tests/Web/test.js
