@@ -19,11 +19,11 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
 
-        "ongr/elasticsearch-bundle": "~0.1",
+        "ongr/elasticsearch-bundle": "~0.2",
         "ongr/filter-manager-bundle": "~0.1",
         "ongr/content-bundle": "~0.1",
         "ongr/pager-bundle": "dev-master",
-        "ongr/router-bundle": "~0.1",
+        "ongr/router-bundle": "~0.2",
         "ongr/ssi-bundle": "v0.3.0"
 
     },
