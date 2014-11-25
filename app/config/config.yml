@@ -162,6 +162,7 @@ ongr_elasticsearch:
     managers:
         default:
             connection: default
+            debug: "%kernel.debug%"
             mappings:
                 - ONGRDemoBundle
 
