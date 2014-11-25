@@ -1,0 +1,14 @@
+language: php
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+services:
+  - elasticsearch
+install:
+  - composer install --no-interaction
+before_script:
+  - app/console es:index:create
+  - app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/data.json
+script:
+  - bin/phpunit --coverage-text
