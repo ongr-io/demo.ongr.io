@@ -39,3 +39,5 @@
 /cache.properties
 
 /phpunit.xml
+
+/src/ONGR/DemoBundle/Tests/Acceptance/parameters.js

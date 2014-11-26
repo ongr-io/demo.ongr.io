@@ -1,0 +1,16 @@
+{
+    "name": "ongr-sandbox",
+    "version": "0.0.0",
+    "main": "index.js",
+    "dependencies": {
+        "async": "~0.2.9",
+        "process": "~0.5.1",
+        "casperjs": "~1.1",
+        "yadda": "~0.11"
+    },
+    "scripts": {
+        "preinstall": "npm --loglevel error link yadda",
+        "test": "casperjs test src/ONGR/DemoBundle/Tests/Acceptance/test.js 2>&1 | grep -v 'CoreText performance note'"
+    },
+    "author": "ONGR"
+}
