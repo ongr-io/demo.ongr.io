@@ -28,21 +28,19 @@ module.exports.init = function (steps) {
                 'path': "//*[text()[contains(.,'" + category + "')]]/..//a[text()[contains(.,'" + property + "')]]"
             });
         })
-        .when("I am on $PAGE page", function (page) {
-            casper.click('.pager > .' + page + ' a');
+
+        .then("I should see $NUM products", function (num) {
+            casper.test.assertEquals(casper.fetchText('span.label-info').trim(), num);
         })
-        .when("I sort products \"$RULE\"", function (rule) {
-            // casper.click method on menu items didn't work for some reason.
-            var num;
-            switch (rule) {
-                case 'Price ascending' :
-                    num = 0;
-                    break;
-                case 'Price descending' :
-                    num = 1;
-                    break;
-            }
-            casper.open(document.app.parameters.base_url + "search?sort=" + num);
+        .then("Products has basic information", function () {
+            var productCount = casper.getElementsInfo('.product-thumbnail').length;
+
+            casper.test.assertElementCount(".product-thumbnail img", productCount);
+            casper.test.assertElementCount(".product-thumbnail .product-title", productCount);
+            casper.test.assertElementCount(".product-thumbnail .thumbnail-price", productCount);
+        })
+        .then("All products has \"$TEXT\" in their names", function (text) {
+            casper.test.assertSelectorHasText('.product-title', text);
         })
     ;
 

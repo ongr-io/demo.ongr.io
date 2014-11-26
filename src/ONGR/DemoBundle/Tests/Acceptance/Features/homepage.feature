@@ -1,7 +1,7 @@
 Feature: Homepage
-  Sample page
-  With some buttons to
-  Test ongr
+  To navigate through the page
+  Visitors should be able
+  To click on links and see content
 
   Background:
 

@@ -10,7 +10,7 @@
     },
     "scripts": {
         "preinstall": "npm --loglevel error link yadda",
-        "test": "casperjs test src/ONGR/DemoBundle/Tests/Web/test.js 2>&1 | grep -v 'CoreText performance note'"
+        "test": "casperjs test src/ONGR/DemoBundle/Tests/Acceptance/test.js 2>&1 | grep -v 'CoreText performance note'"
     },
     "author": "ONGR"
 }

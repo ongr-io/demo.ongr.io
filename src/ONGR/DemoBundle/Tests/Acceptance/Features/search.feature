@@ -1,4 +1,7 @@
 Feature: Search
+  In order to buy products
+  Visitors should be able
+  to search for them
 
   Background:
 
@@ -59,9 +62,9 @@ Feature: Search
     And I am on page 10
 
   Scenario: Sorting
-    When I sort products "Price descending"
+    When I am sorting by "Price descending"
     Then Products are in price descending order
 
   Scenario: Sorting 2
-    When I sort products "Price ascending"
+    When I am sorting by "Price ascending"
     Then Products are in price ascending order

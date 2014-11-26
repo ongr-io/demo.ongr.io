@@ -40,4 +40,4 @@
 
 /phpunit.xml
 
-src/ONGR/DemoBundle/Tests/Web/parameters.js
+/src/ONGR/DemoBundle/Tests/Acceptance/parameters.js
