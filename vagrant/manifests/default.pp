@@ -27,7 +27,7 @@ File { owner => 0, group => 0, mode => 0644 }
 user { "vagrant_user":
     name       => vagrant,
     ensure     => present,
-    groups     => "www-data"
+    groups     => ["www-data", "mysql"]
 }
 
 file_line { "vagrant_umask":
@@ -88,6 +88,19 @@ nginx::resource::location { "ongr.dev-php":
 
 class { '::mysql::server':
   root_password    => 'root',
+  override_options => {
+    'mysqld' => {
+      'log-bin' => 'mysql-bin',
+      'binlog_format' => 'ROW'
+    }
+  }
+}
+
+file { "/var/lib/mysql":
+  ensure => "directory",
+  owner  => "mysql",
+  group  => "mysql",
+  mode   => 770,
 }
 
 class { 'php':
