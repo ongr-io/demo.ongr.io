@@ -32,16 +32,16 @@ class ProductController extends Controller
      */
     public function productAction($productId)
     {
-        $product = $this->get('es.manager')->getRepository('product')->find($productId);
-
         if ($productId === null) {
             throw $this->createNotFoundException();
         }
 
+        $product = $this->get('es.manager')->getRepository('product')->find($productId);
+
         return $this->render(
             $this->getProductTemplate($product),
             [
-                'product' => $product
+                'product' => $product,
             ]
         );
     }
