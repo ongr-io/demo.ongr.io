@@ -6,3 +6,5 @@ tools:
 filter:
   excluded_paths:
     - Tests/*
+before_commands:
+    - 'composer install --dev --prefer-source'
