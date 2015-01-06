@@ -6,5 +6,7 @@ tools:
 filter:
   excluded_paths:
     - Tests/*
-before_commands:
-    - 'composer install --dev --prefer-source'
+application:
+  project_setup:
+    before:
+      - composer install --prefer-source
