@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class ContentControllerTest extends WebTestCase
 {
     /**
-     * Tests if homepage is loading without errors
+     * Tests if homepage is loading without errors.
      */
     public function testHomePage()
     {

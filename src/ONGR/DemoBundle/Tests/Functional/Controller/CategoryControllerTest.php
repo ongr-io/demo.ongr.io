@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class CategoryControllerTest extends WebTestCase
 {
     /**
-     * Tests document action
+     * Tests document action.
      */
     public function testDocumentAction()
     {

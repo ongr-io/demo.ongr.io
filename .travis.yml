@@ -16,5 +16,6 @@ before_script:
   - php -S localhost:8000 web/app_dev.php &
   - sleep 3
 script:
-  - bin/phpunit --coverage-text
+  - bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  - bin/phpcs -p --standard=$TRAVIS_BUILD_DIR/vendor/ongr/ongr-strict-standard/ONGR --extensions=php ./src
   - casperjs test src/ONGR/DemoBundle/Tests/Acceptance/test.js
