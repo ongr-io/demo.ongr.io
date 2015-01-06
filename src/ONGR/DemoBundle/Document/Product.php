@@ -82,9 +82,7 @@ class Product implements DocumentInterface
     public $location;
 
     /**
-     * Image URL.
-     *
-     * @var string
+     * @var string Image URL.
      *
      * @ES\Property(name="image", type="string")
      */

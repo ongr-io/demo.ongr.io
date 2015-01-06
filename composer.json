@@ -29,7 +29,9 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
-        "phpunit/phpunit": "~4.3"
+        "phpunit/phpunit": "~4.3",
+        "ongr/ongr-strict-standard": "~1.0-beta",
+        "squizlabs/php_codesniffer": "~1.5"
     },
     "scripts": {
         "post-root-package-install": [

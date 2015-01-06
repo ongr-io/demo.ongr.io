@@ -17,6 +17,7 @@ before_script:
   - sleep 3
 script:
   - bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  - bin/phpcs -p --standard=$TRAVIS_BUILD_DIR/vendor/ongr/ongr-strict-standard/ONGR --extensions=php ./src
   - casperjs test src/ONGR/DemoBundle/Tests/Acceptance/test.js
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
