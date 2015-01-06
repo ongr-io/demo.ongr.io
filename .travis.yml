@@ -16,5 +16,8 @@ before_script:
   - php -S localhost:8000 web/app_dev.php &
   - sleep 3
 script:
-  - bin/phpunit --coverage-text
+  - bin/phpunit --coverage-text --coverage-clover=coverage.clover
   - casperjs test src/ONGR/DemoBundle/Tests/Acceptance/test.js
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
