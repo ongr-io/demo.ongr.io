@@ -17,12 +17,16 @@ apt::source { 'packages.dotdeb.org-php55':
     repos             => 'all',
     required_packages => 'debian-keyring debian-archive-keyring',
     key               => '89DF5277',
-    key_server        => 'hkp://keys.gnupg.net:80',
+    key_server        => 'keys.gnupg.net',
     include_src       => true
 }
 
 Exec { path => [ '/usr/local/bin', '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/' ] }
 File { owner => 0, group => 0, mode => 0644 }
+
+group { "mysql":
+  ensure => "present",
+}
 
 user { "vagrant_user":
     name       => vagrant,
@@ -228,7 +232,7 @@ package { 'npm':
 }
 
 package { 'phantomjs':
-  require => package['npm'],
+  require => Package['npm'],
   ensure   => present,
   provider => 'npm',
 }
