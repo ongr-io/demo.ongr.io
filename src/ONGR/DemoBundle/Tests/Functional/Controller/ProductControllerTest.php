@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class ProductControllerTest extends WebTestCase
 {
     /**
-     * tests if product page is being loaded
+     * Tests if product page is being loaded.
      */
     public function testProductAction()
     {

@@ -60,7 +60,7 @@ class CategoryController extends Controller
             $this->getCategoryTemplate($request),
             [
                 'filter_manager' => $this->getProductsData($request),
-                'category' => $document
+                'category' => $document,
             ]
         );
     }
@@ -68,10 +68,10 @@ class CategoryController extends Controller
     /**
      * Category tree action.
      *
-     * @param string  $theme
-     * @param int     $maxLevel
-     * @param string  $partialTree
-     * @param string  $selectedCategory
+     * @param string $theme
+     * @param int    $maxLevel
+     * @param string $partialTree
+     * @param string $selectedCategory
      *
      * @return Response
      */
@@ -91,7 +91,7 @@ class CategoryController extends Controller
     /**
      * Returns category page template name.
      *
-     * @param Request       $request
+     * @param Request $request
      *
      * @return string
      */
