@@ -23,20 +23,20 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ProductController extends Controller
 {
     /**
-     * Product page action.
+     * Show product page by ID.
      *
-     * @param string $productId
+     * @param string $id Product ID.
      *
      * @return Response
      * @throws NotFoundHttpException
      */
-    public function productAction($productId)
+    public function showAction($id)
     {
-        if ($productId === null) {
+        if ($id === null) {
             throw $this->createNotFoundException();
         }
 
-        $product = $this->get('es.manager')->getRepository('product')->find($productId);
+        $product = $this->get('es.manager')->getRepository('ONGRDemoBundle:Product')->find($id);
 
         return $this->render(
             $this->getProductTemplate(),
