@@ -39,7 +39,7 @@ class ProductController extends Controller
         $product = $this->get('es.manager')->getRepository('product')->find($productId);
 
         return $this->render(
-            $this->getProductTemplate($product),
+            $this->getProductTemplate(),
             [
                 'product' => $product,
             ]

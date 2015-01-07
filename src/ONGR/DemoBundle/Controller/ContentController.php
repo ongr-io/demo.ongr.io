@@ -14,7 +14,6 @@ namespace ONGR\DemoBundle\Controller;
 use ONGR\ElasticsearchBundle\Document\DocumentInterface;
 use ONGR\ContentBundle\Service\ContentService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -39,28 +38,26 @@ class ContentController extends Controller
     /**
      * Renders a document.
      *
-     * @param Request           $request
      * @param DocumentInterface $document
      *
      * @return Response
      */
-    public function documentAction(Request $request, $document)
+    public function documentAction($document)
     {
         return $this->render(
             'ONGRDemoBundle:Content:page.html.twig',
-            $this->documentActionData($request, $document)
+            $this->documentActionData($document)
         );
     }
 
     /**
      * Returns template data for documentAction.
      *
-     * @param Request           $request
      * @param DocumentInterface $document
      *
      * @return array
      */
-    protected function documentActionData(Request $request, $document)
+    protected function documentActionData($document)
     {
         return [
             'content' => $document,
@@ -72,13 +69,12 @@ class ContentController extends Controller
      *
      * Show page by slug identifier
      *
-     * @param Request $request Request instance.
-     * @param string  $slug    Page content identifier.
+     * @param string $slug Page content identifier.
      *
      * @return Response
      * @throws NotFoundHttpException
      */
-    public function pageAction(Request $request, $slug)
+    public function pageAction($slug)
     {
         /** @var ContentService $service */
         $service = $this->get('ongr_content.content_service');
@@ -89,18 +85,17 @@ class ContentController extends Controller
             throw $this->createNotFoundException('The content page does not exist');
         }
 
-        return $this->documentAction($request, $document);
+        return $this->documentAction($document);
     }
 
     /**
      * Returns template data for snippetAction.
      *
-     * @param Request $request
-     * @param string  $slug
+     * @param string $slug
      *
      * @return array
      */
-    protected function snippetActionData(Request $request, $slug)
+    protected function snippetActionData($slug)
     {
         return $this->get('ongr_content.content_service')->getDataForSnippet($slug);
     }
@@ -108,17 +103,16 @@ class ContentController extends Controller
     /**
      * Render cms body in template.
      *
-     * @param Request $request
-     * @param string  $slug
-     * @param string  $template
+     * @param string $slug
+     * @param string $template
      *
      * @return Response
      */
-    public function snippetAction(Request $request, $slug, $template)
+    public function snippetAction($slug, $template)
     {
         return $this->render(
             $template,
-            $this->snippetActionData($request, $slug)
+            $this->snippetActionData($slug)
         );
     }
 }
