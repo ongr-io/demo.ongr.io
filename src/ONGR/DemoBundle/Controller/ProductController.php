@@ -11,6 +11,7 @@
 
 namespace ONGR\DemoBundle\Controller;
 
+use Elasticsearch\Common\Exceptions\Missing404Exception;
 use ONGR\DemoBundle\Document\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,20 +24,20 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ProductController extends Controller
 {
     /**
-     * Show product page by ID.
+     * Show product page by id.
      *
-     * @param string $id Product ID.
+     * @param string $id Product id.
      *
      * @return Response
      * @throws NotFoundHttpException
      */
     public function showAction($id)
     {
-        if ($id === null) {
-            throw $this->createNotFoundException();
+        try {
+            $product = $this->get('es.manager')->getRepository('ONGRDemoBundle:Product')->find($id);
+        } catch (Missing404Exception $e) {
+            throw $this->createNotFoundException('Product was not found');
         }
-
-        $product = $this->get('es.manager')->getRepository('ONGRDemoBundle:Product')->find($id);
 
         return $this->render(
             $this->getProductTemplate(),

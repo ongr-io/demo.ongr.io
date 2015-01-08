@@ -47,6 +47,10 @@ _ongr_category_tree:
         partialTree: "pt"
         selectedCategory: null
 
+_ongr_category_show:
+    pattern:  /category/{id}
+    defaults: { _controller: ONGRDemoBundle:Category:show }
+
 _ongr_breadcrumbs:
     pattern:  /_proxy/breadcrumbs/{theme}/{maxLevel}/{partialTree}/{selectedCategory}
     methods:  [GET]
@@ -76,5 +80,3 @@ ongr_product:
 ongr_product_show:
     pattern:  /product/{id}
     defaults: { _controller: ONGRDemoBundle:Product:show }
-    requirements:
-        page:  \d+
