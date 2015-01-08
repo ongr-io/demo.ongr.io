@@ -11,6 +11,7 @@
 
 namespace ONGR\DemoBundle\Controller;
 
+use Elasticsearch\Common\Exceptions\Missing404Exception;
 use ONGR\ElasticsearchBundle\Document\DocumentInterface;
 use ONGR\ContentBundle\Service\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -37,11 +38,15 @@ class CategoryController extends Controller
         /** @var CategoryService $categoryService */
         $categoryService = $this->get('ongr_content.category_service');
 
-        $document = $categoryService->getCategory($id);
-
-        if (!$document) {
-            throw $this->createNotFoundException('The category page does not exist');
+        try {
+            $document = $categoryService->getCategory($id);
+        } catch (Missing404Exception $e) {
+            throw $this->createNotFoundException('The category does not exists');
         }
+
+        // Most actions require an instance of ONGR\ElasticsearchBundle\Document\DocumentInterface
+        // in Request object, so we must inject it.
+        $request->attributes->add(['document' => $document]);
 
         return $this->documentAction($request, $document);
     }
@@ -59,7 +64,7 @@ class CategoryController extends Controller
         return $this->render(
             $this->getCategoryTemplate($request),
             [
-                'filter_manager' => $this->getProductsData($request),
+                'filter_manager' => $this->getProductsList($request),
                 'category' => $document,
             ]
         );
@@ -126,13 +131,13 @@ class CategoryController extends Controller
     }
 
     /**
-     * Returns product list.
+     * Returns products list with their data.
      *
      * @param Request $request
      *
      * @return array
      */
-    private function getProductsData($request)
+    private function getProductsList($request)
     {
         return $this->get('ongr_filter_manager.product_list')->execute($request);
     }

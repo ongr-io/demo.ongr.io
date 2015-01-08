@@ -25,15 +25,9 @@ ongr_search_page:
         template: "ONGRDemoBundle:Product:search.html.twig"
 
 #Category controller
-ongr_category:
-    pattern:  /categoryDocument/{document}/
-    defaults: { _controller: ONGRDemoBundle:Category:categoryDocument }
-
 ongr_category_show:
     pattern:  /category/{id}
     defaults: { _controller: ONGRDemoBundle:Category:show }
-    requirements:
-        page:  \d+
 
 ### Proxy routes
 
@@ -47,6 +41,10 @@ _ongr_category_tree:
         partialTree: "pt"
         selectedCategory: null
 
+_ongr_category_show:
+    pattern:  /category/{id}
+    defaults: { _controller: ONGRDemoBundle:Category:show }
+
 _ongr_breadcrumbs:
     pattern:  /_proxy/breadcrumbs/{theme}/{maxLevel}/{partialTree}/{selectedCategory}
     methods:  [GET]
@@ -58,10 +56,6 @@ _ongr_breadcrumbs:
         selectedCategory: null
 
 # Content
-_ongr_plain_cms_body:
-    pattern:  /_proxy/cmsBody/{slug}/{template}
-    defaults: { _controller: ONGRDemoBundle:Content:plainBody, template: 0 }
-
 _ongr_plain_cms_snippet:
     pattern:  /_proxy/cmsSnippet/{slug}/{template}
     defaults:
@@ -76,5 +70,3 @@ ongr_product:
 ongr_product_show:
     pattern:  /product/{id}
     defaults: { _controller: ONGRDemoBundle:Product:show }
-    requirements:
-        page:  \d+
