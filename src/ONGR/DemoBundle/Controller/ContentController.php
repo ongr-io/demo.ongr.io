@@ -79,10 +79,10 @@ class ContentController extends Controller
         /** @var ContentService $service */
         $service = $this->get('ongr_content.content_service');
 
-        $document = $service->getDocumentBySlug($slug);
-
-        if (!$document) {
-            throw $this->createNotFoundException('The content page does not exist');
+        try {
+            $document = $service->getDocumentBySlug($slug);
+        } catch (\Exception $e) {
+            throw $this->createNotFoundException('The content page does not exists');
         }
 
         return $this->documentAction($document);

@@ -3,14 +3,6 @@ onager_demo_homepage:
     path:     /
     defaults: { _controller: ONGRDemoBundle:Content:homePage }
 
-ongr_content_document:
-    pattern:  /
-    defaults: { _controller: ONGRDemoBundle:Content:document }
-
-ongr_content:
-    pattern:  /contentDocument/{document}/
-    defaults: { _controller: ONGRDemoBundle:Content:document }
-
 ongr_content_page:
     pattern:  /page/{slug}/
     defaults: { _controller: ONGRDemoBundle:Content:page }
