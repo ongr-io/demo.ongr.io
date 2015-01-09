@@ -16,6 +16,34 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class ContentControllerTest extends WebTestCase
 {
     /**
+     * Returns not existing urls.
+     *
+     * @return array
+     */
+    public function notExistingUrlsDataProvider()
+    {
+        return [
+            ['/doesntexists/'],
+            ['/page/doesntexists/'],
+            ['/category/r4nd0m1d'],
+            ['/product/r4nd0m1d'],
+        ];
+    }
+
+    /**
+     * Returns existing urls of pages.
+     *
+     * @return array
+     */
+    public function existingPagesUrlsDataProvider()
+    {
+        return [
+            ['/about/'],
+            ['/page/about/'],
+        ];
+    }
+
+    /**
      * Tests if homepage is loading without errors.
      */
     public function testHomePage()
@@ -31,49 +59,41 @@ class ContentControllerTest extends WebTestCase
     }
 
     /**
-     * Tests if existing page is loading without errors.
+     * Tests not existing url.
+     *
+     * @param string $url
+     *
+     * @dataProvider notExistingUrlsDataProvider()
      */
-    public function testExistingPage()
+    public function testNotExistingUrl($url)
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/about/');
 
-        $this->assertGreaterThan(
-            0,
-            $crawler->filter('html:contains("about")')->count(),
-            'Should be a word "demo" in html content'
-        );
-
-        $this->assertEquals(
-            'About',
-            $crawler->filter('ol.breadcrumb > li.active')->text()
-        );
-
-        $crawler = $client->request('GET', '/page/about/');
-
-        $this->assertGreaterThan(
-            0,
-            $crawler->filter('html:contains("about")')->count(),
-            'Should be a word "demo" in html content'
-        );
-
-        $this->assertEquals(
-            'About',
-            $crawler->filter('ol.breadcrumb > li.active')->text()
-        );
+        $client->request('GET', $url);
+        $this->assertTrue($client->getResponse()->isNotFound(), 'Should throw NotFoundHttpException');
     }
 
     /**
-     * Tests not existing page.
+     * Tests if existing page is loading without errors.
+     *
+     * @param string $url
+     *
+     * @dataProvider existingPagesUrlsDataProvider()
      */
-    public function testNotExistingPage()
+    public function testExistingPage($url)
     {
         $client = static::createClient();
+        $crawler = $client->request('GET', $url);
 
-        $client->request('GET', '/doesntexists/');
-        $this->assertTrue($client->getResponse()->isNotFound(), 'Should throw NotFoundHttpException');
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("about")')->count(),
+            'Should be a word "demo" in html content'
+        );
 
-        $client->request('GET', '/page/doesntexists/');
-        $this->assertTrue($client->getResponse()->isNotFound(), 'Should throw NotFoundHttpException');
+        $this->assertEquals(
+            'About',
+            $crawler->filter('ol.breadcrumb > li.active')->text()
+        );
     }
 }

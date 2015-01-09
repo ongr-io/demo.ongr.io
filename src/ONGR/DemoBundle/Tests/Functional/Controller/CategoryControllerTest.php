@@ -73,8 +73,5 @@ class CategoryControllerTest extends WebTestCase
         $products2 = $crawler2->filter($products_counter_filter);
 
         $this->assertEquals($products1->text(), $products2->text());
-
-        $client->request('GET', '/category/r4nd0m1d');
-        $this->assertTrue($client->getResponse()->isNotFound(), 'Should throw NotFoundHttpException');
     }
 }

@@ -33,9 +33,6 @@ class ProductControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/product/r4nd0m1d');
-        $this->assertTrue($client->getResponse()->isNotFound(), 'Should throw NotFoundHttpException');
-
         $client->request('GET', '/product/1c174548052bb0453d38b81c51d652f2');
         $this->assertTrue($client->getResponse()->isOk());
     }
