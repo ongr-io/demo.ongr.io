@@ -192,24 +192,4 @@ class Product implements DocumentInterface
      * @ES\Property(name="wine_colour", type="string", index="not_analyzed")
      */
     public $wineColour;
-
-    /**
-     * Returns selected category id by specified path.
-     *
-     * @param string $path
-     *
-     * @return null|string
-     */
-    public function getSelectedCategory($path)
-    {
-        $path = ltrim($path, '/');
-
-        foreach ($this->url as $url) {
-            if ($url->url === $path) {
-                return $url->url;
-            }
-        }
-
-        return null;
-    }
 }

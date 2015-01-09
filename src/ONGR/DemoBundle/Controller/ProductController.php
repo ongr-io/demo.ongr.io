@@ -77,7 +77,6 @@ class ProductController extends Controller
 
         return [
             'product' => $document,
-            'selectedCategory' => $document->getSelectedCategory($currentPath),
         ];
     }
 
