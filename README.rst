@@ -5,7 +5,7 @@ ONGR is a platform based on Symfony 2 framework which stands in front of your ap
 
 It is a separate system from your original application where you re-implement or move view and frontend related code to ONGR for high-performance content delivery. Product and other data is still managed by original backend and then continuously synchronized with new platform for cache and display.
 
-If you find some issues or great ideas how to improve the project, please create an issue in GitHub. Also everyone are more than welcome to contribute using pull requests. More information is in `contributing page </Resources/doc/contributing.rst>`_.
+If you find some issues or great ideas how to improve the project, please create an issue in GitHub. Also everyone are more than welcome to contribute using pull requests. More information is in `contributing page <https://github.com/ongr-io/ongr-handbook/blob/master/source/handbook/contributing/contributing.rst>`_.
 
 .. image:: https://travis-ci.org/ongr-io/ongr-sandbox.svg?branch=master
     :target: https://travis-ci.org/ongr-io/ongr-sandbox
@@ -35,7 +35,7 @@ Intro
 -----
 
 - `Quick start </src/ONGR/DemoBundle/Resources/doc/quick_start.rst>`_
-- `Contributing </src/ONGR/DemoBundle/Resources/doc//contributing.rst>`_
+- `Contributing <https://github.com/ongr-io/ongr-handbook/blob/master/source/handbook/contributing/contributing.rst>`_
 
 
 ONGR Components
