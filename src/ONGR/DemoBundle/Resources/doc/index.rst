@@ -9,7 +9,7 @@ Step 1: Requirements.
 
 Yes there are a few.
 
-Please check if your development environment does meet the following `requirements </src/ONGR/DemoBundle/Resources/doc/requirements.rst>`_.
+Please check if your development environment does meet the following :doc:`/handbook/requirements`.
 
 Step 2: Download ONGR
 ---------------------

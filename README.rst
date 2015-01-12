@@ -34,7 +34,7 @@ If you find some issues or great ideas how to improve the project, please create
 Intro
 -----
 
-- `Quick start </src/ONGR/DemoBundle/Resources/doc/quick_start.rst>`_
+- `Quick start </src/ONGR/DemoBundle/Resources/doc/index.rst>`_
 - `Contributing <https://github.com/ongr-io/ongr-handbook/blob/master/source/handbook/contributing/contributing.rst>`_
 
 
