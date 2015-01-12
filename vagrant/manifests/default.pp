@@ -236,3 +236,21 @@ package { 'phantomjs':
   ensure   => present,
   provider => 'npm',
 }
+class { 'rabbitmq':
+  port              => '5672',
+  admin_enable      => true,
+}
+
+rabbitmq_user { 'ongr':
+  admin    => true,
+  password => 'ongr',
+  tags     => ['administrator'],
+  provider => 'rabbitmqctl',
+}
+
+rabbitmq_user_permissions { 'ongr@/':
+  configure_permission => '.*',
+  read_permission      => '.*',
+  write_permission     => '.*',
+  provider             => 'rabbitmqctl',
+}
