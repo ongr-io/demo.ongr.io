@@ -14,6 +14,11 @@ namespace ONGR\DemoBundle\EventListener;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Exception listener.
+ *
+ * @package ONGR\DemoBundle\EventListener
+ */
 class ExceptionListener
 {
     /**
