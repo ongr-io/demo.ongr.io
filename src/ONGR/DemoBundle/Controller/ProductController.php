@@ -50,34 +50,29 @@ class ProductController extends Controller
     /**
      * Render product document.
      *
-     * @param Request $request
      * @param Product $document
      *
      * @return Response
      */
-    public function documentAction(Request $request, $document)
+    public function documentAction($document)
     {
         return $this->render(
             $this->getProductTemplate(),
-            $this->documentActionData($request, $document)
+            $this->documentActionData($document)
         );
     }
 
     /**
      * Returns template data for documentAction.
      *
-     * @param Request $request
      * @param Product $document
      *
      * @return array
      */
-    private function documentActionData(Request $request, $document)
+    private function documentActionData($document)
     {
-        $currentPath = $request->getPathInfo();
-
         return [
             'product' => $document,
-            'selectedCategory' => $document->getSelectedCategory($currentPath),
         ];
     }
 

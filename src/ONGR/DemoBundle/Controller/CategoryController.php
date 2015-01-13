@@ -38,11 +38,7 @@ class CategoryController extends Controller
         /** @var CategoryService $categoryService */
         $categoryService = $this->get('ongr_content.category_service');
 
-        try {
-            $document = $categoryService->getCategory($id);
-        } catch (Missing404Exception $e) {
-            throw $this->createNotFoundException('The category does not exists');
-        }
+        $document = $categoryService->getCategory($id);
 
         // Most actions require an instance of ONGR\ElasticsearchBundle\Document\DocumentInterface
         // in Request object, so we must inject it.

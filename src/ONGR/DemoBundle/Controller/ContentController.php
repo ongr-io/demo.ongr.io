@@ -81,8 +81,8 @@ class ContentController extends Controller
 
         $document = $service->getDocumentBySlug($slug);
 
-        if (!$document) {
-            throw $this->createNotFoundException('The content page does not exist');
+        if (null === $document) {
+            throw $this->createNotFoundException('The content page does not exists');
         }
 
         return $this->documentAction($document);
