@@ -64,13 +64,12 @@ class ContentControllerTest extends WebTestCase
      * @param string $url
      *
      * @dataProvider notExistingUrlsDataProvider()
+     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function testNotExistingUrl($url)
     {
         $client = static::createClient();
-
         $client->request('GET', $url);
-        $this->assertTrue($client->getResponse()->isNotFound(), 'Should throw NotFoundHttpException');
     }
 
     /**
