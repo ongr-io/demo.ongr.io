@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "de7d80127fe511af7cbec9bb27db1206",
+    "hash": "6665b0840f2eaf7061fbf95eefd7ca64",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1260,17 +1260,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ongr-io/PagerBundle.git",
-                "reference": "eb55105e2ff30cc5e9a9d08eac751a2a8271258f"
+                "reference": "43cb1a056b673685513720161223138da1ff3411"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ongr-io/PagerBundle/zipball/eb55105e2ff30cc5e9a9d08eac751a2a8271258f",
-                "reference": "eb55105e2ff30cc5e9a9d08eac751a2a8271258f",
+                "url": "https://api.github.com/repos/ongr-io/PagerBundle/zipball/43cb1a056b673685513720161223138da1ff3411",
+                "reference": "43cb1a056b673685513720161223138da1ff3411",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
-                "symfony/symfony": "~2.3"
+                "symfony/symfony": "~2.6"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.1",
@@ -1294,7 +1294,7 @@
             ],
             "description": "Pager bundle to provide functionality for pagination.",
             "homepage": "http://ongr.io",
-            "time": "2014-11-10 08:33:59"
+            "time": "2014-12-29 14:13:05"
         },
         {
             "name": "ongr/router-bundle",
@@ -1871,23 +1871,23 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.5.7",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "dd4254fc39a702af22cd886a6790769541469da1"
+                "reference": "c34ef418015793a4653f2670afb69dd167ebf578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/dd4254fc39a702af22cd886a6790769541469da1",
-                "reference": "dd4254fc39a702af22cd886a6790769541469da1",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/c34ef418015793a4653f2670afb69dd167ebf578",
+                "reference": "c34ef418015793a4653f2670afb69dd167ebf578",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.2",
+                "doctrine/common": "~2.3",
                 "php": ">=5.3.3",
                 "psr/log": "~1.0",
-                "twig/twig": "~1.12"
+                "twig/twig": "~1.12,>=1.12.3"
             },
             "replace": {
                 "symfony/browser-kit": "self.version",
@@ -1896,6 +1896,7 @@
                 "symfony/console": "self.version",
                 "symfony/css-selector": "self.version",
                 "symfony/debug": "self.version",
+                "symfony/debug-bundle": "self.version",
                 "symfony/dependency-injection": "self.version",
                 "symfony/doctrine-bridge": "self.version",
                 "symfony/dom-crawler": "self.version",
@@ -1930,23 +1931,25 @@
                 "symfony/twig-bridge": "self.version",
                 "symfony/twig-bundle": "self.version",
                 "symfony/validator": "self.version",
+                "symfony/var-dumper": "self.version",
                 "symfony/web-profiler-bundle": "self.version",
                 "symfony/yaml": "self.version"
             },
             "require-dev": {
                 "doctrine/data-fixtures": "1.0.*",
                 "doctrine/dbal": "~2.2",
+                "doctrine/doctrine-bundle": "~1.2",
                 "doctrine/orm": "~2.2,>=2.2.3",
                 "egulias/email-validator": "~1.2",
-                "ircmaxell/password-compat": "1.0.*",
-                "monolog/monolog": "~1.3",
-                "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
+                "ircmaxell/password-compat": "~1.0",
+                "monolog/monolog": "~1.11",
+                "ocramius/proxy-manager": "~0.4|~1.0",
                 "propel/propel1": "~1.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1980,7 +1983,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-11-20 16:00:03"
+            "time": "2015-01-07 14:47:29"
         },
         {
             "name": "twig/extensions",
@@ -2968,6 +2971,7 @@
         "ongr/ongr-strict-standard": 10
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.3"
     },
