@@ -88,12 +88,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-services:
-    kernel.listener.exception_listener:
-        class: ONGR\DemoBundle\EventListener\ExceptionListener
-        tags:
-            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
-
 ongr_content:
     es:
         repositories:
