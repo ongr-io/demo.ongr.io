@@ -11,6 +11,7 @@
 
 namespace ONGR\DemoBundle\Document;
 
+use ONGR\ContentBundle\Document\AbstractContentDocument;
 use ONGR\ElasticsearchBundle\Annotation as ES;
 use ONGR\ElasticsearchBundle\Document\DocumentInterface;
 use ONGR\ElasticsearchBundle\Document\DocumentTrait;
@@ -21,11 +22,8 @@ use ONGR\RouterBundle\Document\SeoAwareTrait;
  *
  * @ES\Document(type="content")
  */
-class Content implements DocumentInterface
+class Content extends AbstractContentDocument implements DocumentInterface
 {
-    use DocumentTrait;
-    use SeoAwareTrait;
-
     /**
      * @var string
      *

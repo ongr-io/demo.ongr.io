@@ -46,22 +46,10 @@ class ContentController extends Controller
     {
         return $this->render(
             'ONGRDemoBundle:Content:page.html.twig',
-            $this->documentActionData($document)
+            [
+                'content' => $document,
+            ]
         );
-    }
-
-    /**
-     * Returns template data for documentAction.
-     *
-     * @param DocumentInterface $document
-     *
-     * @return array
-     */
-    protected function documentActionData($document)
-    {
-        return [
-            'content' => $document,
-        ];
     }
 
     /**
@@ -89,18 +77,6 @@ class ContentController extends Controller
     }
 
     /**
-     * Returns template data for snippetAction.
-     *
-     * @param string $slug
-     *
-     * @return array
-     */
-    protected function snippetActionData($slug)
-    {
-        return $this->get('ongr_content.content_service')->getDataForSnippet($slug);
-    }
-
-    /**
      * Render cms body in template.
      *
      * @param string $slug
@@ -110,9 +86,15 @@ class ContentController extends Controller
      */
     public function snippetAction($slug, $template)
     {
+        $document = $this->get('ongr_content.content_service')->getDocumentBySlug($slug);
+
         return $this->render(
             $template,
-            $this->snippetActionData($slug)
+            [
+                'content' => $document->content,
+                'title' => $document->title,
+                'document' => $document,
+            ]
         );
     }
 }

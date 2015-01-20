@@ -94,6 +94,7 @@ ongr_content:
             product: es.manager.default.product
             content: es.manager.default.content
             category: es.manager.default.category
+    category_root_id: oxrootid
 
 ongr_router:
     es_manager: default
@@ -201,6 +202,7 @@ ongr_filter_manager:
             pager:
                 request_field: 'page'
                 count_per_page: 9
+                max_pages: 10
         sort:
             sorting:
                 request_field: 'sort'
