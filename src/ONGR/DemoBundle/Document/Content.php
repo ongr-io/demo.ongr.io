@@ -11,18 +11,15 @@
 
 namespace ONGR\DemoBundle\Document;
 
-use ONGR\ContentBundle\Document\AbstractContentDocument;
 use ONGR\ElasticsearchBundle\Annotation as ES;
-use ONGR\ElasticsearchBundle\Document\DocumentInterface;
-use ONGR\ElasticsearchBundle\Document\DocumentTrait;
-use ONGR\RouterBundle\Document\SeoAwareTrait;
+use ONGR\ContentBundle\Document\AbstractContentDocument;
 
 /**
  * Holds content page data.
  *
  * @ES\Document(type="content")
  */
-class Content extends AbstractContentDocument implements DocumentInterface
+class Content extends AbstractContentDocument
 {
     /**
      * @var string
