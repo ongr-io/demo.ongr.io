@@ -16,21 +16,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class ContentControllerTest extends WebTestCase
 {
     /**
-     * Returns not existing urls.
-     *
-     * @return array
-     */
-    public function notExistingUrlsDataProvider()
-    {
-        return [
-            ['/doesntexists/'],
-            ['/page/doesntexists/'],
-            ['/category/r4nd0m1d'],
-            ['/product/r4nd0m1d'],
-        ];
-    }
-
-    /**
      * Returns existing urls of pages.
      *
      * @return array
@@ -59,17 +44,22 @@ class ContentControllerTest extends WebTestCase
     }
 
     /**
-     * Tests not existing url.
-     *
-     * @param string $url
-     *
-     * @dataProvider notExistingUrlsDataProvider()
-     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * Tests not existing urls.
      */
-    public function testNotExistingUrl($url)
+    public function testNotExistingUrls()
     {
         $client = static::createClient();
-        $client->request('GET', $url);
+
+        $client->request('GET', '/doesntexists/');
+        $this->assertEquals(404, $client->getResponse()->getStatusCode());
+
+        // Elasticsearch returns Missing404Exception exception, but Symfony converts it to 500 error.
+        // The source can be found here: https://github.com/symfony/HttpKernel/blob/2.6/HttpKernel.php#L247 .
+        $client->request('GET', '/category/r4nd0m1d');
+        $this->assertEquals(500, $client->getResponse()->getStatusCode());
+
+        $client->request('GET', '/product/r4nd0m1d');
+        $this->assertEquals(404, $client->getResponse()->getStatusCode());
     }
 
     /**

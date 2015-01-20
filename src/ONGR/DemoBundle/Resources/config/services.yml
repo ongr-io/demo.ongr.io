@@ -1,8 +1,0 @@
-parameters:
-    ongr_demo.kernel.listener.exception_listener.class: ONGR\DemoBundle\EventListener\ExceptionListener
-
-services:
-    kernel.listener.exception_listener:
-        class: "%ongr_demo.kernel.listener.exception_listener.class%"
-        tags:
-            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
