@@ -12,9 +12,6 @@
 namespace ONGR\DemoBundle\Document;
 
 use ONGR\ElasticsearchBundle\Annotation as ES;
-use ONGR\ElasticsearchBundle\Document\DocumentInterface;
-use ONGR\ElasticsearchBundle\Document\DocumentTrait;
-use ONGR\RouterBundle\Document\SeoAwareTrait;
 use ONGR\ContentBundle\Document\AbstractCategoryDocument;
 
 /**
@@ -22,7 +19,7 @@ use ONGR\ContentBundle\Document\AbstractCategoryDocument;
  *
  * @ES\Document(type="category")
  */
-class Category extends AbstractCategoryDocument implements DocumentInterface
+class Category extends AbstractCategoryDocument
 {
     /**
      * @var string
