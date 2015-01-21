@@ -37,14 +37,6 @@ Intro
 - `Quick start </src/ONGR/DemoBundle/Resources/doc/index.rst>`_
 - `Contributing <https://github.com/ongr-io/ongr-handbook/blob/master/source/handbook/contributing/contributing.rst>`_
 
-
-ONGR Components
----------------
-
 ONGR uses and provides full support for `Elasticsearch Bundle <https://github.com/ongr-io/ElasticsearchBundle>`_.
-
-- `Router Bundle <https://github.com/ongr-io/ElasticsearchBundle>`_
-- `Content bundle <https://github.com/ongr-io/ContentBundle>`_
-- `Filter manager <https://github.com/ongr-io/FilterManagerBundle>`_
 
    More are coming.. ;)
