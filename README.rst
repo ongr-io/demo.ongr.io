@@ -43,8 +43,4 @@ ONGR Components
 
 ONGR uses and provides full support for `Elasticsearch Bundle <https://github.com/ongr-io/ElasticsearchBundle>`_.
 
-- `Router Bundle <https://github.com/ongr-io/ElasticsearchBundle>`_
-- `Content bundle <https://github.com/ongr-io/ContentBundle>`_
-- `Filter manager <https://github.com/ongr-io/FilterManagerBundle>`_
-
    More are coming.. ;)
