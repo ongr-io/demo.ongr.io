@@ -41,3 +41,6 @@
 /phpunit.xml
 
 /src/ONGR/DemoBundle/Tests/Acceptance/parameters.js
+
+/store/magento
+/store/oxid
