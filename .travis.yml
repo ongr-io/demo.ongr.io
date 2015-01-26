@@ -11,7 +11,9 @@ install:
   - npm link
 before_script:
   - app/console es:index:create
-  - app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/data.json
+  - app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/contents.json
+  - app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/categories.json
+  - app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/products.json
   - cp src/ONGR/DemoBundle/Tests/Acceptance/parameters.js.dist src/ONGR/DemoBundle/Tests/Acceptance/parameters.js
   - php -S localhost:8000 web/app_dev.php &
   - sleep 3
