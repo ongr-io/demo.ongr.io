@@ -23,8 +23,8 @@ class ContentControllerTest extends WebTestCase
     public function existingPagesUrlsDataProvider()
     {
         return [
+            ['/'],
             ['/about/'],
-            ['/page/about/'],
         ];
     }
 
@@ -56,7 +56,7 @@ class ContentControllerTest extends WebTestCase
         // Elasticsearch returns Missing404Exception exception, but Symfony converts it to 500 error.
         // The source can be found here: https://github.com/symfony/HttpKernel/blob/2.6/HttpKernel.php#L247 .
         $client->request('GET', '/category/r4nd0m1d');
-        $this->assertEquals(500, $client->getResponse()->getStatusCode());
+        $this->assertEquals(404, $client->getResponse()->getStatusCode());
 
         $client->request('GET', '/product/r4nd0m1d');
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
@@ -76,13 +76,8 @@ class ContentControllerTest extends WebTestCase
 
         $this->assertGreaterThan(
             0,
-            $crawler->filter('html:contains("about")')->count(),
-            'Should be a word "demo" in html content'
-        );
-
-        $this->assertEquals(
-            'About',
-            $crawler->filter('ol.breadcrumb > li.active')->text()
+            $crawler->filter('html:contains("ONGR")')->count(),
+            'Should be a word "ONGR" in html content'
         );
     }
 }
