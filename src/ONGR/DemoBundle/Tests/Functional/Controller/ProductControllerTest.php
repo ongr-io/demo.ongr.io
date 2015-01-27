@@ -25,15 +25,4 @@ class ProductControllerTest extends WebTestCase
 
         $this->assertTrue($client->getResponse()->isOk());
     }
-
-    /**
-     * Tests if product page by id is being loaded.
-     */
-    public function testShowAction()
-    {
-        $client = static::createClient();
-
-        $client->request('GET', '/product/1c174548052bb0453d38b81c51d652f2');
-        $this->assertTrue($client->getResponse()->isOk());
-    }
 }
