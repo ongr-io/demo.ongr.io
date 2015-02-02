@@ -8,6 +8,11 @@ exec { "apt-update":
 }
 #Exec["apt-update"] -> Package <| |>
 
+package { "tzdata":
+  ensure => "2014j-0wheezy1",
+  require => Exec["apt-update"]
+}
+
 ## Begin Server manifest
 class { 'apt': }
 
@@ -183,7 +188,8 @@ file { "/etc/php5/fpm/conf.d/custom.ini":
 #Elasticsearch
 class { 'elasticsearch':
   java_install => true,
-  package_url => 'http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.4.deb',
+  package_url => 'http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.2.deb',
+  require => Package['tzdata']
 }
 
 elasticsearch::instance { 'ongr-01': }
