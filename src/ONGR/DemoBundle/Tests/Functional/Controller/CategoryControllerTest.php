@@ -54,4 +54,25 @@ class CategoryControllerTest extends WebTestCase
         // ONGRDemoBundle:Product:list.html.twig template. We assume that there is no sidebar.
         $this->assertEquals(0, $crawler->filter('ul.nav.nav-pills.nav-stacked.sidebar-category')->count());
     }
+
+    /**
+     * Tests locations where the list of categories is placed.
+     */
+    public function testCategoriesListLocations()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/europe/');
+
+        $this->assertEquals(
+            1,
+            $crawler->filter(
+                'nav.navbar.navbar-default > div.collapse.navbar-collapse > ul.nav.navbar-nav:contains("Europe")'
+            )->count()
+        );
+
+        $this->assertEquals(
+            1,
+            $crawler->filter('ul.sidebar-category > ul:contains("Europe")')->count()
+        );
+    }
 }
