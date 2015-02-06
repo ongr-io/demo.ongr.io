@@ -67,7 +67,8 @@ Let's rock. Move into your project root folder and execute:
 
 That's it. The ONGR is alive.
 
-If you experience any problems (e.g. vagrant tends to change the rules with each update and we might lag a bit) please do not hesitate to @@TODO contact us. We'll help.
+If you experience any problems (e.g. vagrant tends to change the rules with each update and we might lag a bit) please
+do not hesitate to `contact us <http://ongr.io/contact-us/>`_. We'll help.
 
 Now, let's feed the donkey with some data.
 
