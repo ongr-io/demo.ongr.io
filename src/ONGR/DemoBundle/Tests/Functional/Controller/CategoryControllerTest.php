@@ -21,11 +21,27 @@ class CategoryControllerTest extends WebTestCase
     public function testDocumentAction()
     {
         $client = static::createClient();
-
         $crawler = $client->request('GET', '/europe/');
-        $crawler = $crawler->filter('div.col-sm-9 > ol.breadcrumb');
 
-        $this->assertEquals(2, $crawler->children()->count(), 'Should be two elements in breadcrumb trail.');
+        $this->assertEquals(
+            2,
+            $crawler->filter('div.col-sm-9 > ol.breadcrumb')->children()->count(),
+            'Should be two elements in breadcrumb trail.'
+        );
+
+        // Main navbar should have categories.
+        $this->assertEquals(
+            1,
+            $crawler->filter(
+                'nav.navbar.navbar-default > div.collapse.navbar-collapse > ul.nav.navbar-nav:contains("Europe")'
+            )->count()
+        );
+
+        // Sidebar should have categories as well.
+        $this->assertEquals(
+            1,
+            $crawler->filter('ul.sidebar-category > ul:contains("Europe")')->count()
+        );
     }
 
     /**
