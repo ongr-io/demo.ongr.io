@@ -23,3 +23,10 @@ parameters:
 
     # Assetic
     java_path: /usr/bin/java
+
+    #Elasticsearch
+    es_host: 127.0.0.1:9200
+    es_index_name: ongr
+    es_number_of_shards: 2
+    es_number_of_replicas: 0
+    es_refresh_interval: -1
