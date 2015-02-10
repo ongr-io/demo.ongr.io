@@ -119,13 +119,13 @@ ongr_elasticsearch:
     connections:
         default:
             hosts:
-                - { host: 127.0.0.1:9200 }
-            index_name: ongr
+                - { host: "%es_host%" }
+            index_name: "%es_index_name%"
             settings:
-                number_of_shards: 2
-                number_of_replicas: 0
+                number_of_shards: "%es_number_of_shards%"
+                number_of_replicas: "%es_number_of_replicas%"
                 index:
-                    refresh_interval: -1
+                    refresh_interval: "%refresh_interval%"
                 analysis:
                     tokenizer:
                         pathTokenizer:
