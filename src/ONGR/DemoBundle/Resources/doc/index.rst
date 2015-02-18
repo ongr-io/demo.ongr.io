@@ -7,9 +7,13 @@ Let's get started. We'll guide you step by step through installing and running O
 Step 1: Requirements.
 ---------------------
 
-Yes there are a few.
+- Your machine has to be powerful enough to run ``Vagrant`` and ``Puppet``.
+- Linux/Unix or OS X based environment.
+- For Linux environment you might need to enable virtualization support in your BIOS (`more info <http://askubuntu.com/a/256853>`_).
+- For OS X environment you will need command line tools aka XCode.
 
-Please check if your development environment does meet the following :doc:`/handbook/requirements`.
+We do not support Microsoft Windows as a development environment.
+This might change in the future but for now you either need Linux/Unix based environment or OS X.
 
 Step 2: Download ONGR
 ---------------------
