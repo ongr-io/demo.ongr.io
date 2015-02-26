@@ -59,15 +59,7 @@ Let's rock. Move into your project root folder and execute:
 
 ..
 
-(In case you have also something like VMWare installed on your local machine, it is a good idea to give the provider when upping your box:
-
-.. code-block:: bash
-
-    vagrant up --provider=virtualbox
-
-..
-
-)
+.. note:: Currently we have only Virtualbox provider support. We are working on others and soon should be docker provider ready to use.
 
 That's it. The ONGR is alive.
 
