@@ -33,10 +33,3 @@ _ongr_breadcrumbs:
         maxLevel: 20
         partialTree: "pt"
         selectedCategory: null
-
-# Content
-_ongr_plain_cms_snippet:
-    pattern:  /_proxy/cmsSnippet/{slug}/{template}
-    defaults:
-        _controller: ONGRDemoBundle:Content:snippet
-        template: ONGRDemoBundle:Content:snippet.html.twig

@@ -12,33 +12,14 @@
 namespace ONGR\DemoBundle\Document;
 
 use ONGR\ElasticsearchBundle\Annotation as ES;
-use ONGR\ContentBundle\Document\AbstractContentDocument;
+use ONGR\ContentBundle\Document\AbstractContentDocument as Base;
 
 /**
  * Holds content page data.
  *
  * @ES\Document(type="content")
  */
-class Content extends AbstractContentDocument
+class Content extends Base
 {
-    /**
-     * @var string
-     *
-     * @ES\Property(name="slug", type="string", index="not_analyzed")
-     */
-    public $slug;
-
-    /**
-     * @var string
-     *
-     * @ES\Property(name="title", type="string", search_analyzer="standard")
-     */
-    public $title;
-
-    /**
-     * @var string
-     *
-     * @ES\Property(name="content", type="string")
-     */
-    public $content;
+    //Put here type modifications if needed
 }

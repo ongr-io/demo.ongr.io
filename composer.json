@@ -19,18 +19,16 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
 
-        "ongr/elasticsearch-bundle": "~0.2",
-        "ongr/filter-manager-bundle": "~0.1",
-        "ongr/content-bundle": "~0.1",
-        "ongr/pager-bundle": "dev-master",
-        "ongr/router-bundle": "~0.2",
-        "ongr/ssi-bundle": "v0.3.0"
+        "ongr/elasticsearch-bundle": "~0.8",
+        "ongr/filter-manager-bundle": "~0.4",
+        "ongr/content-bundle": "~0.4",
+        "ongr/router-bundle": "~0.3"
 
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
         "phpunit/phpunit": "~4.3",
-        "ongr/ongr-strict-standard": "~1.0-beta",
+        "ongr/ongr-strict-standard": "~1.0",
         "squizlabs/php_codesniffer": "~1.5"
     },
     "scripts": {

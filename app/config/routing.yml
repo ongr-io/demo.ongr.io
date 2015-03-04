@@ -1,3 +1,6 @@
 ongr_demo:
     resource: "@ONGRDemoBundle/Resources/config/routing.yml"
     prefix:   /
+
+ongr_content_snippet:
+    resource: "@ONGRContentBundle/Resources/config/routing.yml"
