@@ -31,11 +31,6 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:          { asset_reset: %asset_reset%, top_cms_links: %top_cms_links% }
 
-# SSI config
-crunch_ssi:
-    inline:     false
-    use_header: true
-
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
@@ -178,7 +173,7 @@ ongr_filter_manager:
                 - search
                 - pager
                 - sorting
-            repository: 'product'
+            repository: 'es.manager.default.product'
     filters:
         choice:
             country:

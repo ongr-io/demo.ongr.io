@@ -51,26 +51,4 @@ class ContentController extends Controller
             ]
         );
     }
-
-    /**
-     * Render cms body in template.
-     *
-     * @param string $slug
-     * @param string $template
-     *
-     * @return Response
-     */
-    public function snippetAction($slug, $template)
-    {
-        $document = $this->get('ongr_content.content_service')->getDocumentBySlug($slug);
-
-        return $this->render(
-            $template,
-            [
-                'content' => $document->content,
-                'title' => $document->title,
-                'document' => $document,
-            ]
-        );
-    }
 }

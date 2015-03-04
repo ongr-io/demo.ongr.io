@@ -65,7 +65,7 @@
     {% endblock %}
 
     {% if filters.pager is defined %}
-        <div class="pull-right">{{ paginate(filters.pager.pager, block('page_route'), filters.pager.getUrlParameters()|merge(default_route_parameters)) }}</div>
+        <div class="pull-right">{{ ongr_paginate(filters.pager.pager, block('page_route'), filters.pager.getUrlParameters()|merge(default_route_parameters)) }}</div>
         <div class="clearfix"></div>
     {% endif %}
 {% endblock %}

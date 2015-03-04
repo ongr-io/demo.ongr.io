@@ -17,16 +17,12 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
-            new ONGR\DemoBundle\ONGRDemoBundle(),
-
             //Third party
+            new ONGR\DemoBundle\ONGRDemoBundle(),
             new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
-
             new ONGR\RouterBundle\ONGRRouterBundle(),
             new ONGR\FilterManagerBundle\ONGRFilterManagerBundle(),
             new ONGR\ContentBundle\ONGRContentBundle(),
-            new ONGR\PagerBundle\ONGRPagerBundle(),
-            new Crunch\Bundle\SSIBundle\CrunchSSIBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
