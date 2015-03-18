@@ -11,6 +11,7 @@ install:
   - npm link
 before_script:
   - app/console es:index:create
+  - app/console es:type:update --force
   - app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/contents.json
   - app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/categories.json
   - app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/products.json
