@@ -250,7 +250,6 @@ class { 'rabbitmq':
 rabbitmq_user { 'ongr':
   admin    => true,
   password => 'ongr',
-  tags     => ['administrator'],
   provider => 'rabbitmqctl',
 }
 
