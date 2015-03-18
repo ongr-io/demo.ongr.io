@@ -18,7 +18,15 @@ This might change in the future but for now you either need Linux/Unix based env
 Step 2: Download ONGR
 ---------------------
 
-Download the latest release here `archive <https://github.com/ongr-io/ongr-sandbox/releases>`_ and unpack it somewhere under your project directory. Make sure that we have the "Vagrantfile" in the your project root folder.
+You can download the latest release using `composer <https://getcomposer.org/download>`_ by typing:
+
+.. code-block:: bash
+
+    composer create-project ongr/ongr-sandbox --no-interaction
+
+..
+
+Or you can download it from the `archive <https://github.com/ongr-io/ongr-sandbox/releases>`_ and unpack it somewhere under your project directory. Make sure that we have the "Vagrantfile" in the your project root folder.
 
 Step 3: Install Virtual Box
 ---------------------------
@@ -76,16 +84,15 @@ In case to get demo content you need to run the following commands from command 
 .. code-block:: bash
 
     vagrant ssh
-    cd /var/www
     composer install --no-interaction
     app/console es:index:create
-    app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/contents.json
-    app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/categories.json
-    app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/products.json
+    app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/data.json
 
 ..
 
    If composer prompts input questions just press enter.
+
+.. note:: Command "composer install --no-interaction" is not necessary if you downloaded project using composer.
 
 Step 7: Open your browser
 -------------------------
