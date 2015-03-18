@@ -21,5 +21,5 @@ use ONGR\ContentBundle\Document\AbstractContentDocument as Base;
  */
 class Content extends Base
 {
-    //Put here type modifications if needed
+    // Put here type modifications if needed.
 }

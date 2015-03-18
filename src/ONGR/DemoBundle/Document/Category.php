@@ -22,9 +22,9 @@ use ONGR\ContentBundle\Document\AbstractCategoryDocument as Base;
 class Category extends Base
 {
     /**
-     * Overriding title field to change search analyzer
-     *
      * @var string
+     *
+     * Overriding title field to change search analyzer.
      *
      * @ES\Property(name="title", type="string", search_analyzer="standard")
      */
