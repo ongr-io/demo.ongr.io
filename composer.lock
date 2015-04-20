@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f0c2741948ac5510d5d905978bdfdf08",
+    "hash": "3dab9d2111378951ba08442da75213f4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2065,35 +2065,35 @@
         },
         {
             "name": "ongr/ongr-strict-standard",
-            "version": "v1.0.0",
-            "target-dir": "ONGR",
+            "version": "v2.1.0",
+            "target-dir": "Ongr",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ongr-io/ongr-strict-standard.git",
-                "reference": "0889ce9db87db49db058426753c38ab6350c6580"
+                "reference": "d06defc17657f64f605d7b0481f826fd7cbaf6a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ongr-io/ongr-strict-standard/zipball/0889ce9db87db49db058426753c38ab6350c6580",
-                "reference": "0889ce9db87db49db058426753c38ab6350c6580",
+                "url": "https://api.github.com/repos/ongr-io/ongr-strict-standard/zipball/d06defc17657f64f605d7b0481f826fd7cbaf6a6",
+                "reference": "d06defc17657f64f605d7b0481f826fd7cbaf6a6",
                 "shasum": ""
             },
             "require": {
-                "php": "~5.4"
+                "php": ">=5.4"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.2",
-                "squizlabs/php_codesniffer": "1.*"
+                "squizlabs/php_codesniffer": "~2.0"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "ONGR\\": ""
+                    "Ongr\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -2109,7 +2109,7 @@
                 "standard",
                 "symfony"
             ],
-            "time": "2015-01-22 13:45:40"
+            "time": "2015-04-20 10:27:23"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -3011,32 +3011,31 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "1.5.6",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "6f3e42d311b882b25b4d409d23a289f4d3b803d5"
+                "reference": "5046b0e01c416fc2b06df961d0673c85bcdc896c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/6f3e42d311b882b25b4d409d23a289f4d3b803d5",
-                "reference": "6f3e42d311b882b25b4d409d23a289f4d3b803d5",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5046b0e01c416fc2b06df961d0673c85bcdc896c",
+                "reference": "5046b0e01c416fc2b06df961d0673c85bcdc896c",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
                 "php": ">=5.1.2"
             },
-            "suggest": {
-                "phpunit/php-timer": "dev-master"
-            },
             "bin": [
-                "scripts/phpcs"
+                "scripts/phpcs",
+                "scripts/phpcbf"
             ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-phpcs-fixer": "2.0.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -3045,12 +3044,12 @@
                     "CodeSniffer/CLI.php",
                     "CodeSniffer/Exception.php",
                     "CodeSniffer/File.php",
+                    "CodeSniffer/Fixer.php",
                     "CodeSniffer/Report.php",
                     "CodeSniffer/Reporting.php",
                     "CodeSniffer/Sniff.php",
                     "CodeSniffer/Tokens.php",
                     "CodeSniffer/Reports/",
-                    "CodeSniffer/CommentParser/",
                     "CodeSniffer/Tokenizers/",
                     "CodeSniffer/DocGenerators/",
                     "CodeSniffer/Standards/AbstractPatternSniff.php",
@@ -3076,13 +3075,13 @@
                     "role": "lead"
                 }
             ],
-            "description": "PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
             "homepage": "http://www.squizlabs.com/php-codesniffer",
             "keywords": [
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-12-04 22:32:15"
+            "time": "2015-03-04 02:07:03"
         }
     ],
     "aliases": [],
