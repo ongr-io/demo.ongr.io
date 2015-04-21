@@ -28,8 +28,8 @@
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
         "phpunit/phpunit": "~4.3",
-        "ongr/ongr-strict-standard": "~1.0",
-        "squizlabs/php_codesniffer": "~1.5"
+        "ongr/ongr-strict-standard": "~2.1",
+        "squizlabs/php_codesniffer": "~2.0"
     },
     "scripts": {
         "post-root-package-install": [
