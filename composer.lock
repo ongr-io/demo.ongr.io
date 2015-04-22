@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3dab9d2111378951ba08442da75213f4",
+    "hash": "b9fe011de34711211de945eeb1234099",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -774,6 +774,64 @@
             "time": "2015-03-02 16:32:23"
         },
         {
+            "name": "friendsofsymfony/jsrouting-bundle",
+            "version": "1.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
+                "reference": "539a6ac0c1fb6b010f92a1c877426a4caa5abba1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/539a6ac0c1fb6b010f92a1c877426a4caa5abba1",
+                "reference": "539a6ac0c1fb6b010f92a1c877426a4caa5abba1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/console": "~2.0",
+                "symfony/framework-bundle": "~2.0",
+                "symfony/serializer": "~2.0",
+                "willdurand/jsonp-callback-validator": "~1.0"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~2.4"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FOS\\JsRoutingBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSJsRoutingBundle/contributors"
+                },
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com"
+                }
+            ],
+            "description": "A pretty nice way to expose your Symfony2 routing to client applications.",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "Js Routing",
+                "javascript",
+                "routing"
+            ],
+            "time": "2015-01-23 02:44:26"
+        },
+        {
             "name": "guzzle/guzzle",
             "version": "v3.9.2",
             "source": {
@@ -1161,16 +1219,16 @@
         },
         {
             "name": "ongr/elasticsearch-bundle",
-            "version": "v0.8.1",
+            "version": "v0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ongr-io/ElasticsearchBundle.git",
-                "reference": "0e905aa6018e17fa7d7a634930378adb8c8cf0d7"
+                "reference": "70cc851d5460d215ad1b118b9ed1107f30a2c850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ongr-io/ElasticsearchBundle/zipball/0e905aa6018e17fa7d7a634930378adb8c8cf0d7",
-                "reference": "0e905aa6018e17fa7d7a634930378adb8c8cf0d7",
+                "url": "https://api.github.com/repos/ongr-io/ElasticsearchBundle/zipball/70cc851d5460d215ad1b118b9ed1107f30a2c850",
+                "reference": "70cc851d5460d215ad1b118b9ed1107f30a2c850",
                 "shasum": ""
             },
             "require": {
@@ -1180,18 +1238,12 @@
                 "symfony/symfony": "~2.3"
             },
             "require-dev": {
-                "incenteev/composer-parameter-handler": "~2.0",
                 "mikey179/vfsstream": "~1.4",
-                "ongr/ongr-strict-standard": "~1.0",
-                "phpunit/phpunit": "~4.1",
-                "squizlabs/php_codesniffer": "~1.5"
+                "ongr/ongr-strict-standard": "~2.0",
+                "phpunit/phpunit": "~4.4",
+                "squizlabs/php_codesniffer": "~2.0"
             },
             "type": "symfony-bundle",
-            "extra": {
-                "incenteev-parameters": {
-                    "file": "Tests/app/config/parameters_test.yml"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "ONGR\\ElasticsearchBundle\\": ""
@@ -1204,12 +1256,12 @@
             "authors": [
                 {
                     "name": "ONGR team",
-                    "homepage": "http://www.nfq.com"
+                    "homepage": "http://www.ongr.io"
                 }
             ],
             "description": "elasticsearch php client bundle for Symfony 2.",
             "homepage": "http://ongr.io",
-            "time": "2015-03-02 14:15:18"
+            "time": "2015-04-22 13:42:36"
         },
         {
             "name": "ongr/filter-manager-bundle",
@@ -1304,6 +1356,52 @@
                 "seo"
             ],
             "time": "2015-02-23 11:20:34"
+        },
+        {
+            "name": "ongr/translations-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ongr-io/TranslationsBundle.git",
+                "reference": "8f1c024778e79cd05e2f7b9c6f22e4871993d455"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ongr-io/TranslationsBundle/zipball/8f1c024778e79cd05e2f7b9c6f22e4871993d455",
+                "reference": "8f1c024778e79cd05e2f7b9c6f22e4871993d455",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofsymfony/jsrouting-bundle": "~1.5",
+                "ongr/elasticsearch-bundle": "~0.8",
+                "ongr/filter-manager-bundle": "~0.4",
+                "symfony/symfony": "~2.6"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "1.4",
+                "ongr/ongr-strict-standard": "~1.0",
+                "phpunit/phpunit": "~4.4",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "ONGR\\TranslationsBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ONGR team",
+                    "homepage": "http://www.ongr.io"
+                }
+            ],
+            "description": "ONGR translations bundle",
+            "homepage": "http://ongr.io",
+            "time": "2015-04-15 13:24:44"
         },
         {
             "name": "pimple/pimple",
@@ -2006,6 +2104,46 @@
                 "templating"
             ],
             "time": "2015-01-25 17:32:08"
+        },
+        {
+            "name": "willdurand/jsonp-callback-validator",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willdurand/JsonpCallbackValidator.git",
+                "reference": "1a7d388bb521959e612ef50c5c7b1691b097e909"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willdurand/JsonpCallbackValidator/zipball/1a7d388bb521959e612ef50c5c7b1691b097e909",
+                "reference": "1a7d388bb521959e612ef50c5c7b1691b097e909",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JsonpCallbackValidator": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                }
+            ],
+            "description": "JSONP callback validator.",
+            "time": "2014-01-20 22:35:06"
         }
     ],
     "packages-dev": [
@@ -3086,7 +3224,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ongr/translations-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

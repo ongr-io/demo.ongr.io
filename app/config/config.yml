@@ -161,6 +161,11 @@ ongr_elasticsearch:
             debug: "%kernel.debug%"
             mappings:
                 - ONGRDemoBundle
+        translation:
+            connection: default
+            debug: true
+            mappings:
+                - ONGRTranslationsBundle
 
 ongr_filter_manager:
     managers:
@@ -206,3 +211,7 @@ ongr_filter_manager:
                     - { label: Price descending, field: price, order: desc }
                     - { label: Title ascending, field: title }
                     - { label: Title descending, field: title, order: desc }
+
+ongr_translations:
+    managed_locales: ["lt", "de", "en"]
+    repository: 'es.manager.translation.translation'

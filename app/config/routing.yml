@@ -4,3 +4,10 @@ ongr_demo:
 
 ongr_content_snippet:
     resource: "@ONGRContentBundle/Resources/config/routing.yml"
+
+ongr_translation_ui:
+    resource: "@ONGRTranslationsBundle/Resources/config/routing.yml"
+    prefix:   /translations
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
