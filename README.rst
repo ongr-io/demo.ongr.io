@@ -19,16 +19,16 @@ If you find some issues or great ideas how to improve the project, please create
 .. image:: https://insight.sensiolabs.com/projects/c87c7d17-ae5e-41df-bded-e2de25ad4484/mini.png
     :target: https://insight.sensiolabs.com/projects/c87c7d17-ae5e-41df-bded-e2de25ad4484
 
-.. image:: https://poser.pugx.org/ongr/ongr-sandbox/downloads.svg
+.. image:: https://poser.pugx.org/ongr/ongr-sandbox/downloads
     :target: https://packagist.org/packages/ongr/ongr-sandbox
 
-.. image:: https://poser.pugx.org/ongr/ongr-sandbox/v/stable.svg
+.. image:: https://poser.pugx.org/ongr/ongr-sandbox/v/stable
     :target: https://packagist.org/packages/ongr/ongr-sandbox
 
-.. image:: https://poser.pugx.org/ongr/ongr-sandbox/v/unstable.svg
+.. image:: https://poser.pugx.org/ongr/ongr-sandbox/v/unstable
     :target: https://packagist.org/packages/ongr/ongr-sandbox
 
-.. image:: https://poser.pugx.org/ongr/ongr-sandbox/license.svg
+.. image:: https://poser.pugx.org/ongr/ongr-sandbox/license
     :target: https://packagist.org/packages/ongr/ongr-sandbox
 
 Intro
