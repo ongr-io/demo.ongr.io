@@ -26,7 +26,7 @@ class Category extends Base
      *
      * Overriding title field to change search analyzer.
      *
-     * @ES\Property(name="title", type="string", search_analyzer="standard")
+     * @ES\Property(name="title", type="string", searchAnalyzer="standard")
      */
     public $title;
 }
