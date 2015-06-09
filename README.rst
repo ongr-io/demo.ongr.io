@@ -7,6 +7,13 @@ It is a separate system from your original application where you re-implement or
 
 If you find some issues or great ideas how to improve the project, please create an issue in GitHub. Also everyone are more than welcome to contribute using pull requests. More information is in `contributing page <https://github.com/ongr-io/ongr-handbook/blob/master/source/handbook/contributing/contributing.rst>`_.
 
+
+If you need any help feel free to ask in our chat: |gitter|
+
+.. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
+    :target: https://gitter.im/ongr-io/support
+    
+
 .. image:: https://travis-ci.org/ongr-io/ongr-sandbox.svg?branch=master
     :target: https://travis-ci.org/ongr-io/ongr-sandbox
 
@@ -30,7 +37,7 @@ If you find some issues or great ideas how to improve the project, please create
 
 .. image:: https://poser.pugx.org/ongr/ongr-sandbox/license
     :target: https://packagist.org/packages/ongr/ongr-sandbox
-
+    
 Intro
 -----
 
