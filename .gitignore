@@ -5,6 +5,7 @@
 
 # Vagrant cache files
 /.vagrant
+/vagrant/modules
 
 # Composer
 /composer.phar

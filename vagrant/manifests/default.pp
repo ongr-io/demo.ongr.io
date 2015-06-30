@@ -1,29 +1,12 @@
-# Ensure the time is accurate, reducing the possibilities of apt repositories
-# failing for invalid certificates
+# # Ensure the time is accurate, reducing the possibilities of apt repositories
+# # failing for invalid certificates
 include git
 include composer
 
+Exec["apt-update"] -> Package <| |>
+
 exec { "apt-update":
   command => "/usr/bin/apt-get update"
-}
-#Exec["apt-update"] -> Package <| |>
-
-package { "tzdata":
-  ensure => "2014j-0wheezy1",
-  require => Exec["apt-update"]
-}
-
-## Begin Server manifest
-class { 'apt': }
-
-apt::source { 'packages.dotdeb.org-php55':
-    location          => 'http://packages.dotdeb.org',
-    release           => 'wheezy-php55',
-    repos             => 'all',
-    required_packages => 'debian-keyring debian-archive-keyring',
-    key               => '89DF5277',
-    key_server        => 'keys.gnupg.net',
-    include_src       => true
 }
 
 Exec { path => [ '/usr/local/bin', '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/' ] }
@@ -53,13 +36,13 @@ file_line { "vagrant_ssh_dir":
 
 ensure_packages( ['augeas-tools'] )
 
+
 class { 'nginx': }
 
-nginx::resource::vhost { 'ongr.dev':
+nginx::resource::vhost { $vhost:
   ensure               => present,
   server_name          => [
-    'ongr.dev',
-    'www.ongr.dev'
+    $vhost
   ],
   index_files          => [
     'app_dev.php',
@@ -73,8 +56,8 @@ nginx::resource::vhost { 'ongr.dev':
   }
 }
 
-nginx::resource::location { "ongr.dev-php":
-    vhost               => 'ongr.dev',
+nginx::resource::location { "${vhost}-php":
+    vhost               => $vhost,
     location            => '~ \.php$',
     proxy               => undef,
     www_root            => '/var/www/web/',
@@ -94,6 +77,7 @@ nginx::resource::location { "ongr.dev-php":
     },
     notify              => Class['nginx::service'];
 }
+
 
 class { '::mysql::server':
   root_password    => 'root',
@@ -119,9 +103,20 @@ class { 'php':
   service_autorestart => false,
   config_file         => "/etc/php5/fpm/php.ini",
   require => [
-    File['/etc/apt/sources.list.d/packages.dotdeb.org-php55.list'],
     Exec['apt-update']
   ]
+}
+
+exec { "php-fpm-owner-fix":
+  command => "sed -i 's/;listen.owner/listen.owner/g' /etc/php5/fpm/pool.d/www.conf",
+  require => Class["php"],
+  notify => Service["php5-fpm"]
+}
+
+exec { "php-fpm-group-fix":
+  command => "sed -i 's/;listen.group/listen.group/g' /etc/php5/fpm/pool.d/www.conf",
+  require => Class["php"],
+  notify => Service["php5-fpm"]
 }
 
 service { "php5-fpm":
@@ -145,21 +140,10 @@ php::module {
   ]:
 }
 
-exec { "php-fpm-owner-fix":
-  command => "sed -i 's/;listen.owner/listen.owner/g' /etc/php5/fpm/pool.d/www.conf",
-  require => Class["php"],
-  notify => Service["php5-fpm"]
-}
-
-exec { "php-fpm-group-fix":
-  command => "sed -i 's/;listen.group/listen.group/g' /etc/php5/fpm/pool.d/www.conf",
-  require => Class["php"],
-  notify => Service["php5-fpm"]
-}
-
 augeas { "custom":
   context => "/files/etc/php5/mods-available/custom.ini",
   changes => [
+  "set PHP/opcache.enable 0",
   "set PHP/date.timezone Europe/Vilnius",
   "set XDEBUG/xdebug.default_enable 1",
   "set XDEBUG/xdebug.max_nesting_level 250",
@@ -168,10 +152,11 @@ augeas { "custom":
   "set XDEBUG/xdebug.remote_enable 1",
   "set XDEBUG/xdebug.remote_handler dbgp",
   "set XDEBUG/xdebug.remote_port 9000",
-  "set XDEBUG/xdebug.remote_host 192.168.33.1"
+  "set XDEBUG/xdebug.remote_host 192.168.60.1"
   ],
-  require => Class["php"]
+  require => [Class["php"], Package['php5-cli']]
 }
+
 
 file { "/etc/php5/cli/conf.d/custom.ini":
     ensure => link,
@@ -187,9 +172,10 @@ file { "/etc/php5/fpm/conf.d/custom.ini":
 
 #Elasticsearch
 class { 'elasticsearch':
+  manage_repo  => true,
+  repo_version => '1.4',
   java_install => true,
-  package_url => 'http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.2.deb',
-  require => Package['tzdata']
+  version => '1.4.2'
 }
 
 elasticsearch::instance { 'ongr-01': }
@@ -203,7 +189,6 @@ elasticsearch::plugin{'elasticsearch/marvel/latest':
     module_dir => 'marvel',
     instances  => 'ongr-01'
 }
-
 
 # Install compass as gem
 package { 'compass':
@@ -219,8 +204,9 @@ exec { 'sass-css-importer':
 file { '/usr/local/bin/debug':
   ensure => present,
   mode => 755,
-  content => "#!/bin/sh\nenv PHP_IDE_CONFIG=\"serverName=ongr\" XDEBUG_CONFIG=\"idekey=PHPSTORM\" SYMFONY_DEBUG=\"1\" $@"
+  content => "#!/bin/sh\nenv PHP_IDE_CONFIG=\"serverName=fleet\" XDEBUG_CONFIG=\"idekey=PHPSTORM\" SYMFONY_DEBUG=\"1\" $@"
 }
+
 
 exec { "node_sources" :
   command => "curl -sL https://deb.nodesource.com/setup | bash -",
@@ -232,30 +218,26 @@ package { 'nodejs':
   ensure => installed,
 }
 
-package { 'npm':
-  require => Exec['node_sources'],
+package { 'bower':
+  provider => 'npm',
+  require => Package['nodejs'],
+  ensure => installed,
+}
+
+package { 'gulp':
+  provider => 'npm',
+  require => Package['nodejs'],
   ensure => installed,
 }
 
 package { 'phantomjs':
-  require => Package['npm'],
-  ensure   => present,
   provider => 'npm',
-}
-class { 'rabbitmq':
-  port              => '5672',
-  admin_enable      => true,
+  require => Package['nodejs'],
+  ensure   => present,
 }
 
-rabbitmq_user { 'ongr':
-  admin    => true,
-  password => 'ongr',
-  provider => 'rabbitmqctl',
-}
-
-rabbitmq_user_permissions { 'ongr@/':
-  configure_permission => '.*',
-  read_permission      => '.*',
-  write_permission     => '.*',
-  provider             => 'rabbitmqctl',
+package { 'casperjs':
+  provider => 'npm',
+  require => Package['phantomjs'],
+  ensure   => present,
 }
