@@ -22,7 +22,7 @@
         "ongr/elasticsearch-bundle": "~0.9",
         "ongr/filter-manager-bundle": "~0.4",
         "ongr/content-bundle": "~0.4",
-        "ongr/router-bundle": "~0.3",
+        "ongr/router-bundle": "<=0.4.3",
         "ongr/translations-bundle": "dev-master",
         "jms/serializer-bundle": "~1.0"
     },

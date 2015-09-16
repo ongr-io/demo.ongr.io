@@ -78,6 +78,7 @@ nginx::resource::location { "${vhost}-php":
 
 
 class { '::mysql::server':
+  root_password    => 'root',
   override_options => {
     'mysqld' => {
       'log-bin' => 'mysql-bin',
@@ -87,8 +88,8 @@ class { '::mysql::server':
 }
 
 mysql::db { 'ongr':
-  user     => 'root',
-  password => 'root',
+  user     => 'ongr',
+  password => 'ongr',
   host     => 'localhost',
 }
 
@@ -176,9 +177,8 @@ file { "/etc/php5/fpm/conf.d/custom.ini":
 #Elasticsearch
 class { 'elasticsearch':
   manage_repo  => true,
-  repo_version => '1.7',
+  repo_version => '1.4',
   java_install => true,
-  version => '1.7.1'
 }
 
 elasticsearch::instance { 'ongr-01': }
