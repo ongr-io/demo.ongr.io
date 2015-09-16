@@ -26,7 +26,7 @@ You can download the latest release using `composer <https://getcomposer.org/dow
 
 ..
 
-Or you can download it from the `archive <https://github.com/ongr-io/ongr-sandbox/releases>`_ and unpack it somewhere under your project directory. Make sure that we have the "Vagrantfile" in the your project root folder.
+Or you can download it from the `archive <https://github.com/ongr-io/ongr-sandbox/releases>`_ and unpack it somewhere under your project directory. 
 
 Step 3: Install Virtual Box
 ---------------------------
@@ -56,7 +56,11 @@ And finally - ONLY_FOR_LINUX you need to install the nfs server:
 
 ..
 
-Step 5: Start virtual machine using Vagrant
+Step 5: Download VM provisioning files
+-------------------------------------------
+Download our latest vagrant provisioning `archive <https://github.com/ongr-io/testing-vm/archive/puppet.zip>`_ and unpack it in your ONGR sanbox project root. 
+
+Step 6: Start virtual machine using Vagrant
 -------------------------------------------
 
 Let's rock. Move into your project root folder and execute:
@@ -67,7 +71,7 @@ Let's rock. Move into your project root folder and execute:
 
 ..
 
-.. note:: Currently we have only Virtualbox provider support. We are working on others and soon should be docker provider ready to use.
+.. note:: Currently we have only Virtualbox provider support. We are working on others and should have docker provider ready to use soon.
 
 That's it. The ONGR is alive.
 
@@ -76,7 +80,7 @@ do not hesitate to `contact us <http://ongr.io/contact-us/>`_. We'll help.
 
 Now, let's feed the donkey with some data.
 
-Step 6: Install the demo data
+Step 7: Install the demo data
 -----------------------------
 
 In case to get demo content you need to run the following commands from command line:
@@ -85,11 +89,12 @@ In case to get demo content you need to run the following commands from command 
 
     vagrant ssh
     composer install --no-interaction
-    app/console es:index:create
-    app/console es:type:update --force
-    app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/categories.json 
-    app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/products.json 
-    app/console es:index:import --raw src/ONGR/DemoBundle/Resources/data/contents.json 
+    app/console ongr:es:index:create
+    app/console ongr:es:type:update --force
+    app/console ongr:es:index:import --raw src/ONGR/DemoBundle/Resources/data/categories.json 
+    app/console ongr:es:index:import --raw src/ONGR/DemoBundle/Resources/data/products.json 
+    app/console ongr:es:index:import --raw src/ONGR/DemoBundle/Resources/data/contents.json 
+    app/console assetic:dump
 
 ..
 
