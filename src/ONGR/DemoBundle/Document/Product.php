@@ -17,7 +17,7 @@ use ONGR\ContentBundle\Document\AbstractProductDocument as Base;
 /**
  * Product document.
  *
- * @ES\Document
+ * @ES\Document(type="product")
  */
 class Product extends Base
 {

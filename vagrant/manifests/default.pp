@@ -176,9 +176,9 @@ file { "/etc/php5/fpm/conf.d/custom.ini":
 #Elasticsearch
 class { 'elasticsearch':
   manage_repo  => true,
-  repo_version => '1.4',
+  repo_version => '1.7',
   java_install => true,
-  version => '1.4.2'
+  version => '1.7.1'
 }
 
 elasticsearch::instance { 'ongr-01': }
