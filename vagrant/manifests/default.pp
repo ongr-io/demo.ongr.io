@@ -3,8 +3,6 @@
 include git
 include composer
 
-Exec["apt-update"] -> Package <| |>
-
 exec { "apt-update":
   command => "/usr/bin/apt-get update"
 }
@@ -204,7 +202,7 @@ exec { 'sass-css-importer':
 file { '/usr/local/bin/debug':
   ensure => present,
   mode => 755,
-  content => "#!/bin/sh\nenv PHP_IDE_CONFIG=\"serverName=fleet\" XDEBUG_CONFIG=\"idekey=PHPSTORM\" SYMFONY_DEBUG=\"1\" $@"
+  content => "#!/bin/sh\nenv PHP_IDE_CONFIG=\"serverName=ongr\" XDEBUG_CONFIG=\"idekey=PHPSTORM\" SYMFONY_DEBUG=\"1\" $@"
 }
 
 
