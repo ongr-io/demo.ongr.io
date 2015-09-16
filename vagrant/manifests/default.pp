@@ -78,13 +78,18 @@ nginx::resource::location { "${vhost}-php":
 
 
 class { '::mysql::server':
-  root_password    => 'root',
   override_options => {
     'mysqld' => {
       'log-bin' => 'mysql-bin',
       'binlog_format' => 'ROW'
     }
   }
+}
+
+mysql::db { 'ongr':
+  user     => 'root',
+  password => 'root',
+  host     => 'localhost',
 }
 
 file { "/var/lib/mysql":
