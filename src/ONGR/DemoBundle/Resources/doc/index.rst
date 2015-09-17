@@ -58,7 +58,7 @@ And finally - ONLY_FOR_LINUX you need to install the nfs server:
 
 Step 5: Download VM provisioning files
 -------------------------------------------
-Download our latest vagrant provisioning `archive <https://github.com/ongr-io/testing-vm/archive/puppet.zip>`_ and unpack it in your ONGR sanbox project root. 
+Download our latest vagrant provisioning `archive <https://github.com/ongr-io/testing-vm/releases>`_ and unpack it in your ONGR sanbox project root. 
 
 Step 6: Start virtual machine using Vagrant
 -------------------------------------------
