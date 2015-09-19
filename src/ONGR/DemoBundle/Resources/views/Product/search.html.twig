@@ -8,6 +8,8 @@
     {% block list_title %}
         {% if search.state.value is not empty %}
             {{ 'Results for "%term%"'|trans({ '%term%': search.state.value }) }}
+        {% else %}
+            {{ 'Search results'|trans }}
         {% endif %}
     {% endblock %}
 
