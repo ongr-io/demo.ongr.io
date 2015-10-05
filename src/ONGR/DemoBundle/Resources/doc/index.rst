@@ -15,7 +15,7 @@ Step 1: Requirements.
 We do not support Microsoft Windows as a development environment.
 This might change in the future but for now you either need Linux/Unix based environment or OS X.
 
-Step 2: Download ONGR
+Step 2: Download ONGR and vagrant setup
 ---------------------
 
 You can download the latest release using `composer <https://getcomposer.org/download>`_ by typing:
@@ -26,7 +26,7 @@ You can download the latest release using `composer <https://getcomposer.org/dow
 
 ..
 
-Or you can download it from the `archive <https://github.com/ongr-io/ongr-sandbox/releases>`_ and unpack it somewhere under your project directory. Make sure that we have the "Vagrantfile" in the your project root folder.
+Or you can download it from the `archive <https://github.com/ongr-io/ongr-sandbox/releases>`_ and unpack it somewhere under your project directory. You also need to download our virtual machine provisioning files from our `testing-vm` repository: https://github.com/ongr-io/testing-vm. Clone it with SSH or download the ZIP archive and extract it your project directory. Make sure that you have the "Vagrantfile" in the your project root.
 
 Step 3: Install Virtual Box
 ---------------------------
