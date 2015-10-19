@@ -15,7 +15,7 @@ Step 1: Requirements.
 We do not support Microsoft Windows as a development environment.
 This might change in the future but for now you either need Linux/Unix based environment or OS X.
 
-Step 2: Download ONGR and vagrant setup
+Step 2: Download ONGR
 ---------------------
 
 You can download the latest release using `composer <https://getcomposer.org/download>`_ by typing:
@@ -26,7 +26,13 @@ You can download the latest release using `composer <https://getcomposer.org/dow
 
 ..
 
-Or you can download it from the `archive <https://github.com/ongr-io/ongr-sandbox/releases>`_ and unpack it somewhere under your project directory. You also need to download our virtual machine provisioning files from our `testing-vm` repository: https://github.com/ongr-io/testing-vm. Clone it with SSH or download the ZIP archive and extract it your project directory. Make sure that you have the "Vagrantfile" in the your project root.
+To download the source code including the vagrant machine provisioning files clone this repo with the following command:
+
+.. code-block:: bash
+
+    git clone --recursive https://github.com/ongr-io/ongr-sandbox.git
+
+..
 
 Step 3: Install Virtual Box
 ---------------------------
@@ -59,7 +65,7 @@ And finally - ONLY_FOR_LINUX you need to install the nfs server:
 Step 5: Start virtual machine using Vagrant
 -------------------------------------------
 
-Let's rock. Move into your project root folder and execute:
+Let's rock. Move into your vagrant folder `cd ongr-sandbox/vagrant` and execute:
 
 .. code-block:: bash
 
@@ -85,6 +91,7 @@ In case to get demo content you need to run the following commands from command 
 
     vagrant ssh
     composer install --no-interaction
+    app/console assetic:dump
     app/console ongr:es:index:create
     app/console ongr:es:type:update --force
     app/console ongr:es:index:import --raw src/ONGR/DemoBundle/Resources/data/categories.json
