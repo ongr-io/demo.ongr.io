@@ -3,11 +3,6 @@
 .DS_Store
 /cache.properties
 
-# Vagrant cache files
-/.vagrant
-/vagrant/modules/*
-!/vagrant/modules/README.md
-
 # Composer
 /composer.phar
 /vendor/
