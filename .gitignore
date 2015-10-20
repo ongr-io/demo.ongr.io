@@ -22,6 +22,7 @@
 /web/style/
 /web/style/css/
 /web/images/
+/web/fonts/
 /web/oxid/
 /web/o
 /web/cdn/
@@ -41,3 +42,5 @@
 
 /store/magento
 /store/oxid
+
+/src/ONGR/DemoBundle/Resources/public/dist/
