@@ -8,9 +8,6 @@
         {% endspaceless %}
     </title>
     {% block stylesheets %}
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet">
         {% stylesheets '@demo_css' %}
             <link rel="stylesheet" href="{{ asset_url }}"/>
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -24,6 +21,7 @@
 </head>
 <body{% block body_attributes %}{% endblock %} >
 {% block init %}{% endblock %}
+{% include "ONGRDemoBundle::Common/topbar.html.twig" %}
 <div class="container container-fluid">
     {% block container %}
         {% block page_head %}
@@ -46,7 +44,7 @@
                     {% block head_title %}
                         <a href="{{ path('onager_demo_homepage') }}">
                             {% image '@ONGRDemoBundle/Resources/public/images/logo.png' %}
-                                <img src="{{ asset_url }}" alt="logo"/>
+                                <img src="{{ asset_url }}" alt="logo" width="109" height="80"/>
                             {% endimage %}
                         </a>
                     {% endblock %}
@@ -76,20 +74,10 @@
             </nav>
         {% endblock %}
         {% block content_wrapper %}{% endblock %}
-        <hr/>
-        {% block footer %}
-            <div class="well">
-                <div class="span6">
-                    <span class="glyphicon glyphicon-copyright-mark"></span> ONGR
-                </div>
-            </div>
-        {% endblock %}
     {% endblock %}
 </div>
+{% include "ONGRDemoBundle::Common/footer.html.twig" %}
 {% block javascripts %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     {% javascripts '@demo_js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
