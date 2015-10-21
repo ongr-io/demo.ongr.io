@@ -1,0 +1,96 @@
+<header class="topbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+                <ul class="topbar-links">
+                    <li class="topbar-link topbar-dropdown hidden-sm hidden-xs">
+                        <a href="#">My Account</a>
+                        <ul class="topbar-dropdown-content">
+                            <li class="topbar-dropdown-link">
+                                <a href="#">My orders</a>
+                            </li>
+                            <li class="topbar-dropdown-link">
+                                <a href="#">My credit slips</a>
+                            </li>
+                            <li class="topbar-dropdown-link">
+                                <a href="#">My addresses</a>
+                            </li>
+                            <li class="topbar-dropdown-link">
+                                <a href="#">My personal info</a>
+                            </li>
+                            <li class="topbar-dropdown-link">
+                                <a href="#">My vouchers</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="topbar-link topbar-dropdown hidden-sm hidden-xs">
+                        <a href="#">My Wishlist (0)</a>
+                        <div class="topbar-dropdown-content hidden-sm hidden-xs">
+                            <i>No products</i>
+                        </div>
+                    </li>
+                    <li class="topbar-link topbar-dropdown hidden-sm hidden-xs">
+                        <a href="#">Watch List (1)</a>
+                        <div class="topbar-dropdown-content">
+                            <i>No products</i>
+                        </div>
+                    </li>
+                    <li class="topbar-link">
+                        <a href="#">Sign in</a> <span>or</span> <a href="#">Register</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <div class="topbar-additional topbar-currency topbar-dropdown pull-right">
+                    <span class="topbar-additional-selected">Dollar</span>
+                    <div class="topbar-dropdown-content">
+                        <ul class="topbar-additional-list">
+                            <li class="topbar-additional-list-item">
+                                <a href="#">Euro</a>
+                            </li>
+                            <li class="topbar-additional-list-item">
+                                <a href="#">Pound</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="topbar-additional topbar-language topbar-dropdown pull-right">
+                    <span class="topbar-additional-selected">
+                        {% image '@ONGRDemoBundle/Resources/public/images/english.jpg' %}
+                            <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
+                        {% endimage %}
+                        <span class="hidden-xs">English</span>
+                    </span>
+                    <div class="topbar-dropdown-content">
+                        <ul class="topbar-additional-list">
+                            <li class="topbar-additional-list-item">
+                                <a href="#">
+                                    {% image '@ONGRDemoBundle/Resources/public/images/german.jpg' %}
+                                        <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
+                                    {% endimage %}
+                                    Deutsch
+                                </a>
+                            </li>
+                            <li class="topbar-additional-list-item">
+                                <a href="#">
+                                    {% image '@ONGRDemoBundle/Resources/public/images/spanish.jpg' %}
+                                        <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
+                                    {% endimage %}
+                                    Español
+                                </a>
+                            </li>
+                            <li class="topbar-additional-list-item">
+                                <a href="#">
+                                    {% image '@ONGRDemoBundle/Resources/public/images/french.jpg' %}
+                                        <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
+                                    {% endimage %}
+                                    Français
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

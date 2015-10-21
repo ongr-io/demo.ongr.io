@@ -1,0 +1,128 @@
+.page-footer {
+  padding-top: 50px;
+  background: #6f6d69;
+  .footer-col-header {
+    padding-left: 10px;
+    margin-bottom: 30px;
+    font: normal 15px Georgia;
+    text-transform: uppercase;
+    color: #fff;
+    &.js-footer-dropdown-trigger {
+      position: relative;
+      cursor: pointer;
+      margin: 0;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-top: 1px solid rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      &.opened {
+        border-bottom: 0;
+      }
+      &:after {
+        position: absolute;
+        content: "";
+        top: 22px;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 4px 4px 0 4px;
+        border-color: #888 transparent transparent transparent;
+      }
+    }
+  }
+  .footer-col-links {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    border-top: 1px solid rgba(255,255,255,.05);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    @media (max-width: 768px) {
+      display: none;
+    }
+    @media (min-width: 769px) {
+      display: block !important;
+    }
+    .footer-col-link {
+      list-style: none;
+      &:first-child {
+        border-top: 1px solid rgba(0,0,0,.1);
+      }
+      border-top: 1px solid rgba(0,0,0,.05);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      a {
+        padding-left: 10px;
+        display: block;
+        line-height: 42px;
+        color: #efefef;
+        text-decoration: none;
+        &:hover {
+          background: rgba(255,255,255,.05);
+          color: #ccc;
+        }
+      }
+    }
+  }
+  .footer-col-tweets {
+    margin: 0;
+    padding: 0;
+    .footer-col-tweet {
+      padding-bottom: 25px;
+      list-style: none;
+      &:last-child {
+        padding-bottom: 0;
+      }
+      .twitter-icon {
+        width: 17px;
+        height: 17px;
+        fill: #a3a19d;
+      }
+      .footer-col-tweet-content {
+        padding-left: 27px;
+        color: #efefef;
+        a {
+          display: block;
+          color: #c5988b;
+          text-decoration: none;
+          &:hover {
+            color: #ccc;
+          }
+        }
+        .footer-col-tweet-time {
+          padding-top: 10px;
+          color: #efefef;
+          display: block;
+        }
+      }
+    }
+  }
+  .footer-bottom {
+    margin-top: 70px;
+    border-top: 1px solid rgba(0,0,0,.05);
+    > .footer-bottom-container {
+      border-top: 1px solid rgba(255,255,255,.05);
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+    .footer-bottom-copyright {
+      color: #e1e1e1;
+      line-height: 26px;
+    }
+    .footer-bottom-payment {
+      float: right;
+      margin: 0;
+      padding: 0;
+      @media (max-width: 768px) {
+        float: left;
+      }
+      .footer-bottom-payment-option {
+        float: left;
+        list-style: none;
+        margin-right: 10px;
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
