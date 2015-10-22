@@ -1,0 +1,37 @@
+{% block head_minicart %}
+    <div class="page-header-cart-container">
+        <a href="#" class="page-header-cart-trigger">
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+            <span class="page-header-cart-trigger-info">{{ 'header.cart.title'|trans }} {{ 'header.cart.empty'|trans }}</span>
+        </a>
+    </div>
+    <div class="page-header-cart-dropdown topbar-dropdown-content">
+        <div class="row">
+            <div class="col-xs-4">
+                <a class="page-header-cart-dropdown-img" href="#">
+                    <img src="http://res.cloudinary.com/foxx/image/upload/wines/2014/onhover/1616.jpg" alt="product">
+                </a>
+            </div>
+            <div class="col-xs-8">
+                <a href="#" class="page-header-cart-close pull-right"><i class="glyphicon glyphicon-remove"></i></a>
+                <a href="#" class="page-header-cart-dropdown-amount">1 x Black Bag</a>
+                <span class="page-header-cart-dropdown-price">$100.00</span>
+            </div>
+        </div>
+        <div class="row page-header-cart-dropdown-additional">
+            <div class="col-xs-6">
+                <div class="page-header-cart-dropdown-additional-block">
+                    <span class="page-header-cart-dropdown-tax-title">{{ 'header.cart.tax'|trans }}</span>
+                    <span class="page-header-cart-dropdown-tax-amount">$0.00</span>
+                </div>
+                <div class="page-header-cart-dropdown-additional-block">
+                    <span class="page-header-cart-dropdown-total-title">{{ 'header.cart.total'|trans }}</span>
+                    <span class="page-header-cart-dropdown-total-amount">$100.00</span>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <a href="#" class="page-header-cart-dropdown-checkout">{{ 'header.cart.checkout'|trans }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
