@@ -9,6 +9,7 @@
 
 (function ($) {
     var topbarDropdown = '.topbar-dropdown-content';
+    var navbarDropdown = '.navbar-dropdown-content';
 
     $('.topbar-dropdown')
         .mouseenter(function() {
@@ -18,6 +19,16 @@
         .mouseleave(function() {
             $(this).removeClass('opened');
             $(this).find(topbarDropdown).slideUp('fast');
+        });
+
+    $('.navbar-dropdown')
+        .mouseenter(function() {
+            $(this).addClass('opened');
+            $(this).find(navbarDropdown).fadeIn('fast');
+        })
+        .mouseleave(function() {
+            $(this).removeClass('opened');
+            $(this).find(navbarDropdown).fadeOut('fast');
         });
 
     $('.js-footer-dropdown-trigger').click(function() {
