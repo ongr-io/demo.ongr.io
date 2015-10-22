@@ -3,3 +3,54 @@ filter:
     country: Country
     wine_style: Wine Style
     wine_color: Wine Color
+
+topbar:
+    my_account: My Account
+    my_orders: My orders
+    my_credit_slips: My credit slips
+    my_addresses: My addresses
+    my_personal_info: My personal info
+    my_vouchers: My vouchers
+    my_wishlist: My Wishlist (%count%)
+    no_products: No products
+    watch_list: Watch List (%count%)
+    sign_in_or_register: <a href="%sign_in%">Sign in</a> or <a href="%register%">Register</a>
+
+language:
+    english: English
+    german: Deutsch
+    spanish: Español
+    french: Français
+
+currency:
+    dollar: Dollar
+    euro: Euro
+    pound: Pound
+
+header:
+    cart:
+        title: Cart:
+        empty: (empty)
+        tax: Tax:
+        total: Total:
+        checkout: Checkout
+    search: Search...
+
+footer:
+    copyright: © %year% Powered by ONGR™. All Rights Reserved.
+    info:
+        title: Information
+        specials: Specials
+        new_products: New products
+        top_sellers: Top sellers
+        our_stores: Our stores
+        contact_us: Contact us
+    useful_links:
+        title: Useful links
+        about_us: About us
+        delivery: Delivery
+        legal_notice: Legal Notice
+        secure_payment: Secure Payment
+        terms_conditions: Terms & Conditions
+    latest_tweets: Latest Tweets
+    facebook: Facebook
