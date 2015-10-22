@@ -32,4 +32,23 @@
             $(this).next().slideDown('fast');
         }
     });
+
+    $('.page-header-search-inp').click(function(e) {
+        $(this).parent().width('300px');
+        e.stopPropagation();
+    });
+
+    $(document).click(function() {
+        $('.page-header-search-inp').parent().width('200px');
+    });
+
+    $('.page-header-search-btn').click(function(e) {
+        e.stopPropagation();
+        $(this).parent().submit();
+    });
+
+    $('.page-header-cart-close').click(function(e) {
+        e.preventDefault();
+        $(this).parents().find(topbarDropdown).slideUp('fast');
+    });
 })(jQuery);
