@@ -1,0 +1,24 @@
+<div class="page-navbar-container">
+    <nav class="page-navbar navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand visible-xs" href="#">Menu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            {% block top_navigation_inner %}
+                {% if category is defined %}
+                    {% set selectedCategory = category.id %}
+                {% else %}
+                    {% set selectedCategory = null %}
+                {% endif %}
+                {{ render(url('_ongr_category_tree', {'theme' : 'top', 'maxLevel': 1, 'selectedCategory' : selectedCategory})) }}
+            {% endblock %}
+        </div>
+    </nav>
+</div>

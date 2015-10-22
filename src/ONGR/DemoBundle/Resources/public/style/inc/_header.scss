@@ -1,13 +1,69 @@
-.masterhead > .nav {
-  margin-top: 8px;
-  position: relative;
-  top: 55px;
-}
-
-.text-muted {
-  font-size: 18px;
-}
-
-hr {
-  clear: both;
+.page-header {
+  border: 0;
+  .page-header-logo {
+    text-align: center;
+  }
+  .page-header-search {
+    padding-top: 22px;
+  }
+  .page-header-sign-in {
+    text-align: center;
+    padding-bottom: 20px;
+    color: #999;
+    a {
+      color: #999;
+      text-decoration: none;
+      &:hover {
+        color: #e17365;
+      }
+    }
+  }
+  .page-header-search {
+    float: right;
+    @media (max-width: 768px) {
+      float: none;
+    }
+    .page-header-search-container {
+      position: relative;
+      border: 1px solid #e7e2e2;
+      width: 202px;
+      height: 34px;
+      -webkit-transition: all 400ms;
+      -moz-transition: all 400ms;
+      -ms-transition: all 400ms;
+      -o-transition: all 400ms;
+      transition: all 400ms;
+      @media (max-width: 768px) {
+        margin: 0 auto;
+      }
+      .page-header-search-inp {
+        padding: 8px;
+        color: #8a8989;
+        background: transparent;
+        border: 0;
+        display: block;
+        outline: 0;
+      }
+      .page-header-search-btn {
+        background: transparent;
+        border: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 34px;
+        width: 45px;
+        outline: 0;
+        .glyphicon {
+          margin-top: 2px;
+          color: #ccc;
+        }
+        &:hover {
+          background: #e17365;
+          .glyphicon {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
 }

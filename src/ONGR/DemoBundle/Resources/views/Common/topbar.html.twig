@@ -1,55 +1,55 @@
 <header class="topbar">
     <div class="container">
         <div class="row">
-            <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+            <div class="col-xs-5 col-sm-8 col-md-8 col-lg-8">
                 <ul class="topbar-links">
                     <li class="topbar-link topbar-dropdown hidden-sm hidden-xs">
-                        <a href="#">My Account</a>
+                        <a href="#">{{ 'topbar.my_account'|trans }}</a>
                         <ul class="topbar-dropdown-content">
                             <li class="topbar-dropdown-link">
-                                <a href="#">My orders</a>
+                                <a href="#">{{ 'topbar.my_orders'|trans }}</a>
                             </li>
                             <li class="topbar-dropdown-link">
-                                <a href="#">My credit slips</a>
+                                <a href="#">{{ 'topbar.my_credit_slips'|trans }}</a>
                             </li>
                             <li class="topbar-dropdown-link">
-                                <a href="#">My addresses</a>
+                                <a href="#">{{ 'topbar.my_addresses'|trans }}</a>
                             </li>
                             <li class="topbar-dropdown-link">
-                                <a href="#">My personal info</a>
+                                <a href="#">{{ 'topbar.my_personal_info'|trans }}</a>
                             </li>
                             <li class="topbar-dropdown-link">
-                                <a href="#">My vouchers</a>
+                                <a href="#">{{ 'topbar.my_vouchers'|trans }}</a>
                             </li>
                         </ul>
                     </li>
                     <li class="topbar-link topbar-dropdown hidden-sm hidden-xs">
-                        <a href="#">My Wishlist (0)</a>
+                        <a href="#">{{ 'topbar.my_wishlist'|trans({'%count%': 0}) }}</a>
                         <div class="topbar-dropdown-content hidden-sm hidden-xs">
-                            <i>No products</i>
+                            <i>{{ 'topbar.no_products'|trans }}</i>
                         </div>
                     </li>
                     <li class="topbar-link topbar-dropdown hidden-sm hidden-xs">
-                        <a href="#">Watch List (1)</a>
+                        <a href="#">{{ 'topbar.watch_list'|trans({'%count%': 1}) }}</a>
                         <div class="topbar-dropdown-content">
-                            <i>No products</i>
+                            <i>{{ 'topbar.no_products'|trans }}</i>
                         </div>
                     </li>
-                    <li class="topbar-link">
-                        <a href="#">Sign in</a> <span>or</span> <a href="#">Register</a>
+                    <li class="topbar-link hidden-xs">
+                        {{ 'topbar.sign_in_or_register'|trans({'%sign_in%': '#', '%register%': '#'})|raw }}
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-7 col-sm-4 col-md-4 col-lg-4">
                 <div class="topbar-additional topbar-currency topbar-dropdown pull-right">
-                    <span class="topbar-additional-selected">Dollar</span>
+                    <span class="topbar-additional-selected">{{ 'currency.dollar'|trans }}</span>
                     <div class="topbar-dropdown-content">
                         <ul class="topbar-additional-list">
                             <li class="topbar-additional-list-item">
-                                <a href="#">Euro</a>
+                                <a href="#">{{ 'currency.euro'|trans }}</a>
                             </li>
                             <li class="topbar-additional-list-item">
-                                <a href="#">Pound</a>
+                                <a href="#">{{ 'currency.pound'|trans }}</a>
                             </li>
                         </ul>
                     </div>
@@ -59,7 +59,7 @@
                         {% image '@ONGRDemoBundle/Resources/public/images/english.jpg' %}
                             <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
                         {% endimage %}
-                        <span class="hidden-xs">English</span>
+                        <span class="hidden-xs">{{ 'language.english'|trans }}</span>
                     </span>
                     <div class="topbar-dropdown-content">
                         <ul class="topbar-additional-list">
@@ -68,7 +68,7 @@
                                     {% image '@ONGRDemoBundle/Resources/public/images/german.jpg' %}
                                         <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
                                     {% endimage %}
-                                    Deutsch
+                                    {{ 'language.german'|trans }}
                                 </a>
                             </li>
                             <li class="topbar-additional-list-item">
@@ -76,7 +76,7 @@
                                     {% image '@ONGRDemoBundle/Resources/public/images/spanish.jpg' %}
                                         <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
                                     {% endimage %}
-                                    Español
+                                    {{ 'language.spanish'|trans }}
                                 </a>
                             </li>
                             <li class="topbar-additional-list-item">
@@ -84,7 +84,7 @@
                                     {% image '@ONGRDemoBundle/Resources/public/images/french.jpg' %}
                                         <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
                                     {% endimage %}
-                                    Français
+                                    {{ 'language.french'|trans }}
                                 </a>
                             </li>
                         </ul>

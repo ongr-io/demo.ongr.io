@@ -1,0 +1,116 @@
+.page-header-cart-wrapper {
+  padding-top: 22px;
+}
+.page-header-cart {
+  max-width: 200px;
+  position: relative;
+  padding-bottom: 2px;
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  &.opened {
+    .page-header-cart-trigger {
+      background: #ebebeb;
+      color: #8b8b8b;
+    }
+  }
+  .page-header-cart-close {
+    padding: 3px 5px 0 5px;
+    border: 2px solid transparent;
+    .glyphicon {
+      color: #666 !important;
+    }
+    &:hover {
+      border: 2px solid #ADACAA;
+    }
+  }
+  .page-header-cart-container {
+    border: 1px solid #e7e2e2;
+    position: relative;
+    max-width: 200px;
+    width: 100%;
+    line-height: 34px;
+    .page-header-cart-trigger {
+      display: block;
+      padding: 0 15px;
+      color: #999;
+      text-decoration: none;
+      &:hover {
+        background: #ebebeb;
+        color: #8b8b8b;
+      }
+      .glyphicon {
+        margin-right: 5px;
+      }
+    }
+  }
+  .page-header-cart-dropdown {
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 38px;
+    padding: 15px;
+    width: 262px;
+    border: 1px solid #e0e0e0;
+    background: #f9f9f9;
+    z-index: 1;
+    .page-header-cart-dropdown-img {
+      width: 58px;
+      img {
+        max-width: 100%;
+        border: 1px solid #e2e2e2;
+      }
+    }
+    .page-header-cart-dropdown-amount,
+    .page-header-cart-dropdown-price {
+      display: block;
+    }
+    .page-header-cart-dropdown-amount {
+      font-size: 13px;
+      line-height: 16px;
+      font-family: Georgia;
+      vertical-align: top;
+      color: #666;
+    }
+    .page-header-cart-dropdown-price {
+      font-family: Georgia;
+      color: #c5988b;
+      line-height: 20px;
+      font-size: 18px;
+      padding-top: 7px;
+    }
+  }
+  .page-header-cart-dropdown-additional {
+    padding-top: 15px;
+    .page-header-cart-dropdown-additional-block {
+      display: block;
+      line-height: 16px;
+      font-size: 13px;
+      .page-header-cart-dropdown-tax-amount {
+        color: #c5988b;
+        font-family: Georgia;
+      }
+      .page-header-cart-dropdown-total-amount {
+        font-family: Georgia;
+        color: #e17365;
+        font-size: 15px;
+      }
+    }
+  }
+  .page-header-cart-dropdown-checkout {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    background: #7a7975;
+    color: #ffffff;
+    text-align: center;
+    font-family: Georgia;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover {
+      background: #e17365;
+    }
+  }
+}
