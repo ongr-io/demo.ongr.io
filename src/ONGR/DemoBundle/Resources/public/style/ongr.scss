@@ -8,9 +8,19 @@
 @import "inc/category";
 @import "inc/topbar";
 @import "inc/footer";
+@import "inc/navbar";
+@import "inc/minicart";
 
 $body_background: #f9f9f9;
 
 body {
   background: $body_background;
+}
+
+a, button {
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -ms-transition: all 200ms;
+  -o-transition: all 200ms;
+  transition: all 200ms;
 }
