@@ -28,10 +28,12 @@
     }
   }
   .navbar-collapse {
+    position: relative;
     padding: 0;
     .navbar-nav {
       margin: 0 !important;
       li {
+        position: initial;
         margin-bottom: -5px;
         border-bottom: 5px solid transparent;
         a {
@@ -46,6 +48,39 @@
           a {
             background: transparent;
             color: #e17365;
+          }
+        }
+        // Sub-navigation
+        > .navbar-nav {
+          margin-top: 2px !important;
+          top: 55px;
+          border-top: 1px solid #8A8A8C;
+          display: none;
+          position: absolute;
+          background: #f9f9f9;
+          width: 100%;
+          left: 0;
+          z-index: 1;
+          -webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+          -moz-box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+          box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+          li {
+            margin: 0;
+            border: 0;
+            float: left;
+            width: 25%;
+            a {
+              color: #666;
+              font-size: 16px;
+              &:hover {
+                color: #e17365;
+              }
+            }
+            &.current {
+              a {
+                color: #e17365;
+              }
+            }
           }
         }
       }

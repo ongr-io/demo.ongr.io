@@ -17,7 +17,7 @@
                 {% else %}
                     {% set selectedCategory = null %}
                 {% endif %}
-                {{ render(url('_ongr_category_tree', {'theme' : 'top', 'maxLevel': 1, 'selectedCategory' : selectedCategory})) }}
+                {{ render(url('_ongr_category_tree', {'theme' : 'top', 'maxLevel': 2, 'selectedCategory' : selectedCategory})) }}
             {% endblock %}
         </div>
     </nav>
