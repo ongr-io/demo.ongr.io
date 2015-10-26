@@ -27,7 +27,8 @@
         bindDropdown: function(trigger, target, type) {
             $(trigger).hover(function() {
                 $(this).addClass('opened');
-                (type === 'fade') ? $(this).find(target).stop(true).delay(300).fadeIn('fast') : $(this).find(target).stop(true).delay(300).slideDown('fast');
+                var delayedTarget = $(this).find(target).stop(true).delay(300);
+                (type === 'fade') ? delayedTarget.fadeIn('fast') : delayedTarget.slideDown('fast');
             }, function() {
                 $(this).removeClass('opened');
                 (type === 'fade') ? $(this).find(target).fadeOut('fast') : $(this).find(target).slideUp('fast');
