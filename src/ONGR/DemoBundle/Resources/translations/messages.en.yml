@@ -35,6 +35,8 @@ header:
         total: Total:
         checkout: Checkout
     search: Search...
+    toggle_navigation: Toggle navigation
+    menu: Menu
 
 footer:
     copyright: © %year% Powered by ONGR™. All Rights Reserved.
@@ -54,3 +56,7 @@ footer:
         terms_conditions: Terms & Conditions
     latest_tweets: Latest Tweets
     facebook: Facebook
+
+home:
+    view_more: View more
+    buy_now: Buy now!

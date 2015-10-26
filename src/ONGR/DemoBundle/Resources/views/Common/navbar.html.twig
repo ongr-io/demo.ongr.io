@@ -1,16 +1,16 @@
 <div class="page-navbar-container">
     <nav class="page-navbar navbar navbar-default">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+                <span class="sr-only">{{ 'header.toggle_navigation'|trans }}</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand visible-xs" href="#">Menu</a>
+            <a class="navbar-brand visible-xs" href="#">{{ 'header.menu'|trans }}</a>
         </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="main-navbar">
             {% block top_navigation_inner %}
                 {% if category is defined %}
                     {% set selectedCategory = category.id %}

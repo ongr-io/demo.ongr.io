@@ -1,0 +1,11 @@
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin remove-ellipsis {
+  white-space: inherit;
+  overflow: auto;
+  text-overflow: inherit;
+}

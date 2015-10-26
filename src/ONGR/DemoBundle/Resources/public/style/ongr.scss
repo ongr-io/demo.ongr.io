@@ -1,15 +1,20 @@
 // Vendor
 @import "./bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
-// Includes
-@import "inc/header";
-@import "inc/product";
-@import "inc/auto_suggest";
-@import "inc/category";
-@import "inc/topbar";
-@import "inc/footer";
-@import "inc/navbar";
-@import "inc/minicart";
+// Utils
+@import "utils/mixins";
+
+// Common
+@import "common/header";
+@import "common/topbar";
+@import "common/footer";
+@import "common/navbar";
+@import "common/minicart";
+
+// Pages
+@import "pages/home";
+@import "pages/category";
+@import "pages/product";
 
 $body_background: #f9f9f9;
 

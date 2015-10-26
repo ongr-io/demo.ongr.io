@@ -3,9 +3,78 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content_wrapper %}
-    <div class="row">
-        <div class="col-sm-12">
-            {{ snippet('home-page') }}
+    <div class="home-page">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="home-page-featured-large">
+                    <div id="featured-carousel" class="home-page-featured-carousel carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#featured-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#featured-carousel" data-slide-to="1"></li>
+                            <li data-target="#featured-carousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <div class="featured-carousel-img" style="background-image:url('https://placeimg.com/640/480/arch');">
+                                    <a class="featured-carousel-view" href="#">{{ 'home.view_more'|trans }}</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="featured-carousel-img" style="background-image:url('https://placeimg.com/640/480/nature');">
+                                    <a href="#" class="featured-carousel-view">{{ 'home.view_more'|trans }}</a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="featured-carousel-img" style="background-image:url('https://placeimg.com/640/480/people');">
+                                    <a href="#" class="featured-carousel-view">{{ 'home.view_more'|trans }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 home-page-featured-small-bp">
+                        <div class="home-page-featured-small" style="background-image:url('https://placeimg.com/640/480/people');">
+                            <div class="home-page-featured-caption">
+                                <span class="featured-caption-title">"Marqués De Castilla" Blanco, 2013</span>
+                                <p class="featured-caption-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                <a href="#" class="featued-caption-view">{{ 'home.buy_now'|trans }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 home-page-featured-small-bp">
+                        <div class="home-page-featured-small" style="background-image:url('https://placeimg.com/640/480/tech');">
+                            <div class="home-page-featured-caption">
+                                <span class="featured-caption-title">"Marqués De Castilla" Blanco, 2013</span>
+                                <p class="featured-caption-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                <a href="#" class="featued-caption-view">{{ 'home.buy_now'|trans }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 home-page-featured-small-bp">
+                        <div class="home-page-featured-small" style="background-image:url('https://placeimg.com/640/480/animals');">
+                            <div class="home-page-featured-caption">
+                                <span class="featured-caption-title">"Marqués De Castilla" Blanco, 2013</span>
+                                <p class="featured-caption-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                <a href="#" class="featued-caption-view">{{ 'home.buy_now'|trans }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 home-page-featured-small-bp">
+                        <div class="home-page-featured-small" style="background-image:url('https://placeimg.com/640/480/nature');">
+                            <div class="home-page-featured-caption">
+                                <span class="featured-caption-title">"Marqués De Castilla" Blanco, 2013</span>
+                                <p class="featured-caption-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                <a href="#" class="featued-caption-view">{{ 'home.buy_now'|trans }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
