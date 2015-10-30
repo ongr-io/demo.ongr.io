@@ -15,7 +15,10 @@
             this.bindFooterDropdown('.js-footer-dropdown-trigger');
             this.bindHeaderSearch('.page-header-search-inp', '.page-header-search-btn');
             this.bindHeaderCart('.page-header-cart-close', '.topbar-dropdown-content');
-            this.bindFeaturedCarousel();
+            this.bindFeaturedCarousel('#featured-carousel');
+            this.bindFilterCheckbox('.sidebar-filters-item-checkbox');
+            this.bindFiltersCollapse('.sidebar-filter-collapse', '.sidebar-filters-body');
+            this.bindScrollTop('.scroll-top');
         },
 
         /**
@@ -32,6 +35,56 @@
             }, function() {
                 $(this).removeClass('opened');
                 (type === 'fade') ? $(this).find(target).fadeOut('fast') : $(this).find(target).slideUp('fast');
+            });
+        },
+
+        /**
+         *
+         * @param checkbox
+         */
+        bindFilterCheckbox: function(checkbox) {
+            $(checkbox).click(function() {
+                $(this).toggleClass('glyphicon-ok');
+                var url = window.location.origin + $(this).next().attr('href');
+                location.href = url;
+            });
+        },
+
+        /**
+         *
+         * @param button
+         */
+        bindScrollTop: function(button) {
+            var btn = $(button);
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 300) {
+                    btn.fadeIn();
+                } else {
+                    btn.fadeOut();
+                }
+            });
+
+            btn.click(function(e) {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: 0 }, 800);
+                return;
+            });
+        },
+
+        /**
+         *
+         * @param trigger
+         * @param body
+         */
+        bindFiltersCollapse: function(trigger, body) {
+            $(trigger).click(function() {
+                $(this).parents().eq(1).find(body).toggle();
+                if ($(this).hasClass('opened')) {
+                    $(this).removeClass('opened').text('-');
+                } else {
+                    $(this).addClass('opened');
+                    $(this).text('+');
+                }
             });
         },
 
@@ -86,8 +139,12 @@
             });
         },
 
-        bindFeaturedCarousel: function() {
-            $('#featured-carousel').carousel({
+        /**
+         *
+         * @param carousel
+         */
+        bindFeaturedCarousel: function(carousel) {
+            $(carousel).carousel({
                 interval: 3000
             });
         }
