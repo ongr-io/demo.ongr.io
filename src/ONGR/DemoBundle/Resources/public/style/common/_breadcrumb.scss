@@ -1,0 +1,15 @@
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  font-family: Georgia;
+  li {
+    &, & a {
+      color: #333;
+    }
+  }
+  > li + li:before {
+    content: ">";
+    color: #333;
+    font-size: 13px;
+  }
+}

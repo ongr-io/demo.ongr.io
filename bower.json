@@ -1,0 +1,25 @@
+{
+  "name": "ongr-sandbox",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "ONGR"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Kaveckas/ongr-sandbox",
+  "moduleType": [
+    "globals"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "jquery": "~2.1.4"
+  }
+}

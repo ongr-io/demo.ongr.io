@@ -1,29 +1,28 @@
 {% macro term(filter, page_route, default_route_parameters) %}
     {% if filter|default(false) and filter.choices|length %}
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="sidebar-filters">
+            <div class="sidebar-filters-heading clearfix">
                 {{ ('filter.' ~ filter.name)|trans }}
+                <span class="sidebar-filter-collapse pull-right">-</span>
             </div>
-            <div class="panel-body">
-                <div class="list-group">
+            <div class="sidebar-filters-body">
+                <div class="sidebar-filters-group clearfix">
                     {% for choice in filter.choices %}
                         {% if choice.active %}
+                            <span class="sidebar-filters-item-checkbox glyphicon glyphicon-ok"></span>
                             <a href="{{ path(page_route, filter.resetUrlParameters|merge(default_route_parameters)) }}"
-                               class="list-group-item active">{{ choice.label }} <span
-                                        class="badge">{{ choice.count }}</span></a>
+                               class="sidebar-filters-item active">{{ choice.label }} <span class="sidebar-filters-amount">({{ choice.count }})</span></a>
                         {% else %}
+                            <span class="sidebar-filters-item-checkbox glyphicon"></span>
                             <a href="{{ path(page_route, choice.getUrlParameters()|merge(default_route_parameters)) }}"
-                               class="list-group-item">{{ choice.label }} <span
-                                        class="badge">{{ choice.count }}</span></a>
+                               class="sidebar-filters-item">{{ choice.label }} <span class="sidebar-filters-amount">({{ choice.count }})</span></a>
                         {% endif %}
                     {% endfor %}
+                    {% if filter.state.active %}
+                        <a class="sidebar-filters-item all" href="{{ path(page_route, filter.resetUrlParameters|merge(default_route_parameters)) }}">{{ "filter.all"|trans }}</a>
+                    {% endif %}
                 </div>
             </div>
-            {% if filter.state.active %}
-                <div class="panel-footer text-right">
-                    <a href="{{ path(page_route, filter.resetUrlParameters|merge(default_route_parameters)) }}">{{ "All"|trans }}</a>
-                </div>
-            {% endif %}
         </div>
     {% endif %}
 {% endmacro %}

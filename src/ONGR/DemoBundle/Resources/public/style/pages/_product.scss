@@ -1,0 +1,91 @@
+.product-page {
+  margin-bottom: 20px;
+  color: #666;
+  .product-image {
+    border: 1px solid #E6E6E6;
+    max-width: 100%;
+  }
+  .product-title {
+    margin: 0;
+    font: normal 20px/26px Georgia;
+    display: block;
+    padding-bottom: 18px;
+  }
+  .product-price {
+    font-family: Gerogia;
+    color: #c5988b;
+    font-size: 24px;
+    line-height: 40px;
+  }
+  .product-quantity-container {
+    margin-bottom: 20px;
+    .product-quantity-title {
+      font-weight: normal;
+      font-family: Georgia;
+      margin-right: 4px;
+    }
+    .product-quantity-inp {
+      border: 1px solid rgb(189, 194, 201);
+      width: 100px;
+      height: 23px;
+      font-family: Georgia;
+      padding: 0 10px;
+    }
+  }
+  .product-add-to-cart {
+    margin-left: 15px;
+    background-color: #7a7975;
+    height: 40px;
+    width: 140px;
+    text-align: center;
+    font-family: Georgia;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    position: relative;
+    top: -4px;
+    &:hover {
+      background: #e1423c;
+    }
+  }
+  .product-desc-list {
+    margin: 0;
+    padding: 0;
+    .product-desc-list-item {
+      list-style: none;
+      font: normal 13px/20px Georgia;
+    }
+  }
+  .product-more-info {
+    margin: 30px 0;
+    .nav-tabs {
+      li {
+        a {
+          color: #666 !important;
+          line-height: 27px;
+          padding: 0 10px;
+          height: 27px;
+          background: #e0e0e0;
+          -webkit-border-radius: 0;
+          -moz-border-radius: 0;
+          border-radius: 0;
+          font-family: Georgia;
+          border-color: #E6E6E6 !important;
+        }
+        &.active > a {
+          background: #fff;
+          border-bottom: 0;
+        }
+      }
+    }
+    .tab-content {
+      padding: 22px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-top: 0;
+      .tab-pane {
+        font: normal 13px/18px Georgia;
+      }
+    }
+  }
+}

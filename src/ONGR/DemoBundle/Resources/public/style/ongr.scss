@@ -1,4 +1,60 @@
-@import "inc/header";
-@import "inc/product";
-@import "inc/auto_suggest";
-@import "inc/category";
+// Vendor
+@import "./bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Utils
+@import "utils/mixins";
+
+// Common
+@import "common/header";
+@import "common/topbar";
+@import "common/footer";
+@import "common/navbar";
+@import "common/minicart";
+@import "common/breadcrumb";
+@import "common/filters";
+@import "common/sorting";
+
+// Pages
+@import "pages/home";
+@import "pages/category";
+@import "pages/product";
+@import "pages/list";
+
+$body_background: #f9f9f9;
+
+body {
+  background: $body_background;
+}
+
+a, button {
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -ms-transition: all 200ms;
+  -o-transition: all 200ms;
+  transition: all 200ms;
+}
+
+.scroll-top {
+  position: fixed;
+  z-index: 10;
+  right: 10px;
+  bottom: 10px;
+  padding: 2px;
+  background: #E17365;
+  height: 45px;
+  width: 45px;
+  display: none;
+  .scroll-top-link {
+    max-height: 100%;
+    display: block;
+    border: 1px solid #E78F84;
+    svg {
+      fill: #fff;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  }
+}
