@@ -2,7 +2,7 @@
 Quick start
 ===========
 
-Let's get started. We'll guide you step by step through installing and running ONGR the first time. The first installation should not need more than 1 hour.
+Let's get started. We'll guide you step by step through installing and running ONGR for the first time. The first installation should not take more than 1 hour.
 
 Step 1: Requirements.
 ---------------------
@@ -15,31 +15,12 @@ Step 1: Requirements.
 We do not support Microsoft Windows as a development environment.
 This might change in the future but for now you either need Linux/Unix based environment or OS X.
 
-Step 2: Download ONGR
----------------------
-
-You can download the latest release using `composer <https://getcomposer.org/download>`_ by typing:
-
-.. code-block:: bash
-
-    composer create-project ongr/ongr-sandbox --no-interaction
-
-..
-
-To download the source code including the vagrant machine provisioning files clone this repo with the following command:
-
-.. code-block:: bash
-
-    git clone --recursive https://github.com/ongr-io/ongr-sandbox.git
-
-..
-
-Step 3: Install Virtual Box
+Step 2: Install Virtual Box
 ---------------------------
 
 Either install or upgrade `virtualbox <https://www.virtualbox.org/wiki/Downloads>`_. We need VirtualBox > 4.3
 
-Step 4: Install Vagrant
+Step 3: Install Vagrant
 -----------------------
 
 Either install or upgrade `vagrant <https://www.vagrantup.com/downloads.html>`_. We need Vagrant >= 1.6.5
@@ -62,10 +43,29 @@ And finally - ONLY_FOR_LINUX you need to install the nfs server:
 
 ..
 
-Step 5: Start virtual machine using Vagrant
+Step 4: Download ONGR
+---------------------
+
+To download all ONGR sandbox files, clone this repository with the following command:
+
+.. code-block:: bash
+
+    git clone --recursive https://github.com/ongr-io/ongr-sandbox.git
+
+..
+
+Step 5: Start the virtual machine using Vagrant
 -------------------------------------------
 
-Let's rock. Move into your vagrant folder `cd ongr-sandbox/vagrant` and execute:
+Let's rock. Move into your vagrant folder:
+
+.. code-block:: bash
+
+	cd ongr-sandbox/vagrant
+
+..
+
+and execute:
 
 .. code-block:: bash
 
@@ -73,7 +73,7 @@ Let's rock. Move into your vagrant folder `cd ongr-sandbox/vagrant` and execute:
 
 ..
 
-.. note:: Currently we have only Virtualbox provider support. We are working on others and soon should be docker provider ready to use.
+	Currently only the Virtualbox provider is supported. 
 
 That's it. The ONGR is alive.
 
@@ -85,12 +85,12 @@ Now, let's feed the donkey with some data.
 Step 6: Install the demo data
 -----------------------------
 
-In case to get demo content you need to run the following commands from command line:
+In order to get demo content you need to run the following commands from the command line:
 
 .. code-block:: bash
 
     vagrant ssh
-    composer install --no-interaction
+    composer install -n
     bower install
     npm run-script assets
     app/console ongr:es:index:create
@@ -102,8 +102,6 @@ In case to get demo content you need to run the following commands from command 
 ..
 
    If composer prompts input questions just press enter.
-
-.. note:: Command "composer install --no-interaction" is not necessary if you downloaded project using composer.
 
 Step 7: Open your browser
 -------------------------
