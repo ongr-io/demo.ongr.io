@@ -8,7 +8,8 @@ var uglify  = require('gulp-uglify');
 var dir = {
     assets: './src/ONGR/DemoBundle/Resources/public/',
     dist: './src/ONGR/DemoBundle/Resources/public/dist/',
-    bower: './bower_components/'
+    bower: './bower_components/',
+    bootstrapJS: './bower_components/bootstrap-sass/assets/javascripts/bootstrap/'
 };
 
 gulp.task('sass', function() {
@@ -20,7 +21,12 @@ gulp.task('sass', function() {
 gulp.task('scripts', function() {
     gulp.src([
         dir.bower + 'jquery/dist/jquery.min.js',
-        dir.bower + 'bootstrap-sass/assets/javascripts/bootstrap.min.js',
+        // Bootstrap JS modules
+        dir.bootstrapJS + 'transition.js',
+        dir.bootstrapJS + 'carousel.js',
+        dir.bootstrapJS + 'dropdown.js',
+        dir.bootstrapJS + 'tab.js',
+        // Main JS file
         dir.assets + 'scripts/main.js'
     ])
         .pipe(concat('ongr.js'))
