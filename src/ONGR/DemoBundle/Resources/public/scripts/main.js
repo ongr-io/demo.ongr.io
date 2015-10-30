@@ -9,16 +9,58 @@
 
 (function($) {
     var ONGR = {
+        /**
+         * Global DOM selectors
+         * used for JavaScript bindings
+         */
+        globals: {
+            navbar: {
+                dropdown:        '.navbar-dropdown',
+                content:         '.navbar-dropdown-content'
+            },
+            topbar: {
+                dropdown:        '.topbar-dropdown',
+                content:         '.topbar-dropdown-content'
+            },
+            header: {
+                searchInp:       '.page-header-search-inp',
+                searchBtn:       '.page-header-search-btn',
+                cartClose:       '.page-header-cart-close',
+                dropdownContent: '.topbar-dropdown-content'
+            },
+            filter: {
+                checkbox:        '.sidebar-filters-item-checkbox',
+                collapse:        '.sidebar-filter-collapse',
+                body:            '.sidebar-filters-body'
+            },
+            featuredCarousel:    '#featured-carousel',
+            footerDropdown:      '.js-footer-dropdown-trigger',
+            scrollTop:           '.scroll-top'
+        },
+
+        /**
+         * Main app initialization
+         */
         init: function() {
-            this.bindDropdown('.navbar-dropdown', '.navbar-dropdown-content', 'fade');
-            this.bindDropdown('.topbar-dropdown', '.topbar-dropdown-content', 'slide');
-            this.bindFooterDropdown('.js-footer-dropdown-trigger');
-            this.bindHeaderSearch('.page-header-search-inp', '.page-header-search-btn');
-            this.bindHeaderCart('.page-header-cart-close', '.topbar-dropdown-content');
-            this.bindFeaturedCarousel('#featured-carousel');
-            this.bindFilterCheckbox('.sidebar-filters-item-checkbox');
-            this.bindFiltersCollapse('.sidebar-filter-collapse', '.sidebar-filters-body');
-            this.bindScrollTop('.scroll-top');
+            /**
+             * Reference to globals` object
+             * @type {ONGR.globals}
+             */
+            var g = this.globals;
+
+            this.bindHeaderCart(g.header.cartClose, g.header.dropdownContent);
+            this.bindHeaderSearch(g.header.searchInp, g.header.searchBtn);
+
+            this.bindDropdown(g.topbar.dropdown, g.topbar.content, 'slide');
+            this.bindDropdown(g.navbar.dropdown, g.navbar.content, 'fade');
+
+            this.bindFiltersCollapse(g.filter.collapse, g.filter.body);
+            this.bindFilterCheckbox(g.filter.checkbox);
+
+            this.bindFeaturedCarousel(g.featuredCarousel);
+            this.bindFooterDropdown(g.footerDropdown);
+
+            this.bindScrollTop(g.scrollTop);
         },
 
         /**
@@ -82,8 +124,7 @@
                 if ($(this).hasClass('opened')) {
                     $(this).removeClass('opened').text('-');
                 } else {
-                    $(this).addClass('opened');
-                    $(this).text('+');
+                    $(this).addClass('opened').text('+');
                 }
             });
         },
@@ -116,11 +157,9 @@
                 $(this).parent().width('300px');
                 e.stopPropagation();
             });
-
             $(document).click(function() {
                 $(input).parent().width('200px');
             });
-
             $(button).click(function(e) {
                 e.stopPropagation();
                 $(this).parent().submit();

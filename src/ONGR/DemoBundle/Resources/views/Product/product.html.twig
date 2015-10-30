@@ -25,14 +25,18 @@
 
     <div class="product-more-info">
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">{{ 'product.more_info'|trans }}</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">{{ 'product.attributes'|trans }}</a></li>
+            {% if product.description is not empty %}
+                <li role="presentation" class="active"><a href="#more_info" aria-controls="more_info" role="tab" data-toggle="tab">{{ 'product.more_info'|trans }}</a></li>
+            {% endif %}
+            <li role="presentation" {% if product.description is empty %}class="active"{% endif %}><a href="#attributes" aria-controls="attributes" role="tab" data-toggle="tab">{{ 'product.attributes'|trans }}</a></li>
         </ul>
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">
-                <p>{{ product.description }}</p>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="profile">
+            {% if product.description is not empty %}
+                <div role="tabpanel" class="tab-pane active" id="more_info">
+                    <p>{{ product.description }}</p>
+                </div>
+            {% endif %}
+            <div role="tabpanel" class="tab-pane{% if product.description is empty %} active{% endif %}" id="attributes">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi assumenda dolore eaque laboriosam officia rerum?
             </div>
         </div>
