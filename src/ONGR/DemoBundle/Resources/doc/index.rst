@@ -73,7 +73,7 @@ and execute:
 
 ..
 
-.. note:: Currently only the Virtualbox provider is supported. 
+	Currently only the Virtualbox provider is supported. 
 
 That's it. The ONGR is alive.
 
