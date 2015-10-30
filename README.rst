@@ -1,11 +1,11 @@
 =========
 ONGR Demo
 =========
-ONGR is a platform based on Symfony 2 framework which stands in front of your application and withstands high load of concurrent users.
+ONGR is a platform based on Symfony 2 framework which stands in front of your application and withstands a high load of concurrent users.
 
 It is a separate system from your original application where you re-implement or move view and frontend related code to ONGR for high-performance content delivery. Product and other data is still managed by original backend and then continuously synchronized with new platform for cache and display.
 
-If you find some issues or great ideas how to improve the project, please create an issue in GitHub. Also everyone are more than welcome to contribute using pull requests. More information is in `contributing page <https://github.com/ongr-io/ongr-handbook/blob/master/source/handbook/contributing/contributing.rst>`_.
+If you find some issues or great ideas on how to improve the project, please create an issue in GitHub. Also everyone is more than welcome to contribute using pull requests. More information is located in `contributing page <https://github.com/ongr-io/ongr-handbook/blob/master/source/handbook/contributing/contributing.rst>`_.
 
 
 If you need any help feel free to ask in our chat: |gitter|
