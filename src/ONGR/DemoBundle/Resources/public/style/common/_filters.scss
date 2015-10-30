@@ -11,11 +11,18 @@
     }
   }
   .sidebar-filters-heading {
+    @media (max-width: 767px) {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #D9D9D9;
+    }
     text-transform: uppercase;
-    font-style: 14px;
+    font-size: 14px;
     padding-bottom: 10px;
   }
   .sidebar-filters-body {
+    @media (max-width: 767px) {
+      display: none;
+    }
     .glyphicon-ok:before {
       font-size: 11px !important;
       position: relative;
