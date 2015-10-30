@@ -3,6 +3,7 @@ filter:
     country: Country
     wine_style: Wine Style
     wine_color: Wine Color
+    all: All
 
 topbar:
     my_account: My Account
@@ -60,3 +61,14 @@ footer:
 home:
     view_more: View more
     buy_now: Buy now!
+
+product:
+    manufacturer: Manufacturer:
+    grape: Grape:
+    alcohol_level: Alcohol level:
+    wine_colour: Wine colour:
+    wine_style: Wine style:
+    more_info: More info
+    attributes: Attributes
+    qantity: Quantity:
+    add_to_cart: Add to cart
