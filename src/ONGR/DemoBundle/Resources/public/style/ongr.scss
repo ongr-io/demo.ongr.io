@@ -3,6 +3,7 @@
 
 // Utils
 @import "utils/mixins";
+@import "utils/scroll-top";
 
 // Common
 @import "common/header";
@@ -19,6 +20,7 @@
 @import "pages/category";
 @import "pages/product";
 @import "pages/list";
+@import "pages/content";
 
 $body_background: #f9f9f9;
 
@@ -32,29 +34,4 @@ a, button {
   -ms-transition: all 200ms;
   -o-transition: all 200ms;
   transition: all 200ms;
-}
-
-.scroll-top {
-  position: fixed;
-  z-index: 10;
-  right: 10px;
-  bottom: 10px;
-  padding: 2px;
-  background: #E17365;
-  height: 45px;
-  width: 45px;
-  display: none;
-  .scroll-top-link {
-    max-height: 100%;
-    display: block;
-    border: 1px solid #E78F84;
-    svg {
-      fill: #fff;
-      -webkit-transform: rotate(180deg);
-      -moz-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-      -o-transform: rotate(180deg);
-      transform: rotate(180deg);
-    }
-  }
 }
