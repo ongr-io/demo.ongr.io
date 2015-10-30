@@ -189,7 +189,7 @@ ongr_filter_manager:
         pager:
             pager:
                 request_field: 'page'
-                count_per_page: 9
+                count_per_page: 12
                 max_pages: 10
         sort:
             sorting:
