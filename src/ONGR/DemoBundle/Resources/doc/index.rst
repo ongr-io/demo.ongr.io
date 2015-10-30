@@ -91,7 +91,8 @@ In case to get demo content you need to run the following commands from command 
 
     vagrant ssh
     composer install --no-interaction
-    app/console assetic:dump
+    bower install
+    npm run-script assets
     app/console ongr:es:index:create
     app/console ongr:es:type:update --force
     app/console ongr:es:index:import --raw src/ONGR/DemoBundle/Resources/data/categories.json
