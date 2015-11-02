@@ -119,12 +119,25 @@
          * @param body
          */
         bindFiltersCollapse: function(trigger, body) {
+            if ($(window).width() <= 767) {
+                $(trigger).removeClass('opened').text('+');
+                $(trigger).parents().eq(1).find(body).hide();
+            };
             $(trigger).click(function() {
                 $(this).parents().eq(1).find(body).toggle();
                 if ($(this).hasClass('opened')) {
                     $(this).removeClass('opened').text('-');
                 } else {
                     $(this).addClass('opened').text('+');
+                }
+            });
+            $(window).resize(function() {
+                if ($(window).width() <= 767) {
+                    $(trigger).removeClass('opened').text('+');
+                    $(trigger).parents().eq(1).find(body).hide();
+                } else if ($(window).width() > 767) {
+                    $(trigger).addClass('opened').text('-');
+                    $(trigger).parents().eq(1).find(body).show();
                 }
             });
         },
