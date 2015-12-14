@@ -12,10 +12,10 @@ If you need any help feel free to ask in our chat: |gitter|
 
 .. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
     :target: https://gitter.im/ongr-io/support
-    
 
-.. image:: https://travis-ci.org/ongr-io/ongr-sandbox.svg?branch=master
-    :target: https://travis-ci.org/ongr-io/ongr-sandbox
+
+.. image:: https://travis-ci.org/ongr-io/Demo.svg?branch=master
+    :target: https://travis-ci.org/ongr-io/Demo
 
 .. image:: https://scrutinizer-ci.com/g/ongr-io/ongr-sandbox/badges/quality-score.png?b=master
     :target: https://scrutinizer-ci.com/g/ongr-io/ongr-sandbox/?branch=master
@@ -37,7 +37,7 @@ If you need any help feel free to ask in our chat: |gitter|
 
 .. image:: https://poser.pugx.org/ongr/ongr-sandbox/license
     :target: https://packagist.org/packages/ongr/ongr-sandbox
-    
+
 Intro
 -----
 
