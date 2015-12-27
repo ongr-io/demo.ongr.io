@@ -19,6 +19,6 @@ This is nothing more than usual [Symfony](https://github.com/symfony/symfony-sta
 So If you want to use ONGR bundles we assume you know how to work with this framework.
 
 To run this demo you gonna need:
-    * PHP >=5.5
-    * Elasticsearch
+* PHP >=5.5
+* Elasticsearch
     
