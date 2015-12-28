@@ -23,7 +23,6 @@
         "ongr/filter-manager-bundle": "~0.4",
         "ongr/content-bundle": "~0.4",
         "ongr/router-bundle": "~0.4.0",
-        "ongr/translations-bundle": "dev-master",
         "jms/serializer-bundle": "~1.0"
     },
     "require-dev": {
