@@ -186,3 +186,15 @@ ongr_filter_manager:
                     - { label: Price descending, field: price, order: desc }
                     - { label: Title ascending, field: title }
                     - { label: Title descending, field: title, order: desc }
+
+ongr_api:
+    default_encoding: json
+    versions:
+        v1:
+            endpoints:
+                default:
+                    manager: es.manager.default
+                    documents:
+                        - "ONGRDemoBundle:Product"
+                        - "ONGRDemoBundle:Category"
+                        - "ONGRDemoBundle:Content"

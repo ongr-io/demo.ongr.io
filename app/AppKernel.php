@@ -23,6 +23,8 @@ class AppKernel extends Kernel
             new ONGR\RouterBundle\ONGRRouterBundle(),
             new ONGR\FilterManagerBundle\ONGRFilterManagerBundle(),
             new ONGR\ContentBundle\ONGRContentBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new ONGR\ApiBundle\ONGRApiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

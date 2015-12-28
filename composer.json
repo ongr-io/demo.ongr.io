@@ -23,7 +23,8 @@
         "ongr/filter-manager-bundle": "~0.4",
         "ongr/content-bundle": "~0.4",
         "ongr/router-bundle": "~0.4.0",
-        "jms/serializer-bundle": "~1.0"
+        "jms/serializer-bundle": "~1.0",
+        "ongr/api-bundle": "~0.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

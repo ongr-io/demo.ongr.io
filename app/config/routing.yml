@@ -4,3 +4,7 @@ ongr_demo:
 
 ongr_content_snippet:
     resource: "@ONGRContentBundle/Resources/config/routing.yml"
+
+ongr_api_routing:
+    resource: @ONGRApiBundle/Resources/config/routing.yml
+    prefix: /api
