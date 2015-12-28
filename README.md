@@ -10,7 +10,7 @@ If you have any questions, don't hesitate to ask them on [![Join the chat at htt
 
 ## Quick setup
 
-This is nothing more than usual [Symfony](https://github.com/symfony/symfony-standard) project. 
+This example is based on [Symfony framework](https://github.com/symfony/symfony-standard) project by using ONGR bundles. 
 So if you want to use ONGR bundles we assume that you know how to work with [Symfony](https://github.com/symfony/symfony) framework.
 
 To run this demo you gonna need:
@@ -59,7 +59,7 @@ vagrant ssh
 Run project setup. There are bunch of commands to install vendors, assets and the demo data.
 
 ```bash
-composer install -n
+composer install --no-interaction
 npm install
 bower install
 gulp
@@ -67,8 +67,8 @@ app/console ongr:es:index:create
 app/console ongr:es:index:import --raw src/ONGR/DemoBundle/Resources/data/ongr.json
 ```
 
-> If composer prompts input questions just press enter.
-
 ### Step 5
 
-Navigate your browser to http://ongr.dev
+Navigate your browser to the http://ongr.dev
+
+> Make sure you have correct host definition in the `/etc/hosts`. ongr.dev is our host example from [testing-vm](https://github.com/ongr-io/testing-vm)
