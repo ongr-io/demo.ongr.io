@@ -16,9 +16,61 @@ If you have any questions, don't hesitate to ask them on [![Join the chat at htt
 ## Quick setup
 
 This is nothing more than usual [Symfony](https://github.com/symfony/symfony-standard) project. 
-So If you want to use ONGR bundles we assume you know how to work with this framework.
+So if you want to use ONGR bundles we assume that you know how to work with [Symfony](https://github.com/symfony/symfony) framework.
 
 To run this demo you gonna need:
 * PHP >=5.5
 * Elasticsearch
     
+In case you don't have an environment we have a [Vagrant](https://www.vagrantup.com) box configuration in the [testing-vm repository](https://github.com/ongr-io/testing-vm).
+
+> We do not support Microsoft Windows as a development environment. This might change in the future but for now you either need **Linux/Unix** based environment or **OS X**.
+  
+### Step 1
+
+Clone [testing-vm repository](https://github.com/ongr-io/testing-vm) to some folder, we call it `ongr`.
+
+```bash
+git clone https://github.com/ongr-io/testing-vm.git ongr
+```
+
+### Step 2
+
+Provision your new box. 
+
+> First time it will take about 5-15 min (depending on your internet connection).
+
+```bash
+cd ongr
+vagrant up
+```
+
+### Step 3
+
+Clone ONGR Demo to `public` folder inside previously created `ongr` folder.
+
+```bash
+git clone https://github.com/ongr-io/Demo.git public
+```
+
+> WARNING: Do not change `public` folder name. It's hardcoded vhost location in the [testing-vm](https://github.com/ongr-io/testing-vm)
+
+### Step 4
+
+Run project setup. There are bunch of commands to install vendors, assets and the demo data.
+
+```bash
+vagrant ssh
+composer install -n
+npm install
+bower install
+gulp
+app/console ongr:es:index:create
+app/console ongr:es:index:import --raw src/ONGR/DemoBundle/Resources/data/ongr.json
+```
+
+> If composer prompts input questions just press enter.
+
+### Step 5
+
+Navigate your browser to http://ongr.dev
