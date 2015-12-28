@@ -23,8 +23,6 @@ class AppKernel extends Kernel
             new ONGR\RouterBundle\ONGRRouterBundle(),
             new ONGR\FilterManagerBundle\ONGRFilterManagerBundle(),
             new ONGR\ContentBundle\ONGRContentBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new ONGR\TranslationsBundle\ONGRTranslationsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

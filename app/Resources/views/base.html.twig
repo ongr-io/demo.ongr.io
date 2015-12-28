@@ -7,11 +7,9 @@
             {% block title %}{{ "ONGR Demo" | trans }}{% endblock %}
         {% endspaceless %}
     </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     {% block stylesheets %}
-        {% stylesheets '@demo_css' %}
-            <link rel="stylesheet" href="{{ asset_url }}"/>
-            <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        {% endstylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/ongr.css') }}"/>
     {% endblock %}
     {% block canonical_meta %}{% endblock %}
     {% block metadata_description %}{% endblock %}
@@ -43,9 +41,7 @@
 </div>
 {% include "ONGRDemoBundle::Common/footer.html.twig" %}
 {% block javascripts %}
-    {% javascripts '@demo_js' %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script src="{{ asset('js/ongr.js') }}"></script>
 {% endblock %}
 {% block html_closures %}{% endblock %}
 </body>

@@ -56,34 +56,26 @@
                 </div>
                 <div class="topbar-additional topbar-language topbar-dropdown pull-right">
                     <span class="topbar-additional-selected">
-                        {% image '@ONGRDemoBundle/Resources/public/images/english.jpg' %}
-                            <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
-                        {% endimage %}
+                        <img src="{{ asset('images/english.jpg') }}" alt="language" width="16" height="11"/>
                         <span class="hidden-xs">{{ 'language.english'|trans }}</span>
                     </span>
                     <div class="topbar-dropdown-content">
                         <ul class="topbar-additional-list">
                             <li class="topbar-additional-list-item">
                                 <a href="#">
-                                    {% image '@ONGRDemoBundle/Resources/public/images/german.jpg' %}
-                                        <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
-                                    {% endimage %}
+                                    <img src="{{ asset('images/german.jpg') }}" alt="language" width="16" height="11"/>
                                     {{ 'language.german'|trans }}
                                 </a>
                             </li>
                             <li class="topbar-additional-list-item">
                                 <a href="#">
-                                    {% image '@ONGRDemoBundle/Resources/public/images/spanish.jpg' %}
-                                        <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
-                                    {% endimage %}
+                                    <img src="{{ asset('images/spanish.jpg') }}" alt="language" width="16" height="11"/>
                                     {{ 'language.spanish'|trans }}
                                 </a>
                             </li>
                             <li class="topbar-additional-list-item">
                                 <a href="#">
-                                    {% image '@ONGRDemoBundle/Resources/public/images/french.jpg' %}
-                                        <img src="{{ asset_url }}" alt="language" width="16" height="11"/>
-                                    {% endimage %}
+                                    <img src="{{ asset('images/french.jpg') }}" alt="language" width="16" height="11"/>
                                     {{ 'language.french'|trans }}
                                 </a>
                             </li>

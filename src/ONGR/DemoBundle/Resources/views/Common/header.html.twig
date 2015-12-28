@@ -14,9 +14,7 @@
             <div class="page-header-logo">
                 {% block head_title %}
                     <a href="{{ path('onager_demo_homepage') }}">
-                        {% image '@ONGRDemoBundle/Resources/public/images/logo.png' %}
-                            <img src="{{ asset_url }}" alt="logo" width="109" height="80"/>
-                        {% endimage %}
+                        <img src="{{ asset('images/logo.png') }}" alt="logo" width="109" height="80"/>
                     </a>
                 {% endblock %}
             </div>
