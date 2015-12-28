@@ -16,6 +16,8 @@ So if you want to use ONGR bundles we assume that you know how to work with [Sym
 To run this demo you gonna need:
 * PHP >=5.5
 * Elasticsearch
+
+If you have you own development env got straight to the [Step 4](#step-4) to install assets and demo data.
     
 In case you don't have an environment we have a [Vagrant](https://www.vagrantup.com) box configuration in the [testing-vm repository](https://github.com/ongr-io/testing-vm).
 
@@ -46,16 +48,17 @@ Clone ONGR Demo to `public` folder inside previously created `ongr` folder.
 
 ```bash
 git clone https://github.com/ongr-io/Demo.git public
+
+vagrant ssh
 ```
 
-> WARNING: Do not change `public` folder name. It's hardcoded vhost location in the [testing-vm](https://github.com/ongr-io/testing-vm)
+> WARNING: Do not change `public` folder name, it's hardcoded vhost location in the [testing-vm](https://github.com/ongr-io/testing-vm)
 
 ### Step 4
 
 Run project setup. There are bunch of commands to install vendors, assets and the demo data.
 
 ```bash
-vagrant ssh
 composer install -n
 npm install
 bower install
