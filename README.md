@@ -7,8 +7,22 @@ This is the showcase of how can be used the ONGR bundles.
 If you have any questions, don't hesitate to ask them on [![Join the chat at https://gitter.im/ongr-io/support](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ongr-io/support?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
  chat, or just come to say Hi ;).
 
+## Very quick setup for the preview
 
-## Quick setup
+> __NOTE__: If you have Windows and want to try ONGR Demo this is the only way for now how you can do it.
+
+### Step 1
+
+Install [Kitematic from Docker](https://kitematic.com).
+
+### Step 2
+
+Open [Kitematic from Docker](https://kitematic.com) and search for the `ongr/demo-presentation`. When you found it, press `CREATE`.
+
+When it install click link in the the right side where is web preview.
+
+
+## Quick setup for the development
 
 This example is based on [Symfony framework](https://github.com/symfony/symfony-standard) project by using ONGR bundles. 
 So if you want to use ONGR bundles we assume that you know how to work with [Symfony](https://github.com/symfony/symfony) framework.
