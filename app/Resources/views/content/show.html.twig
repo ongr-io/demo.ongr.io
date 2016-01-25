@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block breadcrumbs_inner %}
+    <li class="active">{{ content.title }}</li>
+{% endblock %}
+
+{% block content_wrapper %}
+    <div class="row">
+        <div class="col-sm-12">
+            {{ block('breadcrumbs') }}
+        </div>
+    </div>
+    <h2>{{ content.title }}</h2>
+
+    <div class="content-page">
+        {{ content.content|raw }}
+    </div>
+{% endblock %}

@@ -6,7 +6,7 @@ var concat  = require('gulp-concat');
 var uglify  = require('gulp-uglify');
 
 var dir = {
-    assets: './src/ONGR/DemoBundle/Resources/public/',
+    assets: './app/Resources/',
     dist: './web/',
     bower: './bower_components/',
     bootstrapJS: './bower_components/bootstrap-sass/assets/javascripts/bootstrap/'

@@ -1,10 +1,11 @@
-ongr_demo:
-    resource: "@ONGRDemoBundle/Resources/config/routing.yml"
-    prefix:   /
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
 
-ongr_content_snippet:
-    resource: "@ONGRContentBundle/Resources/config/routing.yml"
-
-ongr_api_routing:
-    resource: @ONGRApiBundle/Resources/config/routing.yml
-    prefix: /api
+app_search_page:
+    path: /search
+    methods:  [GET]
+    defaults:
+        _controller: ONGRFilterManagerBundle:Manager:manager
+        managerName: "product_list"
+        template: "::product/search.html.twig"

@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% import '::macros/filters.html.twig' as filter_macros %}
+{% import '::macros/breadcrumbs.html.twig' as breadcrumbs_macros %}
+{% set filters = filter_manager.filters %}
+
+{% block page_route %}magic{% endblock %}
+
+{% block breadcrumbs_inner %}
+    {{ breadcrumbs_macros.category_breadcrumbs(category) }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ filter_macros.term(filters.country, block('page_route')) }}
+    {{ filter_macros.term(filters.wine_style, block('page_route')) }}
+    {{ filter_macros.term(filters.wine_color, block('page_route')) }}
+{% endblock %}
+
+{% block sorting %}
+    {% if filters.sorting is defined %}
+        {% set filter = filters.sorting %}
+        <div class="list-sorting-container clearfix">
+            <div class="dropdown pull-right">
+                <a data-toggle="dropdown" href="#" class="btn btn-sm btn-default">
+                    {{ ('filter.' ~ filter.name)|trans }}
+                    {% for choice in filter.choices %}
+                        {% if choice.active or ((not filter.state.active) and choice.default) %} {{ choice.label }}{% endif %}
+                    {% endfor %}
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    {% for choice in filter.choices %}
+                        {% if not (choice.active or (choice.default and not filter.state.active)) %}
+                            <li><a href="{{ path(block('page_route'), choice.getUrlParameters()) }}">{{ choice.label }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {% block list_header %}
+        <h2 class="list-page-header-title">{% block list_title %}{{ category.title }}{% endblock %}</h2>
+    {% endblock %}
+
+    {{ block('sorting') }}
+
+    {% block product_list %}
+        <div class="row">
+            {% for product in filter_manager.getResult %}
+                <div class="col-md-3 col-sm-6 col-xs-6 product-container">
+                    <div class="thumbnail product-thumbnail">
+                        {% set product_url = path('ongr_product', { 'document': product }) %}
+                        <div class="product-image-container">
+                            <a href="{{ product_url }}">
+                                <img src="{{ product.thumb }}" class="product-image" alt="Product image"/>
+                            </a>
+                        </div>
+                    </div>
+                    <h5 class="product-title">
+                        <a class="product-link" href="{{ product_url }}">{{ product.title }}</a>
+                    </h5>
+                    <strong class="product-price">€ {{ product.price }}</strong>
+                </div>
+            {% endfor %}
+        </div>
+    {% endblock %}
+
+    {% if filters.pager is defined %}
+        <div class="list-pagination clearfix">
+            <div class="pull-right">{{ ongr_paginate(filters.pager.pager, block('page_route'), filters.pager.getUrlParameters()) }}</div>
+        </div>
+    {% endif %}
+
+{% endblock %}

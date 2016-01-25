@@ -77,8 +77,8 @@ composer install --no-interaction
 npm install
 bower install
 gulp
-app/console ongr:es:index:create
-app/console ongr:es:index:import --raw src/ONGR/DemoBundle/Resources/data/ongr.json
+bin/console ongr:es:index:create
+bin/console ongr:es:index:import app/Resources/data/demo.json
 ```
 
 ### Step 5

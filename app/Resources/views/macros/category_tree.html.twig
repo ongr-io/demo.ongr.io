@@ -1,0 +1,15 @@
+{% macro category_tree(categories) %}
+    {% import _self as macros %}
+    <ul class="nav navbar-nav navbar-dropdown-content clearfix">
+        {% for category in categories %}
+            <li{% if category.children is defined %} class="navbar-dropdown"{% endif %}>
+                <a href="{{ path('ongr', {'document': category.document}) }}">
+                    {{- category.document.title -}}
+                </a>
+                {% if category.children is defined %}
+                    {{ macros.category_tree(category.children) }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
