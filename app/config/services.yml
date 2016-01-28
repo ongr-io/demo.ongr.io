@@ -1,0 +1,21 @@
+parameters:
+#    parameter_name: value
+
+services:
+    # TODO: change service id after fix in filter manager
+    ongr_filter_manager.filter.app_category:
+        class: AppBundle\Service\CategoryFilter
+        tags:
+            - { name: ongr_filter_manager.filter, filter_name: app_category }
+
+    app.breadcrumb_extension:
+        class: AppBundle\Twig\BreadcrumbExtension
+        arguments: ["@es.manager"]
+        tags:
+            - { name: twig.extension }
+
+    app.category_tree_extension:
+        class: AppBundle\Twig\CategoryTreeExtension
+        arguments: ["@es.manager"]
+        tags:
+            - { name: twig.extension }

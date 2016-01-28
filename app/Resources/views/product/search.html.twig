@@ -1,0 +1,11 @@
+{% extends '::product/list.html.twig' %}
+
+{% block page_route %}app_search_page{% endblock %}
+
+{% block breadcrumbs_inner %}
+    <li>Results for "{{ filter_manager.filters.search.state.value }}"</li>
+{% endblock %}
+
+{% block list_title %}Search Results{% endblock %}
+
+{% block title %}{{ block('list_title') }} | {{ parent() }}{% endblock %}

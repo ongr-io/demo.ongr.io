@@ -1,0 +1,12 @@
+{% macro category_breadcrumbs(category) %}
+    {% set categories = breadcrumbs(category) %}
+    {% for cat in categories if cat.id != category.id %}
+        <li><a href="{{ path('ongr_magic', {'document': cat}) }}">{{ cat.title }}</a></li>
+    {% endfor %}
+    <li class="active">{{ category.title }}</li>
+{% endmacro %}
+
+{% macro product_breadcrumbs(product) %}
+    {% import _self as macros %}
+    {{ macros.category_breadcrumbs(product) }}
+{% endmacro %}

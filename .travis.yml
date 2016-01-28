@@ -15,12 +15,13 @@ install:
   - npm install
   - npm link
 before_script:
-  - app/console ongr:es:index:create
-  - app/console ongr:es:index:import --raw src/ONGR/DemoBundle/Resources/data/ongr.json
+  - bin/console ongr:es:index:create
+  - bin/console ongr:es:index:import app/Resources/data/demo.json
   - php -S localhost:8000 web/app_dev.php &
   - sleep 3
 script:
-  - bin/phpcs -p --standard=PSR2 --extensions=php ./src
+  - vendor/bin/phpunit
+  - vendor/bin/phpcs -p --standard=PSR2 --extensions=php ./src
 notifications:
   webhooks:
     urls:

@@ -1,5 +1,7 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
     database_name:     ongr
@@ -14,19 +16,5 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    debug_toolbar:          true
-    debug_redirects:        false
-    use_assetic_controller: true
-
-    # Url
-    project_host: ongr.dev
-
-    # Assetic
-    java_path: /usr/bin/java
-
-    #Elasticsearch
-    es_host: 127.0.0.1:9200
-    es_index_name: ongr
-    es_number_of_shards: 2
-    es_number_of_replicas: 0
-    es_refresh_interval: -1
+    elasticsearch_index_name: ongr_app
+    elasticsearch_profiler_enable: true

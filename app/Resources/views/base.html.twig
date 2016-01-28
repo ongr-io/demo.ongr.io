@@ -1,48 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>
-        {% spaceless %}
-            {% block title %}{{ "ONGR Demo" | trans }}{% endblock %}
-        {% endspaceless %}
-    </title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/ongr.css') }}"/>
-    {% endblock %}
-    {% block canonical_meta %}{% endblock %}
-    {% block metadata_description %}{% endblock %}
-    {% block metadata_keywords %}{% endblock %}
-    {% block metadata_robots %}{% endblock %}
-    {% block facebook_og %}{% endblock %}
-</head>
-<body{% block body_attributes %}{% endblock %} >
-{% block init %}{% endblock %}
-{% include "ONGRDemoBundle::Common/topbar.html.twig" %}
-<div class="container">
-    {% block container %}
-        {% block page_head %}
-            {% include "ONGRDemoBundle::Common/header.html.twig" %}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{{ "ONGR Demo"|trans }}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/ongr.css') }}"/>
         {% endblock %}
+        {% block canonical_meta %}{% endblock %}
+    </head>
+    <body>
+    {% block init %}{% endblock %}
+    {% include "::inc/topbar.html.twig" %}
+    <div class="container">
+        {% block container %}
+            {% block page_head %}
+                {% include "::inc/header.html.twig" %}
+            {% endblock %}
 
-        {% block top_navigation %}
-            {% include "ONGRDemoBundle::Common/navbar.html.twig" %}
+            {% block top_navigation %}
+                {% include "::inc/navbar.html.twig" %}
+            {% endblock %}
+            {% block content_wrapper %}
+                <div class="row">
+                    <div class="col-sm-12">
+                        {% block breadcrumbs %}
+                            <ol class="breadcrumb">
+                                <li><a href="{{ path('app_homepage') }}">{{ 'Home'|trans }}</a></li>
+                                {% block breadcrumbs_inner %}{% endblock %}
+                            </ol>
+                        {% endblock %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        {% block sidebar %}
+                        {% endblock %}
+                    </div>
+                    <div class="col-sm-9">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
         {% endblock %}
-        {% block content_wrapper %}{% endblock %}
+    </div>
+    <div class="scroll-top">
+        <a href="#" class="scroll-top-link">
+            <svg viewBox="0 0 20 20">
+                <path d="M13.418 7.859c0.271-0.268 0.709-0.268 0.978 0s0.272 0.701 0 0.969l-3.908 3.83c-0.27 0.268-0.707 0.268-0.979 0l-3.908-3.83c-0.27-0.267-0.27-0.701 0-0.969s0.709-0.268 0.978 0l3.421 3.141 3.418-3.141z"></path>
+            </svg>
+        </a>
+    </div>
+    {% include "::inc/footer.html.twig" %}
+    {% block javascripts %}
+        <script src="{{ asset('js/ongr.js') }}"></script>
     {% endblock %}
-</div>
-<div class="scroll-top">
-    <a href="#" class="scroll-top-link">
-        <svg viewBox="0 0 20 20">
-            <path d="M13.418 7.859c0.271-0.268 0.709-0.268 0.978 0s0.272 0.701 0 0.969l-3.908 3.83c-0.27 0.268-0.707 0.268-0.979 0l-3.908-3.83c-0.27-0.267-0.27-0.701 0-0.969s0.709-0.268 0.978 0l3.421 3.141 3.418-3.141z"></path>
-        </svg>
-    </a>
-</div>
-{% include "ONGRDemoBundle::Common/footer.html.twig" %}
-{% block javascripts %}
-    <script src="{{ asset('js/ongr.js') }}"></script>
-{% endblock %}
-{% block html_closures %}{% endblock %}
-</body>
+    </body>
 </html>

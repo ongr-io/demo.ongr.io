@@ -1,14 +1,18 @@
-# Composer
-/vendor/
-/bin/*
-
-# Symfony directories
-/phpunit.xml
-/app/bootstrap.php.cache
 /app/config/parameters.yml
-/app/cache/*
-/app/logs/*
-/app/check.php
+/build/
+/phpunit.xml
+/var/*
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!/var/logs
+/var/logs/*
+!var/logs/.gitkeep
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+!var/SymfonyRequirements.php
+/vendor/
 /web/bundles/
 /web/css/
 /web/js/

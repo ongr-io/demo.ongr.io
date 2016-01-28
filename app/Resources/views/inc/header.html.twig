@@ -1,0 +1,37 @@
+<header class="page-header">
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 page-header-cart-wrapper hidden-xs">
+            <div class="page-header-cart topbar-dropdown">
+                {% block head_minicart%}
+                    {% include "::inc/minicart.html.twig" %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class="visible-xs page-header-sign-in">
+            {{ 'topbar.sign_in_or_register'|trans({'%sign_in%': '#', '%register%': '#'})|raw }}
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="page-header-logo">
+                {% block head_title %}
+                    <a href="{{ path('app_homepage') }}">
+                        <img src="{{ asset('images/logo.png') }}" alt="logo" width="109" height="80"/>
+                    </a>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 clearfix">
+            <div class="page-header-search">
+                {% block search_form %}
+                    <form role="search" method="get" action="{{ path('app_search_page') }}">
+                        <div class="page-header-search-container">
+                            <input class="page-header-search-inp" id="search-term" type="text" value="{% block search_value %}{% endblock %}" name="q" placeholder="{{ 'header.search'|trans }}">
+                            <button type="submit" class="page-header-search-btn">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</header>
