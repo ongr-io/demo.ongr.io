@@ -1,12 +1,9 @@
 {
-  "name": "ongr-sandbox",
-  "version": "0.0.0",
-  "main": "index.js",
-  "scripts": {
-    "assets": "gulp && app/console assetic:dump",
-    "test": "casperjs test src/ONGR/DemoBundle/Tests/Acceptance/test.js 2>&1 | grep -v 'CoreText performance note'"
-  },
+  "name": "ongr-demo",
+  "version": "1.0.0",
+  "license": "MIT",
   "author": "ONGR",
+  "repository": "git@github.com:ongr-io/demo.ongr.io.git",
   "devDependencies": {
     "bower": "^1.6.3",
     "gulp": "^3.9.0",
