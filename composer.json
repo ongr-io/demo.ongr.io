@@ -18,10 +18,10 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "ongr/elasticsearch-bundle": "dev-master",
-        "ongr/filter-manager-bundle": "dev-master",
-        "ongr/router-bundle": "dev-master",
-        "symfony-cmf/routing": "dev-master"
+        "ongr/elasticsearch-bundle": "~1.0",
+        "ongr/filter-manager-bundle": "~1.0",
+        "ongr/router-bundle": "~1.0",
+        "symfony-cmf/routing": "~1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -54,5 +54,6 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
