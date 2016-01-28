@@ -19,7 +19,7 @@ Install [Kitematic from Docker](https://kitematic.com).
 
 Open [Kitematic from Docker](https://kitematic.com) and search for the `ongr/demo-presentation`. When you found it, press `CREATE`.
 
-When it install click link in the the right side where is web preview.
+When it install's click link in the right side where is a web preview.
 
 
 ## Quick setup for the development
