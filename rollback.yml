@@ -1,0 +1,7 @@
+---
+- hosts: all
+  remote_user: dev
+  vars:
+    ansistrano_deploy_to: "/var/www/ongr"
+  roles:
+    - { role: carlosbuenosvinos.ansistrano-rollback }
