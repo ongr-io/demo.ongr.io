@@ -16,5 +16,6 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    elasticsearch_index_name: ongr_app
-    elasticsearch_profiler_enable: true
+    elasticsearch_index_name: ongr
+    elasticsearch_number_of_replicas: 0
+    elasticsearch_number_of_shards: 1

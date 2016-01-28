@@ -72,6 +72,9 @@ ongr_elasticsearch:
     connections:
         default:
             index_name: %elasticsearch_index_name%
+            settings:
+                number_of_replicas: %elasticsearch_number_of_replicas%
+                number_of_shards: %elasticsearch_number_of_shards%
     managers:
         default:
             connection: default
