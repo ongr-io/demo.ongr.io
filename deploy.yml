@@ -4,7 +4,7 @@
   vars:
     ansistrano_deploy_from: "./"
     ansistrano_deploy_to: "/var/www/ongr"
-    ansistrano_shared_paths: [app/logs, app/config/parameters.yml]
+    ansistrano_shared_paths: [var/logs, app/config/parameters.yml]
     ansistrano_keep_releases: 5
     ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/app/deploy/after-symlink.yml"
   roles:
