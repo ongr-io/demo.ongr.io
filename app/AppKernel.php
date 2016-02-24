@@ -18,6 +18,8 @@ class AppKernel extends Kernel
             new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
             new ONGR\FilterManagerBundle\ONGRFilterManagerBundle(),
             new ONGR\RouterBundle\ONGRRouterBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new ONGR\ApiBundle\ONGRApiBundle(),
             new AppBundle\AppBundle(),
         ];
 

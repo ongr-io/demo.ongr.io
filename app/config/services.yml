@@ -1,4 +1,10 @@
 parameters:
+    category_tree_root_ids:
+        - 30548b4f8c0044ed4.13989803
+        - d8c486b7d1e459ed7.16013570
+        - 90f486b7e452df425.39048049
+        - d8c486b581bf3ea84.34074175
+
 #    parameter_name: value
 
 services:
@@ -16,6 +22,14 @@ services:
 
     app.category_tree_extension:
         class: AppBundle\Twig\CategoryTreeExtension
+        arguments: ["@es.manager"]
+        tags:
+            - { name: twig.extension }
+        calls:
+            - [ setRootCategories, [%category_tree_root_ids%]]
+
+    app.product_list_extension:
+        class: AppBundle\Twig\ProductListExtension
         arguments: ["@es.manager"]
         tags:
             - { name: twig.extension }

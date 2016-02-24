@@ -12,145 +12,61 @@
 namespace AppBundle\Document;
 
 use ONGR\ElasticsearchBundle\Annotation as ES;
+use ONGR\RouterBundle\Document\SeoAwareTrait;
 
 /**
  * @ES\Document()
  */
 class Category
 {
+    use SeoAwareTrait;
+
     /**
      * @var string
      *
      * @ES\Id()
      */
-    private $id;
-
-    /**
-     * @var string
-     *
-     * @ES\Property(type="string")
-     */
-    private $title;
-
-    /**
-     * @var string
-     *
-     * @ES\Property(type="string")
-     */
-    private $path;
-
-    /**
-     * @var string
-     *
-     * @ES\Property(type="string")
-     */
-    private $parentId;
+    public $id;
 
     /**
      * @var string
      *
      * @ES\Property(type="string", options={"index"="not_analyzed"})
      */
-    public $url;
-//    private $url;
+    public $key;
 
     /**
-     * @param string $id
+     * @var string
      *
-     * @return Category
+     * @ES\Property(type="string")
      */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
+    public $title;
 
     /**
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string $title
+     * @var string
      *
-     * @return Category
+     * @ES\Property(type="string")
      */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
+    public $description;
 
     /**
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param string $path
+     * @var string
      *
-     * @return Category
+     * @ES\Property(type="string", options={"index"="not_analyzed"})
      */
-    public function setPath($path)
-    {
-        $this->path = $path;
-
-        return $this;
-    }
+    public $parentKey;
 
     /**
-     * @return string
-     */
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-    /**
-     * @param string $parent
+     * @var string
      *
-     * @return Category
+     * @ES\Property(type="string", options={"index"="not_analyzed"})
      */
-    public function setParentId($parent)
-    {
-        $this->parentId = $parent;
-
-        return $this;
-    }
+    public $picture;
 
     /**
-     * @return string
-     */
-    public function getParentId()
-    {
-        return $this->parentId;
-    }
-
-    /**
-     * @param string $url
+     * @var string
      *
-     * @return Category
+     * @ES\Property(type="integer")
      */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
+    public $sortKey;
 }

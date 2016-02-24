@@ -12,145 +12,40 @@
 namespace AppBundle\Document;
 
 use ONGR\ElasticsearchBundle\Annotation as ES;
+use ONGR\RouterBundle\Document\SeoAwareTrait;
 
 /**
  * @ES\Document()
  */
 class Content
 {
+    use SeoAwareTrait;
+
     /**
      * @var string
      *
      * @ES\Id()
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      *
      * @ES\Property(type="string")
      */
-    private $slug;
+    public $slug;
 
     /**
      * @var string
      *
      * @ES\Property(type="string")
      */
-    private $title;
+    public $title;
 
     /**
      * @var string
      *
      * @ES\Property(type="string")
      */
-    private $content;
-
-    /**
-     * @var string
-     *
-     * @ES\Property(type="string", options={"index"="not_analyzed"})
-     */
-    public $url;
-//    private $url;
-
-    /**
-     * @param string $id
-     *
-     * @return Content
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string $slug
-     *
-     * @return Content
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * @param string $title
-     *
-     * @return Content
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param string $content
-     *
-     * @return Content
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * @param string $url
-     *
-     * @return Content
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
+    public $content;
 }

@@ -4,16 +4,17 @@
 {% import '::macros/breadcrumbs.html.twig' as breadcrumbs_macros %}
 {% set filters = filter_manager.filters %}
 
-{% block page_route %}magic{% endblock %}
+{% block page_route %}{% endblock %}
 
-{% block breadcrumbs_inner %}
-    {{ breadcrumbs_macros.category_breadcrumbs(category) }}
-{% endblock %}
+{#{% block breadcrumbs_inner %}#}
+    {#{{ breadcrumbs_macros.category_breadcrumbs(category) }}#}
+{#{% endblock %}#}
 
 {% block sidebar %}
-    {{ filter_macros.term(filters.country, block('page_route')) }}
-    {{ filter_macros.term(filters.wine_style, block('page_route')) }}
-    {{ filter_macros.term(filters.wine_color, block('page_route')) }}
+    {{ filter_macros.term(filters.color, 'ongr_route', {'document':category}) }}
+    {#{{ filter_macros.term(filters.size, 'ongr_route_category', {'document':category}) }}#}
+    {#{{ filter_macros.term(filters.wine_style, block('page_route')) }}#}
+    {#{{ filter_macros.term(filters.wine_color, block('page_route')) }}#}
 {% endblock %}
 
 {% block sorting %}
@@ -31,7 +32,8 @@
                 <ul class="dropdown-menu" role="menu">
                     {% for choice in filter.choices %}
                         {% if not (choice.active or (choice.default and not filter.state.active)) %}
-                            <li><a href="{{ path(block('page_route'), choice.getUrlParameters()) }}">{{ choice.label }}</a></li>
+                            {#<li><a href="{{ path(block('page_route'), choice.getUrlParameters()) }}">{{ choice.label }}</a></li>#}
+                            <li><a href="#">{{ choice.label }}</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -53,10 +55,10 @@
             {% for product in filter_manager.getResult %}
                 <div class="col-md-3 col-sm-6 col-xs-6 product-container">
                     <div class="thumbnail product-thumbnail">
-                        {% set product_url = path('ongr_product', { 'document': product }) %}
+                        {% set product_url = path('ongr_route', { 'document': product }) %}
                         <div class="product-image-container">
                             <a href="{{ product_url }}">
-                                <img src="{{ product.thumb }}" class="product-image" alt="Product image"/>
+                                <img src="{{ product_image(product) }}" class="product-image" alt="Product image"/>
                             </a>
                         </div>
                     </div>
@@ -71,7 +73,7 @@
 
     {% if filters.pager is defined %}
         <div class="list-pagination clearfix">
-            <div class="pull-right">{{ ongr_paginate(filters.pager.pager, block('page_route'), filters.pager.getUrlParameters()) }}</div>
+            <div class="pull-right">{{ ongr_paginate(filters.pager.pager, 'ongr_route', { 'document': category }) }}</div>
         </div>
     {% endif %}
 

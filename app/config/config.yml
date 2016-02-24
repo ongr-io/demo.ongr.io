@@ -69,9 +69,18 @@ swiftmailer:
     spool:     { type: memory }
 
 ongr_elasticsearch:
+    analysis:
+        analyzer:
+            urlAnalyzer:
+                type: custom
+                tokenizer: keyword
+                filter: [lowercase]
     connections:
         default:
-            index_name: %elasticsearch_index_name%
+            index_name: ongr
+            analysis:
+                analyzer:
+                    - urlAnalyzer
             settings:
                 number_of_replicas: %elasticsearch_number_of_replicas%
                 number_of_shards: %elasticsearch_number_of_shards%
@@ -85,26 +94,23 @@ ongr_filter_manager:
     managers:
         product_list:
             filters:
-                - app_category
-                - country
-                - wine_style
-                - wine_color
+#                - category
                 - search
                 - pager
                 - sorting
+                - color
+                - app_category
             repository: 'es.manager.default.product'
     filters:
-#        choice:
-        multi_choice:
-            country:
-                request_field: 'country'
-                field: origin.country
-            wine_style:
-                request_field: 'wine_style'
-                field: wine_style
-            wine_color:
-                request_field: 'wine_color'
-                field: wine_colour
+#        field_value:
+#            category:
+#                field: category_keys
+#                value: "mens-clothing"
+        choice:
+            color:
+                request_field: 'c'
+                field: color
+                size: 10
         match:
             search:
                 request_field: 'q'
@@ -112,7 +118,7 @@ ongr_filter_manager:
         pager:
             pager:
                 request_field: 'page'
-                count_per_page: 8
+                count_per_page: 12
                 max_pages: 10
         sort:
             sorting:
@@ -128,3 +134,13 @@ ongr_router:
         product: AppBundle:Product:show
         category: AppBundle:Product:list
         content: AppBundle:Content:show
+
+
+ongr_api:
+    versions:
+        v3:
+            endpoints:
+                product:
+                    repository: es.manager.default.product
+                category:
+                    repository: es.manager.default.category

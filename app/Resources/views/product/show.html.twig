@@ -7,38 +7,27 @@
 {% endblock %}
 
 {% block canonical_meta %}
-    <link rel="canonical" href="{{ path('ongr_product', { 'document' : product }) }}">
+    <link rel="canonical" href="{{ path('ongr_route_product', { 'document' : product }) }}">
 {% endblock %}
 
 {% block breadcrumbs_inner %}
-    {{ breadcrumbs_macros.product_breadcrumbs(product) }}
+    {#{{ breadcrumbs_macros.product_breadcrumbs(product) }}#}
 {% endblock %}
 
 {% block about %}
     <h2 class="product-title">{{ product.title }}</h2>
-    <ul class="product-desc-list">
-        <li class="product-desc-list-item">{{ 'product.manufacturer'|trans }} {{ product.manufacturer }}</li>
-        <li class="product-desc-list-item">{{ 'product.grape'|trans }} {{ product.grape }}</li>
-        <li class="product-desc-list-item">{{ 'product.alcohol_level'|trans }} {{ product.alcoholLevel|number_format(1) }}%</li>
-        <li class="product-desc-list-item">{{ 'product.wine_colour'|trans }} {{ product.wineColour }}</li>
-        <li class="product-desc-list-item">{{ 'product.wine_style'|trans }} {{ product.wineStyle }}</li>
-    </ul>
-
     <div class="product-more-info">
         <ul class="nav nav-tabs" role="tablist">
-            {% if product.description is not empty %}
-                <li role="presentation" class="active"><a href="#more_info" aria-controls="more_info" role="tab" data-toggle="tab">{{ 'product.more_info'|trans }}</a></li>
-            {% endif %}
-            <li role="presentation" {% if product.description is empty %}class="active"{% endif %}><a href="#attributes" aria-controls="attributes" role="tab" data-toggle="tab">{{ 'product.attributes'|trans }}</a></li>
+            <li role="presentation" class="active"><a href="#more_info" aria-controls="more_info" role="tab" data-toggle="tab">{{ 'product.more_info'|trans }}</a></li>
         </ul>
         <div class="tab-content">
-            {% if product.description is not empty %}
-                <div role="tabpanel" class="tab-pane active" id="more_info">
-                    <p>{{ product.description }}</p>
-                </div>
-            {% endif %}
-            <div role="tabpanel" class="tab-pane{% if product.description is empty %} active{% endif %}" id="attributes">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi assumenda dolore eaque laboriosam officia rerum?
+            <div role="tabpanel" class="tab-pane active" id="more_info">
+                <p>
+                    {% for key,value in product_attributes(product) %}
+                        {{ key }} - {{ value }} <br/>
+                    {% endfor %}
+                    Color: {{ product.color }} <br/>
+                </p>
             </div>
         </div>
     </div>
@@ -58,7 +47,7 @@
     <div class="product-page">
         <div class="row">
             <div class="col-sm-5 col-md-5 col-lg-6">
-                <img class="product-image" src="{{ product.image }}"/>
+                <img class="product-image" src="{{ product_image(product) }}"/>
             </div>
             <div class="col-sm-7 col-md-7 col-lg-6">
                 {{ block('about') }}
