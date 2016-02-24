@@ -7,11 +7,7 @@
 {% endblock %}
 
 {% block canonical_meta %}
-    <link rel="canonical" href="{{ path('ongr_route_product', { 'document' : product }) }}">
-{% endblock %}
-
-{% block breadcrumbs_inner %}
-    {#{{ breadcrumbs_macros.product_breadcrumbs(product) }}#}
+    <link rel="canonical" href="{{ path('ongr_route', { 'document' : product }) }}">
 {% endblock %}
 
 {% block about %}
@@ -22,11 +18,15 @@
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="more_info">
+
                 <p>
-                    {% for key,value in product_attributes(product) %}
-                        {{ key }} - {{ value }} <br/>
-                    {% endfor %}
+                    {{ product.description|raw }}
+                </p>
+
+                <p>
                     Color: {{ product.color }} <br/>
+                    Material: {{ product.material }} <br/>
+                    Brand: {{ product.brand }} <br/>
                 </p>
             </div>
         </div>

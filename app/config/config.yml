@@ -99,6 +99,8 @@ ongr_filter_manager:
                 - pager
                 - sorting
                 - color
+                - brand
+                - material
                 - app_category
             repository: 'es.manager.default.product'
     filters:
@@ -110,6 +112,14 @@ ongr_filter_manager:
             color:
                 request_field: 'c'
                 field: color
+                size: 10
+            brand:
+                request_field: 'b'
+                field: color
+                size: 10
+            material:
+                request_field: 'm'
+                field: material
                 size: 10
         match:
             search:
