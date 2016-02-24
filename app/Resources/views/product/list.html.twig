@@ -65,7 +65,7 @@
                     <h5 class="product-title">
                         <a class="product-link" href="{{ product_url }}">{{ product.title }}</a>
                     </h5>
-                    <strong class="product-price">€ {{ product.price }}</strong>
+                    <strong class="product-price">{{ product.price|number_format(2, ',', ' ') }} €</strong>
                 </div>
             {% endfor %}
         </div>

@@ -37,7 +37,7 @@
             <label for="quantity" class="product-quantity-title pull-left">{{ 'product.qantity'|trans }}</label>
             <input id="quantity" type="text" value="1" class="product-quantity-inp pull-left">
         </div>
-        <span class="product-price">€ {{ product.price }}</span>
+        <span class="product-price">{{ product.price|number_format(2, ',', ' ') }} €</span>
         <button class="product-add-to-cart">{{ 'product.add_to_cart'|trans }}</button>
     </form>
 {% endblock %}
