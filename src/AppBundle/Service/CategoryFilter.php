@@ -51,7 +51,7 @@ class CategoryFilter extends AbstractSingleRequestValueFilter
     public function modifySearch(Search $search, FilterState $state = null, SearchRequest $request = null)
     {
         if ($state && $state->isActive()) {
-            $search->addFilter(new TermsQuery('category.id', [$state->getValue()->getId()]));
+            $search->addFilter(new TermsQuery('categoryKeys', [$state->getValue()->id]));
         }
     }
 

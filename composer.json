@@ -18,10 +18,13 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
+        "guzzlehttp/guzzle": "~6.1",
+        "rtheunissen/guzzle-cache-handler": "~1.0",
+        "symfony-cmf/routing": "~1.4",
         "ongr/elasticsearch-bundle": "~1.0",
         "ongr/filter-manager-bundle": "~1.0",
         "ongr/router-bundle": "~1.0",
-        "symfony-cmf/routing": "~1.4"
+        "ongr/api-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

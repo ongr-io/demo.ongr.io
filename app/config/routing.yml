@@ -2,6 +2,11 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+ongr_api_main_route:
+    resource: .
+    type: ongr_api
+    prefix: api/
+
 app_search_page:
     path: /search
     methods:  [GET]

@@ -3,7 +3,7 @@
     <ul class="nav navbar-nav navbar-dropdown-content clearfix">
         {% for category in categories %}
             <li{% if category.children is defined %} class="navbar-dropdown"{% endif %}>
-                <a href="{{ path('ongr', {'document': category.document}) }}">
+                <a href="{{ path('ongr_route', {'document': category.document}) }}">
                     {{- category.document.title -}}
                 </a>
                 {% if category.children is defined %}

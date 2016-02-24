@@ -12,7 +12,14 @@
 namespace AppBundle\Twig;
 
 use AppBundle\Document\Category;
+use ONGR\ElasticsearchBundle\Result\Result;
 use ONGR\ElasticsearchBundle\Service\Manager;
+use ONGR\ElasticsearchDSL\Query\IdsQuery;
+use ONGR\ElasticsearchDSL\Query\MatchAllQuery;
+use ONGR\ElasticsearchDSL\Query\TermQuery;
+use ONGR\ElasticsearchDSL\Query\TermsQuery;
+use ONGR\ElasticsearchDSL\Search;
+use ONGR\ElasticsearchDSL\Sort\FieldSort;
 
 class CategoryTreeExtension extends \Twig_Extension
 {
@@ -22,6 +29,13 @@ class CategoryTreeExtension extends \Twig_Extension
     private $manager;
 
     /**
+     * Category tree root categories id list.
+     *
+     * @var array
+     */
+    private $rootCategories = [];
+
+    /**
      * Constructor.
      *
      * @param $manager
@@ -29,6 +43,22 @@ class CategoryTreeExtension extends \Twig_Extension
     public function __construct($manager)
     {
         $this->manager = $manager;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRootCategories()
+    {
+        return $this->rootCategories;
+    }
+
+    /**
+     * @param array $rootCategories
+     */
+    public function setRootCategories($rootCategories)
+    {
+        $this->rootCategories = $rootCategories;
     }
 
     /**
@@ -65,36 +95,49 @@ class CategoryTreeExtension extends \Twig_Extension
     public function getCategoryTree()
     {
         $repository = $this->manager->getRepository('AppBundle:Category');
-        $categories = $repository->findBy([]);
 
-        return $this->buildTree($categories);
-    }
+        /** @var Search $search */
+        $search = $repository->createSearch();
+        $search->addQuery(new IdsQuery($this->getRootCategories()));
+        $search->addSort(new FieldSort('sort_key', FieldSort::DESC));
+        $search->setSize(1000);
 
-    protected function buildTree($categories)
-    {
+        $categories = $repository->execute($search);
+
         $tree = [];
-
         /** @var Category $category */
         foreach ($categories as $category) {
-            $this->addCategory($tree, trim($category->getPath(), '/'), $category);
+            $tree[$category->key]['document'] = $category;
+            $tree[$category->key]['children'] = $this->getChildrens($category);
         }
 
         return $tree;
     }
 
-    private function addCategory(&$tree, $path, Category $category)
+    /**
+     * @param Category $document
+     *
+     * @return array
+     */
+    private function getChildrens($document)
     {
-        $path = explode('/', $path, 2);
+        $repository = $this->manager->getRepository('AppBundle:Category');
 
-        if (!isset($path[1])) {
-            $tree[$category->getId()]['document'] = $category;
-        } else {
-            if (!isset($tree[$path[0]]['children'])) {
-                $tree[$path[0]]['children'] = [];
-            }
+        /** @var Search $search */
+        $search = $repository->createSearch();
+        $search->addQuery(new TermQuery('parentKey', $document->id));
+        $search->setSize(1000);
 
-            $this->addCategory($tree[$path[0]]['children'], $path[1], $category);
+        $categories = $repository->execute($search);
+
+        $tree = [];
+        /** @var Category $category */
+        foreach ($categories as $category) {
+            $tree[$category->key]['document'] = $category;
+//            $tree[$category->key]['children'] = $this->getChildrens($category);
         }
+
+        return $tree;
     }
 
     /**
