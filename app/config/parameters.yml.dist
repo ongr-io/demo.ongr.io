@@ -19,3 +19,5 @@ parameters:
     elasticsearch_index_name: ongr
     elasticsearch_number_of_replicas: 0
     elasticsearch_number_of_shards: 1
+
+    shop_url_origin: http://shop.ongr.local

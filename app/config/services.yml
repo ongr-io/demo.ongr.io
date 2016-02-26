@@ -5,8 +5,6 @@ parameters:
         - 90f486b7e452df425.39048049
         - d8c486b581bf3ea84.34074175
 
-    shop_url_origin: http://shop.ongr.local
-
 services:
     # TODO: change service id after fix in filter manager
     ongr_filter_manager.filter.app_category:
