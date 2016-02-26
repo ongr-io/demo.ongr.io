@@ -2,9 +2,7 @@
     <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4 page-header-cart-wrapper hidden-xs">
             <div class="page-header-cart topbar-dropdown">
-                {% block head_minicart%}
-                    {% include "::inc/minicart.html.twig" %}
-                {% endblock %}
+                {{ render(controller('AppBundle:Cart:miniCart')) }}
             </div>
         </div>
         <div class="visible-xs page-header-sign-in">

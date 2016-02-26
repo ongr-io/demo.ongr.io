@@ -37,6 +37,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        shop_url_origin: %shop_url_origin%
 
 # Doctrine Configuration
 doctrine:

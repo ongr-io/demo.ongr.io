@@ -5,38 +5,38 @@
                 <ul class="topbar-links">
                     <li class="topbar-link topbar-dropdown hidden-sm hidden-xs">
                         <a href="#">{{ 'topbar.my_account'|trans }}</a>
-                        <ul class="topbar-dropdown-content">
-                            <li class="topbar-dropdown-link">
-                                <a href="#">{{ 'topbar.my_orders'|trans }}</a>
-                            </li>
-                            <li class="topbar-dropdown-link">
-                                <a href="#">{{ 'topbar.my_credit_slips'|trans }}</a>
-                            </li>
-                            <li class="topbar-dropdown-link">
-                                <a href="#">{{ 'topbar.my_addresses'|trans }}</a>
-                            </li>
-                            <li class="topbar-dropdown-link">
-                                <a href="#">{{ 'topbar.my_personal_info'|trans }}</a>
-                            </li>
-                            <li class="topbar-dropdown-link">
-                                <a href="#">{{ 'topbar.my_vouchers'|trans }}</a>
-                            </li>
-                        </ul>
+                        {#<ul class="topbar-dropdown-content">#}
+                            {#<li class="topbar-dropdown-link">#}
+                                {#<a href="#">{{ 'topbar.my_orders'|trans }}</a>#}
+                            {#</li>#}
+                            {#<li class="topbar-dropdown-link">#}
+                                {#<a href="#">{{ 'topbar.my_credit_slips'|trans }}</a>#}
+                            {#</li>#}
+                            {#<li class="topbar-dropdown-link">#}
+                                {#<a href="#">{{ 'topbar.my_addresses'|trans }}</a>#}
+                            {#</li>#}
+                            {#<li class="topbar-dropdown-link">#}
+                                {#<a href="#">{{ 'topbar.my_personal_info'|trans }}</a>#}
+                            {#</li>#}
+                            {#<li class="topbar-dropdown-link">#}
+                                {#<a href="#">{{ 'topbar.my_vouchers'|trans }}</a>#}
+                            {#</li>#}
+                        {#</ul>#}
                     </li>
-                    <li class="topbar-link topbar-dropdown hidden-sm hidden-xs">
-                        <a href="#">{{ 'topbar.my_wishlist'|trans({'%count%': 0}) }}</a>
-                        <div class="topbar-dropdown-content hidden-sm hidden-xs">
-                            <i>{{ 'topbar.no_products'|trans }}</i>
-                        </div>
-                    </li>
-                    <li class="topbar-link topbar-dropdown hidden-sm hidden-xs">
-                        <a href="#">{{ 'topbar.watch_list'|trans({'%count%': 1}) }}</a>
-                        <div class="topbar-dropdown-content">
-                            <i>{{ 'topbar.no_products'|trans }}</i>
-                        </div>
-                    </li>
+                    {#<li class="topbar-link topbar-dropdown hidden-sm hidden-xs">#}
+                        {#<a href="#">{{ 'topbar.my_wishlist'|trans({'%count%': 0}) }}</a>#}
+                        {#<div class="topbar-dropdown-content hidden-sm hidden-xs">#}
+                            {#<i>{{ 'topbar.no_products'|trans }}</i>#}
+                        {#</div>#}
+                    {#</li>#}
+                    {#<li class="topbar-link topbar-dropdown hidden-sm hidden-xs">#}
+                        {#<a href="#">{{ 'topbar.watch_list'|trans({'%count%': 1}) }}</a>#}
+                        {#<div class="topbar-dropdown-content">#}
+                            {#<i>{{ 'topbar.no_products'|trans }}</i>#}
+                        {#</div>#}
+                    {#</li>#}
                     <li class="topbar-link">
-                        {{ 'topbar.sign_in_or_register'|trans({'%sign_in%': '#', '%register%': '#'})|raw }}
+                        {{ 'topbar.sign_in_or_register'|trans({'%sign_in%': shop_url_origin ~ '/en/login/', '%register%': shop_url_origin ~ '/en/register/'})|raw }}
                     </li>
                 </ul>
             </div>

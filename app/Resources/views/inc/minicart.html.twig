@@ -6,31 +6,41 @@
         </a>
     </div>
     <div class="page-header-cart-dropdown topbar-dropdown-content">
+        {% for product in products %}
         <div class="row">
             <div class="col-xs-4">
-                <a class="page-header-cart-dropdown-img" href="#">
-                    <img src="http://res.cloudinary.com/foxx/image/upload/wines/2014/onhover/1616.jpg" alt="product">
+                <a class="page-header-cart-dropdown-img" href="{{ product.url }}">
+                    <img src="{{ product_image(product) }}" alt="product">
                 </a>
             </div>
             <div class="col-xs-8">
                 <a href="#" class="page-header-cart-close pull-right"><i class="glyphicon glyphicon-remove"></i></a>
-                <a href="#" class="page-header-cart-dropdown-amount">1 x Black Bag</a>
-                <span class="page-header-cart-dropdown-price">100,00 €</span>
+                <a href="#" class="page-header-cart-dropdown-amount">{{ product.title }}</a>
+                <span class="page-header-cart-dropdown-price">{{ product.price }} €</span>
             </div>
         </div>
+        {% endfor %}
+        {#<div class="row">#}
+            {#<div class="col-xs-4">#}
+                {#<a class="page-header-cart-dropdown-img" href="#">#}
+                    {#<img src="http://res.cloudinary.com/foxx/image/upload/wines/2014/onhover/1616.jpg" alt="product">#}
+                {#</a>#}
+            {#</div>#}
+            {#<div class="col-xs-8">#}
+                {#<a href="#" class="page-header-cart-close pull-right"><i class="glyphicon glyphicon-remove"></i></a>#}
+                {#<a href="#" class="page-header-cart-dropdown-amount">1 x Black Bag</a>#}
+                {#<span class="page-header-cart-dropdown-price">100,00 €</span>#}
+            {#</div>#}
+        {#</div>#}
         <div class="row page-header-cart-dropdown-additional">
             <div class="col-xs-6">
                 <div class="page-header-cart-dropdown-additional-block">
-                    <span class="page-header-cart-dropdown-tax-title">{{ 'header.cart.tax'|trans }}</span>
-                    <span class="page-header-cart-dropdown-tax-amount">0,00 €</span>
-                </div>
-                <div class="page-header-cart-dropdown-additional-block">
                     <span class="page-header-cart-dropdown-total-title">{{ 'header.cart.total'|trans }}</span>
-                    <span class="page-header-cart-dropdown-total-amount">100,00 €</span>
+                    <span class="page-header-cart-dropdown-total-amount">{{ total }} €</span>
                 </div>
             </div>
             <div class="col-xs-6">
-                <a href="#" class="page-header-cart-dropdown-checkout">{{ 'header.cart.checkout'|trans }}</a>
+                <a href="{{ shop_url_origin }}/en/cart/" class="page-header-cart-dropdown-checkout">{{ 'header.cart.checkout'|trans }}</a>
             </div>
         </div>
     </div>

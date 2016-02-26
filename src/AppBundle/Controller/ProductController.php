@@ -31,6 +31,7 @@ class ProductController extends Controller
             'product/show.html.twig',
             [
                 'product' => $document,
+                'shop_url_origin' => $this->getParameter('shop_url_origin'),
             ]
         );
     }

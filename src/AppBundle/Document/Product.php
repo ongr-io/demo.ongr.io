@@ -18,6 +18,11 @@ class Product
     public $id;
 
     /**
+     * @ES\Property(type="string", options={"index"="not_analyzed"})
+     */
+    public $key;
+
+    /**
      * @ES\Property(type="string")
      */
     public $title;
