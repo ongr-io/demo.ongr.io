@@ -18,9 +18,11 @@
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="more_info">
+
                 <p>
                     {{ product.description|raw }}
                 </p>
+
                 <p>
                     Color: {{ product.color }} <br/>
                     Material: {{ product.material }} <br/>
@@ -29,6 +31,8 @@
             </div>
         </div>
     </div>
+
+    <div class="alert alert-success" role="alert">Successfully added to cart</div>
 
     <form action="{{ shop_url_origin }}" method="post">
         <div>
