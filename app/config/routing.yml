@@ -11,6 +11,4 @@ app_search_page:
     path: /search
     methods:  [GET]
     defaults:
-        _controller: ONGRFilterManagerBundle:Manager:manager
-        managerName: "product_list"
-        template: "::product/search.html.twig"
+        _controller: AppBundle:Product:search

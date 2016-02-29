@@ -12,6 +12,22 @@ class ProductController extends Controller
     /**
      * Product list for single category.
      */
+    public function searchAction(Request $request)
+    {
+        $filterManager = $this->get('ongr_filter_manager.product_list')->handleRequest($request);
+
+        return $this->render(
+            'product/list.html.twig',
+            [
+                'search_value' => $request->get('q'),
+                'category' => new Category(),
+                'filter_manager' => $filterManager,
+            ]
+        );
+    }
+    /**
+     * Product list for single category.
+     */
     public function listAction(Request $request, Category $document)
     {
         $filterManager = $this->get('ongr_filter_manager.product_list')->handleRequest($request);
