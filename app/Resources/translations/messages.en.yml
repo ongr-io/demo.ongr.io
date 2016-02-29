@@ -35,6 +35,7 @@ header:
         tax: Tax:
         total: Total:
         checkout: Checkout
+        show_cart: Show cart
     search: Search...
     toggle_navigation: Toggle navigation
     menu: Menu

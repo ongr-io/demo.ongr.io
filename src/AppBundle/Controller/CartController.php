@@ -14,13 +14,25 @@ class CartController extends Controller
      */
     public function miniCartAction(Request $request)
     {
+        $repo = $this->get('es.manager.default.product');
+
         $products = [];
+
+        $cart = json_decode($request->cookies->get('ongr_basket'), TRUE);
+
+        if (isset($cart['items'])) {
+            foreach ($cart['items'] as &$item) {
+                /** @var Product $product */
+                $item['product'] = $repo->find($item['id']);
+                $item['url'] = isset($product) ? $product->url : '#';
+            }
+        }
 
         return $this->render(
             'inc/minicart.html.twig',
             [
-                'products' => $products,
-                'total' => 0,
+                'products' => isset($cart['items']) ? $cart['items'] : [],
+                'total' => isset($cart['amount']) ? $cart['amount'] : 0,
             ]
         );
     }
