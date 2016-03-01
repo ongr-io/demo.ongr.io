@@ -15,7 +15,7 @@
             </div>
             <div class="col-xs-8">
                 {#<a href="#" class="page-header-cart-close pull-right"><i class="glyphicon glyphicon-remove"></i></a>#}
-                {{ product.title }}
+                <a href="{{ path('ongr_route', {'document': product.product}) }}" class="page-header-cart-dropdown-amount">{{ product.title }}</a>
                 <span class="page-header-cart-dropdown-price">{{ product.amount }} x {{ product.price }} €</span>
             </div>
         </div>
