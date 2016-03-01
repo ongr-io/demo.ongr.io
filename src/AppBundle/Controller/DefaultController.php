@@ -17,4 +17,13 @@ class DefaultController extends Controller
             'default/index.html.twig'
         );
     }
+    /**
+     * @Route("/imprint", name="app_imprint")
+     */
+    public function imprintAction(Request $request)
+    {
+        return $this->render(
+            'default/imprint.html.twig'
+        );
+    }
 }
