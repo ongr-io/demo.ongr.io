@@ -1,8 +1,7 @@
 # Demo app of the ONGR bundles
 
 This Demo app is created to show you how the ONGR bundles could be used in particular project. Depending if you want:
-- Just to see it in action - please proceed with the _Very quick setup_.  
-**NOTE**: If you are on the Windows OS - this is the only way to try Demo app. 
+- Just to see it in action - please proceed with the _Very quick setup_. _NOTE_: If you are on the Windows OS - this is the only way to try Demo app. 
 - Get a hands-on experience from development side - please proceed with a _Quick setup for development_.  
 **WARNING**: Just please keep in mind, that the `master` branch is for development. And if you want to try a stable version - we recommend you to use a latest tagged version.
 
