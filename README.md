@@ -22,7 +22,7 @@ So if you want to use ONGR bundles we assume that you know how to work with [Sym
 To run this demo you gonna need:
 * PHP >=5.5
 * Elasticsearch
-* **Linux/Unix** based environment or **OS X**. WARNING: sorry, currently we do not support Microsoft Windows as a development environment, but this might change in the future. For now you could try it with a _Very quick setup_ guide.
+* **Linux/Unix** based environment or **OS X**. Sorry, currently we do not support Microsoft Windows as a development environment, but this might change in the future. For now you could try it with a _Very quick setup_ guide.
 
 If you already have your own development environment, you can go straight to the [Step 4](#step-4) to install assets and demo data.
     
