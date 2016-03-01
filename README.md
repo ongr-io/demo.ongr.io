@@ -7,7 +7,7 @@ This Demo app is created to show you how the ONGR bundles could be used in parti
 
 If you will need any help or have any questions, don't hesitate to ask on [![Join the chat at https://gitter.im/ongr-io/support](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ongr-io/support?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) chat, or just come to say Hi ;).
 
-## Very quick setup, to see Demo app in action
+## Very quick setup
 
 * Step 1: Install [Kitematic from Docker](https://kitematic.com).
 * Step 2: Open [Kitematic from Docker](https://kitematic.com) and search for the `ongr/demo-presentation`. When you found it, press `CREATE`.
