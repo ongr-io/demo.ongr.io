@@ -14,9 +14,6 @@
     {{ filter_macros.term(filters.color, 'ongr_route', {'document':category}) }}
     {{ filter_macros.term(filters.brand, 'ongr_route', {'document':category}) }}
     {{ filter_macros.term(filters.material, 'ongr_route', {'document':category}) }}
-    {#{{ filter_macros.term(filters.size, 'ongr_route_category', {'document':category}) }}#}
-    {#{{ filter_macros.term(filters.wine_style, block('page_route')) }}#}
-    {#{{ filter_macros.term(filters.wine_color, block('page_route')) }}#}
 {% endblock %}
 
 {% block sorting %}

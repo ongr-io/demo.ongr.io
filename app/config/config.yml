@@ -117,7 +117,7 @@ ongr_filter_manager:
                 size: 10
             brand:
                 request_field: 'b'
-                field: color
+                field: brand
                 size: 10
             material:
                 request_field: 'm'
